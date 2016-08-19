@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+/*
+function form_page_menu() {
+    $items['page/form_page'] = array(
+      'page callback' => 'form_page_page_view',
+    );
+    return $items;
+  }
+  */
+  
+function form_page_menu() {
+  $mypage = array();
+  $mypage['neogidannaya-stranica'] = array(             // - путь относительно корня сайта до страницы.
+    'title' => 'Эта страница сгенерирована модулем.',   // - заголовок получаемой страницы.
+    'page callback' => 'form_page_form',                  // - имя функции, ответственной за вывод на экран.
+    'access callback' => TRUE,                          // - открытый доступ к странице для всех.
+  );
+ 
+  return $mypage;
+}
+ 
+/**
+ * Реализация "page callback". Иными словами просто вывод контента.
+ */
+function sn_page_form($source_content = NULL) {
+  $source_content = '<p>Неожиданный абзац, не правда ли?</p>';
+  return $source_content;
+}

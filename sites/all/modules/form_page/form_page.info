@@ -1,0 +1,7 @@
+name = form page
+description = form page
+package = Project module
+core = 7.x
+
+files[] = form_page.module
+

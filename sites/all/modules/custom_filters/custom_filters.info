@@ -1,0 +1,9 @@
+name = "Custom filters"
+description = "Adds custom filters to text formats."
+package = "Filters"
+core = 7.x
+
+files[] = custom_filters.module
+
+
+

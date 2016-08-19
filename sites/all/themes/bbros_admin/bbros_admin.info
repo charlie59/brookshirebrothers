@@ -1,0 +1,6 @@
+name = Brookshire Bros Admin
+version = 1.0
+core = 7.x
+base theme = seven
+
+stylesheets[all][] = override.css

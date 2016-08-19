@@ -1,0 +1,71 @@
+<?php
+/**
+ * @file
+ * Module file for custom_filters.
+ */
+
+/**
+ * Implements hook_help.
+ */
+function custom_filters_help($path, $arg) {
+   switch ($path) {
+     case "admin/help#custom_filters":
+       return t("<p>To use these filters, go to !link and configure an input format, or create a new one.</p>",
+          array('!link' => l("admin/config/content/formats", "admin/config/content/formats"))
+        );
+       break;
+   }
+}
+
+/**
+ * Implements hook_filter_info().
+ */
+function custom_filters_filter_info() {
+  $filters['custom_filters'] = array(
+    'title' => t('[accordion id = "123"], [template-url] and [site-url] shortcodes'),
+    'process callback' => '_custom_filters_process',
+  );
+  
+  return $filters;
+}
+
+/**
+ * custom_filters filter process callback.
+ */
+function _custom_filters_process($text, $filter, $format) {
+  $site_url = rtrim(url('<front>', array('absolute' => TRUE)), '/');
+  $template_url =  $site_url . '/' . drupal_get_path('theme', variable_get('theme_default','none'));
+  
+  $text = str_replace('[site-url]', $site_url, $text);
+  $text = str_replace('[template-url]', $template_url, $text);
+  
+  $text = preg_replace_callback('|\[accordion\s+id\s*=\s*\"([0-9]+)\"\s*\]|i', '_custom_filters_replace_cb', $text);
+  
+  return $text;
+}
+
+function _custom_filters_replace_cb($matches) {
+	ob_start();
+	$node_ac = node_load($matches[1]);
+	$accordion = field_get_items('node', $node_ac, 'field_accordion');
+		if(!empty($accordion)) { ?>
+		<ul class="accordion">
+			<?php foreach($accordion as $item) {
+			$fc = field_collection_field_get_entity($item);?>
+				<li>
+					<?php if (isset($fc->field_title_accordion['und'][0]['value'])):?>
+					<a class="opener" href="#"><?php print $fc->field_title_accordion['und'][0]['value'];?> </a>
+					<?php endif;?>
+					<?php if (isset($fc->field_body_accordion['und'][0]['value'])):?>
+					<div class="slide2">
+						<div class="text-area">
+							<?php print $fc->field_body_accordion['und'][0]['value'];?>
+						</div>
+					</div>
+					<?php endif;?>
+				</li>
+			<?php } ?>
+		</ul>
+		<?php }
+	return ob_get_clean();
+}

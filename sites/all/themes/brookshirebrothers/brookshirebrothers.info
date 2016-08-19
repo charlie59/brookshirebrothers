@@ -1,0 +1,19 @@
+name = Brookshire Brothers
+version = 1.0
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = all.css
+stylesheets[all][] = style.css
+
+scripts[] = js/jquery.main.js
+
+regions[header] = Header
+regions[page_top] = Page top
+regions[content_top] = Content Top
+regions[content] = Content
+regions[content_bottom] = Content Bottom
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[footer] = Footer
+regions[help] = Help

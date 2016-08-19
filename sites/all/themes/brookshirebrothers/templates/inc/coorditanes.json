@@ -1,0 +1,326 @@
+[
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.3466872,-94.7188869]
+				},
+				"properties":{
+					"title": "Brookshire Brothers",
+					"address": "816 N. Timberland Dr. Lufkin, Texas 75901",
+					"tel": "936-634-3715",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Brookshire Brothers Express, Pharmacy, Drive-thru Pharmacy, Flu Shot, Fuel"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[32.1563207,-94.3466769]
+				},
+				"properties":{
+					"title": "Brookshire Brothers",
+					"address": "412 W. Panola Carthage, Texas 75633",
+					"tel": "903-693-3232",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Brookshire Brothers"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[30.8468406,-93.2707383]
+				},
+				"properties":{
+					"title": "Brookshire Brothers",
+					"address": "820 E. First St. DeRidder, Louisiana 70634",
+					"tel": "337-463-7333",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Brookshire Brothers"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[30.1404452,-94.4008935]
+				},
+				"properties":{
+					"title": "Brookshire Brothers Express",
+					"address": "285 Hwy. 105 E. Sour Lake, Texas 77659",
+					"tel": "409-287-3289",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Deli"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[30.167993,-93.282242]
+				},
+				"properties":{
+					"title": "Cormie's Grocery",
+					"address": "4907 Big Lake Rd Lake Charles, Louisiana 70605",
+					"tel": "337-474-5455",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Pecan Foods"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[32.3706699,-97.657879]
+				},
+				"properties":{
+					"title": "Pecan Foods",
+					"address": "9201 Plantation Boulevard Granbury, Texas 76049 ",
+					"tel": "817-579-5900",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Flu Shot"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.938642,-97.31654]
+				},
+				"properties":{
+					"title": "Davids Brothers",
+					"address": "803S.Bosque Whitney, Texas 76692",
+					"tel": "254-694-2277",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Polk Pick-It-Up"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[30.680149,-96.368751]
+				},
+				"properties":{
+					"title": "Petro Barn - stand alone",
+					"address": "801 N. Texas Ave. Bryan,Texas 77803",
+					"tel": "979-775-6814",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Cormie’s Grocery"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.330464,-94.721512]
+				},
+				"properties":{
+					"title": "Texas Star",
+					"address": "501 South TimberlandLufkin, Texas 75901",
+					"tel": "936-634-3715",
+					"hrefad": "",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Bakery"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.4216077,-94.8053998]
+				},
+				"properties":{
+					"title": "Polk Pick-It-Up",
+					"address": "6925 US Highway 69 North Pollok, Texas 75969",
+					"tel": "936-853-2700",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Flu Shot"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.0069777,-94.8249663]
+				},
+				"properties":{
+					"title": "Polk Pick-It-Up",
+					"address": "806 Home St. Corrigan, Texas 75939 ",
+					"tel": "936-398-4766",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Brookshire Brothers"
+		}]
+	},
+	{
+		"type":"FeatureCollection",
+		"features":[{
+				"type":"Feature",
+				"geometry":{
+					"type":"Point",
+					"coordinates":[31.333206,-94.760506]
+				},
+				"properties":{
+					"title": "Polk Pick-It-Up",
+					"address": "103 North John Redditt Drive Lufkin, Texas 75904",
+					"tel": "936-632-1120",
+					"hrefad": "hrefad1",
+					"hrefdetails": "hrefdetails1",
+					"description":"\u003Cdiv class=\u0022street-block\u0022\u003E\u003Cdiv class=\u0022thoroughfare\u0022 x-autocompletetype=\u0022address-line1\u0022 autocomplete=\u0022address-line1\u0022\u003ECanberra\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022addressfield-container-inline locality-block country-AU\u0022\u003E\u003Cspan class=\u0022locality\u0022 x-autocompletetype=\u0022locality\u0022 autocomplete=\u0022locality\u0022\u003ECanberra\u003C\/span\u003E \u003Cspan class=\u0022state\u0022 x-autocompletetype=\u0022region\u0022 autocomplete=\u0022region\u0022\u003EACT\u003C\/span\u003E \u003Cspan class=\u0022postal-code\u0022 x-autocompletetype=\u0022postal-code\u0022 autocomplete=\u0022postal-code\u0022\u003E2600\u003C\/span\u003E\u003C\/div\u003E\u003Cspan class=\u0022country\u0022 x-autocompletetype=\u0022country\u0022 autocomplete=\u0022country\u0022\u003EAustralia\u003C\/span\u003E",
+					"gsl_feature_filter_list":3,
+					"gsl_feature_filter_list_rendered":null,
+					"gsl_props_misc":3,
+					"gsl_props_misc_rendered":null,
+					"gsl_props_phone":3,
+					"gsl_props_phone_rendered":null,
+					"gsl_props_web":3,
+					"gsl_props_web_rendered":null
+				},
+				"keywords": "Brookshire Brothers Express"
+		}]
+	}
+]

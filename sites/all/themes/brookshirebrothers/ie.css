@@ -1,0 +1,9 @@
+.main-menu > li > a{ padding:17px 16px 20px }
+.main-menu > li:hover a{ padding:17px 14px 20px;}
+/* .img-holder{ padding:10px 10px 42px 20px;} */
+.main-menu > li.active a{filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce2529', endColorstr='#940b0a',GradientType=0 );}
+
+.menu-mlid-555 .img-holder { margin:0 -42px 0 0; height:195px; }
+.menu-mlid-557 .img-holder { margin:0 -42px 0 0; height:200px; }
+.menu-mlid-558 .img-holder { margin:0 -8px 0 0; height:195px; }
+.menu-mlid-559 .img-holder { height:195px; }
