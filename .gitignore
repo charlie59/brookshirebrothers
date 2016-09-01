@@ -9,3 +9,4 @@ sites/*/private
 bootstrap.sh
 .vagrant
 4567.127.0.0.1
+clutch_drupal.sql
