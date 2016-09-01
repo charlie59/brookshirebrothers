@@ -8,3 +8,4 @@ sites/*/private
 # Vagrant files
 bootstrap.sh
 .vagrant
+4567.127.0.0.1

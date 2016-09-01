@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "smallhadroncollider/centos-6.5-lamp"
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.network :forwarded_port, guest: 80, host: 4567
 
   # see https://github.com/mitchellh/vagrant/issues/7610
   config.ssh.insert_key = false
