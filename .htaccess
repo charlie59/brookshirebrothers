@@ -143,15 +143,17 @@ DirectoryIndex index.php index.html index.htm
   #
   # To redirect all users to access the site WITH the 'www.' prefix,
   # (http://example.com/... will be redirected to http://www.example.com/...)
+  # dev site is excluded
   # uncomment the following:
   RewriteCond %{HTTP_HOST} .
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteCond %{HTTP_HOST} !^(dev|www)\. [NC]
   RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-	# Redirect to HTTPS
-	RewriteCond %{HTTPS} off
-	RewriteCond %{HTTP:X-Forwarded-Proto} !https
-	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Redirect to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} !^dev\. [NC]
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   #
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
