@@ -4,3 +4,9 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+# Vagrant files
+bootstrap.sh
+.vagrant
+4567.127.0.0.1
+clutch_drupal.sql
