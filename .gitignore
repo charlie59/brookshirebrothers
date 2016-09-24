@@ -10,3 +10,6 @@ bootstrap.sh
 .vagrant
 4567.127.0.0.1
 clutch_drupal.sql
+
+#Error Logs
+php_errors.log
