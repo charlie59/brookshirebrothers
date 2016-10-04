@@ -47,7 +47,7 @@ $weekly_ad_array=Array();
   <title><?php print $head_title; ?></title>
   <script type="text/javascript">
      var pathInfo = {
-        base: '<?php echo url(path_to_theme(), array('absolute' => TRUE)); ?>',
+        base: '<?php echo url(path_to_theme(), array('absolute' => FALSE)); ?>',
         css: 'css/',
         js: 'js/',
         swf: 'swf/',
