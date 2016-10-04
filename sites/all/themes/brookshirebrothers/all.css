@@ -504,7 +504,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	display: block;
 	margin: 0 0 35px;
 	color:#534741;
-	font: 700 44px/48px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 44px/48px 'Open Sans', sans-serif, Arial;
 }
 .caption p { margin: 0 0 20px; }
 .caption .btn-learnmore {
