@@ -2212,7 +2212,7 @@ ul.links li .nodequeue-ajax-toggle{
 @media only screen and (max-width: 1050px) {
 	body { min-width: 320px; }
 	.w2 { margin: 0 16px 20px; }
-	.main-menu > li > a { padding: 17px 19px 20px; }
+	.main-menu > li > a { padding: 17px 18px 20px; }
 	.main-menu > li:hover > a { padding: 17px 17px 20px; }
 	.three-col .col { padding: 20px 15px 30px; }
 }
@@ -2303,7 +2303,7 @@ ul.links li .nodequeue-ajax-toggle{
 	}
 	.main-menu > li > a {
 		height:32px;
-		padding: 13px 8px 5px 9px;
+		padding: 13px 7px 5px 8px;
 	}
 	.main-menu > li:hover > a { padding: 13px 8px 5px 9px; }
 	.main-menu > li > a > span > .text { display: block; }
