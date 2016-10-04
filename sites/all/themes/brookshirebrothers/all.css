@@ -2212,7 +2212,7 @@ ul.links li .nodequeue-ajax-toggle{
 @media only screen and (max-width: 1050px) {
 	body { min-width: 320px; }
 	.w2 { margin: 0 16px 20px; }
-	.main-menu > li > a { padding: 17px 18px 20px; }
+	.main-menu > li > a { padding: 17px 17px 20px; }
 	.main-menu > li:hover > a { padding: 17px 17px 20px; }
 	.three-col .col { padding: 20px 15px 30px; }
 }
