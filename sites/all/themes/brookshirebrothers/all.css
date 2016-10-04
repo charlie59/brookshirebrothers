@@ -803,7 +803,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 #content h1 {
 	margin: 0 0 20px;
 	color: #e2231a;
-	font: 700 36px/40px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 36px/40px 'Open Sans', sans-serif, Arial;
 }
 #content h2 {
 	margin: 0 0 7px;
