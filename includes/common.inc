@@ -377,7 +377,7 @@ function drupal_add_feed($url = NULL, $title = '') {
       'title' => $title,
       // Force the URL to be absolute, for consistency with other <link> tags
       // output by Drupal.
-      'href' => url($url, array('absolute' => TRUE)),
+      'href' => url($url, array('absolute' => FALSE)),
     ));
   }
   return $stored_feed_links;
