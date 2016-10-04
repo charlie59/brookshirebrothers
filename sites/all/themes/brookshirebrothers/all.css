@@ -1,6 +1,6 @@
 html { height: 100%; }
 ul, ol, dl, p, h1, h2, h3, h4, h5, h6, address, form, table, blockquote, applet, embed, object, iframe, frameset { margin: 0 0 14px; }
-html, body, div, span, applet, embed, object, iframe, frameset, p, q, blockquote, sub, sup, a, abbr, acronym, font, img, small, center, h1, h2, h3, h4, h5, h6, b, strong, big, u, ins, i, cite, em, var, dfn, address, s, strike, del, dl, dt, dd, ol, ul, li, pre, code, kbd, samp, tt, fieldset, legend, form, label, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html, body, div, span, applet, embed, object, iframe, frameset, p, q, blockquote, sub, sup, a, abbr, acronym, font, img, small, center, h1, h2, h3, h4, h5, h6, b, strong, big, u, ins, i, cite, em, var, dfn, address, s, strike, del, dl, dt, dd, ol, ul, li, pre, code, kbd, samp, tt, fieldset, legend, form, label, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, summary, time, mark, audio, video {
 	border: 0;
 	background: none;
 }
@@ -975,7 +975,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	padding: 0;
 	overflow: hidden;
 	width: 100%;
-	font: 16px/19px 'Roboto Condensed', sans-serif, Arial;
+	font: 16px/19px 'Open Sans', sans-serif, Arial;
 	background: url(images/bg-border-img.png) repeat-x;
 }
 .sub-nav > li {
