@@ -688,8 +688,8 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	float: left;
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 13px;
+	line-height: 16px;
 }
 .list-holder ul:first-child {
 	font-weight: 700;
