@@ -448,7 +448,8 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
   }
 
   $filtered = filter_xss($view->header);
-  $view->header = $filtered;
+  echo $filtered;
+  exit;
 
   dpm($vars);
 
