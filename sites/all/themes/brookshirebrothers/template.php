@@ -447,7 +447,6 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
     $view->build_info['substitutions'][$key] = $filtered;
   }
 
-  var_dump($view->header);
   // $filtered = filter_xss($view->header);
   $view->header = $filtered;
 
