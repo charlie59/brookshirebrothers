@@ -443,7 +443,7 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
   $view = $vars['view'];
 
   /* XSS mitigation */
-  if ($view['name'] == 'blogs_archive') {
+  if ($view->name == 'blogs_archive') {
     foreach ($view->build_info['substitutions'] as $key => $value) {
       $filtered = filter_xss($value);
       $vars['view']->build_info['substitutions'][$key] = $filtered;
