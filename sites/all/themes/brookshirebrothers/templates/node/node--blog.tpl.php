@@ -4,7 +4,7 @@
       <?php echo date("l F j, Y", $node->created); ?>
     </div>
     <div class="title">
-      <?php echo $node->title; ?>test
+      <?php echo filter_xss($node->title); ?>
     </div>
     <div class="body">
       <?php echo $node->body["und"][0]["safe_value"]; ?>
