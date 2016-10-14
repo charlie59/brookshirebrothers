@@ -332,7 +332,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 }
 .main-menu > li:hover .dropdown {
 	left: 0;
-	top:60px;
+	top:40px;
 }
 .main-menu > li:hover .img-holder { right:-195px; }
 .main-menu > li .img-holder:before{
