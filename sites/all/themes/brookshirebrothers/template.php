@@ -446,11 +446,11 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
   if ($view['name'] == 'blogs_archive') {
     foreach ($view->build_info['substitutions'] as $key => $value) {
       $filtered = filter_xss($value);
-      $view->build_info['substitutions'][$key] = $filtered;
+      $vars['view']->build_info['substitutions'][$key] = $filtered;
     }
 
-    $filtered = filter_xss($vars['header']);
-    $vars['header'] = $filtered;
+    // $filtered = filter_xss($vars['header']);
+    $vars['view']->header = $filtered;
 
     dpm($vars);
   }
