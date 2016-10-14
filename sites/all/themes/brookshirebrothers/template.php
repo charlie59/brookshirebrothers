@@ -439,15 +439,7 @@ function Age($date = 'now')
 }
 
 function brookshirebrothers_preprocess_views_view(&$vars) {
-  dpm($vars);
-
   $view = $vars['view'];
-
-  /* XSS mitigation */
-  if ($view->name == 'blogs_archive') {
-
-    dpm($vars);
-  }
 
   // Load the blog.js javascript file when showing the Blog view's page display.
   if ($view->name == 'webisodes_archive' || 'webisodes_amy' || 'webisodes_sarah' || 'webisodes_uncorked' && $view->current_display == 'page') {
