@@ -7,7 +7,7 @@ html, body, div, span, applet, embed, object, iframe, frameset, p, q, blockquote
 body {
 	margin: 0;
 	color: #736357;
-	font: 16px/24px 'Source Sans Pro', sans-serif, Arial;
+	font: 15px/23px 'Open Sans', sans-serif, Arial;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: none;
 	height: 100%;
@@ -189,7 +189,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 }
 .our-company .title {
 	float: left;
-	font: 14px/15px 'Roboto Condensed', sans-serif, Arial;
+	font: 14px/15px 'Open Sans', sans-serif, Arial;
 	text-transform: uppercase;
 	color: #998675;
 	text-align: center;
@@ -245,7 +245,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	font: 700 20px/23px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 17px/20px 'Open Sans', sans-serif, Arial;
 }
 .main-menu > li {
 	display: inline-block;
@@ -504,11 +504,11 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	display: block;
 	margin: 0 0 35px;
 	color:#534741;
-	font: 700 44px/48px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 44px/48px 'Open Sans', sans-serif, Arial;
 }
 .caption p { margin: 0 0 20px; }
 .caption .btn-learnmore {
-	font: 700 18px/23px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/23px 'Open Sans', sans-serif, Arial;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #e2231a;
@@ -541,7 +541,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	padding: 0;
 	text-transform: uppercase;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
-	font: 700 16px/16px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 16px/16px 'Open Sans', sans-serif, Arial;
 }
 .info-links li {
 	float: left;
@@ -640,7 +640,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	color: #e2231a;
 	margin: 0 0 26px;
 	text-align: left;
-	font:28px/23px 'Roboto Condensed', sans-serif, Arial;
+	font:28px/23px 'Open Sans', sans-serif, Arial;
 }
 .col .article-box {
 	text-align: left;
@@ -663,7 +663,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	color: #e2231a;
 	padding: 3px 0 4px 32px;
 	text-decoration: none;
-	font: 700 16px/18px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 16px/18px 'Open Sans', sans-serif, Arial;
 	background: url(images/ico-arrow-1.png) no-repeat 0 0;
 }
 .col .text-box .learnmore:hover { text-decoration: underline; }
@@ -688,8 +688,8 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	float: left;
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 13px;
+	line-height: 16px;
 }
 .list-holder ul:first-child {
 	font-weight: 700;
@@ -803,18 +803,18 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 #content h1 {
 	margin: 0 0 20px;
 	color: #e2231a;
-	font: 700 36px/40px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 36px/40px 'Open Sans', sans-serif, Arial;
 }
 #content h2 {
 	margin: 0 0 7px;
 	color: #e2231a;
-	font: 24px/28px 'Roboto Condensed', sans-serif, Arial;
+	font: 24px/28px 'Open Sans', sans-serif, Arial;
 }
 #content h3 {
 	margin: 0 0 2px;
 	color: #e2231a;
 	letter-spacing: 1px;
-	font: 700 20px/23px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 20px/23px 'Open Sans', sans-serif, Arial;
 }
 #content h1 a,
 #content h2 a,
@@ -939,7 +939,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .box-refill .btn-box p { margin: 0; }
 .box-refill .btn-box .btn,
 .btn {
-	font: 700 18px/21px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/21px 'Open Sans', sans-serif, Arial;
 	display: inline-block;
 	vertical-align: top;
 	text-transform: uppercase;
@@ -1030,7 +1030,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	display: block;
 	color: #e2231a;
 	margin: 0 0 10px;
-	font: 22px/24px 'Roboto Condensed', sans-serif, Arial;
+	font: 22px/24px 'Open Sans', sans-serif, Arial;
 }
 .info-col .text-box { width: 100%; }
 .info-col .text-box p { margin: 0 0 17px; }
@@ -1058,7 +1058,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .info-col .learnmore {
 	background: url("images/ico-arrow-1.png") no-repeat scroll 0 3px transparent;
 	color: #e2231a;
-	font: 700 16px/18px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 16px/18px 'Open Sans', sans-serif, Arial;
 	padding: 3px 0 4px 34px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -1145,7 +1145,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	text-align: center;
 	color: #fff;
 	text-transform: capitalize;
-	font: 700 18px/23px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/23px 'Open Sans', sans-serif, Arial;
 	background: rgb(207,37,42) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NmMjUyYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iI2UxMjcyNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk2JSIgc3RvcC1jb2xvcj0iI2U0NTMzZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk4JSIgc3RvcC1jb2xvcj0iI2U0NTMzZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMjQ0MzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: -moz-linear-gradient(top, rgba(207,37,42,1) 0%, rgba(225,39,38,1) 49%, rgba(228,83,62,1) 96%, rgba(228,83,62,1) 98%, rgba(226,68,51,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(207,37,42,1)), color-stop(49%, rgba(225,39,38,1)), color-stop(96%, rgba(228,83,62,1)), color-stop(98%, rgba(228,83,62,1)), color-stop(100%, rgba(226,68,51,1)));
@@ -1178,7 +1178,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	text-transform: uppercase;
 	color: #e2231a;
 	margin: 0 0 18px;
-	font: 22px/25px 'Roboto Condensed', sans-serif, Arial;
+	font: 22px/25px 'Open Sans', sans-serif, Arial;
 }
 .form-block .row-box {
 	overflow: hidden;
@@ -1354,7 +1354,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	color: #fff;
 	margin: 0 12px 0 0;
 	text-decoration: none;
-	font: 700 18px/24px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/24px 'Open Sans', sans-serif, Arial;
 	background: rgb(226,35,26) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UyMjMxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMyUiIHN0b3AtY29sb3I9IiNjZjI1MmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNlMTI4MjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5MyUiIHN0b3AtY29sb3I9IiNlNDUzM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NSUiIHN0b3AtY29sb3I9IiNlMzUxM2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlMjQyMzEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OCUiIHN0b3AtY29sb3I9IiNlMjIzMWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-linear-gradient(top, rgba(226,35,26,1) 0%, rgba(226,35,26,1) 2%, rgba(207,37,42,1) 3%, rgba(225,40,38,1) 49%, rgba(228,83,62,1) 93%, rgba(227,81,60,1) 95%, rgba(226,66,49,1) 97%, rgba(226,35,26,1) 98%, rgba(226,35,26,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(226,35,26,1)), color-stop(2%, rgba(226,35,26,1)), color-stop(3%, rgba(207,37,42,1)), color-stop(49%, rgba(225,40,38,1)), color-stop(93%, rgba(228,83,62,1)), color-stop(95%, rgba(227,81,60,1)), color-stop(97%, rgba(226,66,49,1)), color-stop(98%, rgba(226,35,26,1)), color-stop(100%, rgba(226,35,26,1)));
@@ -1459,7 +1459,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	text-align: center;
 	text-decoration: none;
 	color: #fff;
-	font: 700 18px/24px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/24px 'Open Sans', sans-serif, Arial;
 	background: rgb(226,35,26) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UyMjMxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMyUiIHN0b3AtY29sb3I9IiNjZjI1MmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNlMTI4MjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5MyUiIHN0b3AtY29sb3I9IiNlNDUzM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NSUiIHN0b3AtY29sb3I9IiNlMzUxM2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlMjQyMzEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OCUiIHN0b3AtY29sb3I9IiNlMjIzMWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-linear-gradient(top, rgba(226,35,26,1) 0%, rgba(226,35,26,1) 2%, rgba(207,37,42,1) 3%, rgba(225,40,38,1) 49%, rgba(228,83,62,1) 93%, rgba(227,81,60,1) 95%, rgba(226,66,49,1) 97%, rgba(226,35,26,1) 98%, rgba(226,35,26,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(226,35,26,1)), color-stop(2%, rgba(226,35,26,1)), color-stop(3%, rgba(207,37,42,1)), color-stop(49%, rgba(225,40,38,1)), color-stop(93%, rgba(228,83,62,1)), color-stop(95%, rgba(227,81,60,1)), color-stop(97%, rgba(226,66,49,1)), color-stop(98%, rgba(226,35,26,1)), color-stop(100%, rgba(226,35,26,1)));
@@ -1696,7 +1696,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	cursor:pointer;
 	text-decoration:none;
 	text-transform:uppercase;
-	font: 700 18px/24px 'Roboto Condensed', sans-serif, Arial;
+	font: 700 18px/24px 'Open Sans', sans-serif, Arial;
 	background: rgb(226,35,26) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UyMjMxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMyUiIHN0b3AtY29sb3I9IiNjZjI1MmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNlMTI4MjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5MyUiIHN0b3AtY29sb3I9IiNlNDUzM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NSUiIHN0b3AtY29sb3I9IiNlMzUxM2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlMjQyMzEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OCUiIHN0b3AtY29sb3I9IiNlMjIzMWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-linear-gradient(top, rgba(226,35,26,1) 0%, rgba(226,35,26,1) 2%, rgba(207,37,42,1) 3%, rgba(225,40,38,1) 49%, rgba(228,83,62,1) 93%, rgba(227,81,60,1) 95%, rgba(226,66,49,1) 97%, rgba(226,35,26,1) 98%, rgba(226,35,26,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(226,35,26,1)), color-stop(2%, rgba(226,35,26,1)), color-stop(3%, rgba(207,37,42,1)), color-stop(49%, rgba(225,40,38,1)), color-stop(93%, rgba(228,83,62,1)), color-stop(95%, rgba(227,81,60,1)), color-stop(97%, rgba(226,66,49,1)), color-stop(98%, rgba(226,35,26,1)), color-stop(100%, rgba(226,35,26,1)));
@@ -1729,7 +1729,7 @@ ul.links li .nodequeue-ajax-toggle{
   display:block;
 }
 .view-events-archive .events-list .view-header{
-  font: 700 36px/46px 'Roboto Condensed', sans-serif, Arial;
+  font: 700 36px/46px 'Open Sans', sans-serif, Arial;
   color:#e12726;
   margin-bottom:20px;
 }
@@ -1759,7 +1759,7 @@ ul.links li .nodequeue-ajax-toggle{
   margin-top:-3px;
 }
 .view-events-archive .events-list .views-field-title a{
-  font: 400 24px/26px 'Roboto Condensed', sans-serif, Arial;
+  font: 400 24px/26px 'Open Sans', sans-serif, Arial;
   color: #9fc07e;
   text-decoration:none;
 }
@@ -1809,7 +1809,7 @@ ul.links li .nodequeue-ajax-toggle{
   height:170px;
 }
 .event-detail .top-content .title{
-  font: 400 36px/38px 'Roboto Condensed', sans-serif, Arial;
+  font: 400 36px/38px 'Open Sans', sans-serif, Arial;
   color: #9fc07e;
   position:relative;
   margin-bottom:10px;
@@ -1971,7 +1971,7 @@ ul.links li .nodequeue-ajax-toggle{
   padding:4px 6px 6px 6px;
   background-color:#f0efec;
   color:#a19995;
-  font: 400 18px/22px 'Roboto Condensed', sans-serif, Arial;
+  font: 400 18px/22px 'Open Sans', sans-serif, Arial;
   text-align:center;
 }
 .webisodes-list .item-list .pager{
@@ -1995,7 +1995,7 @@ ul.links li .nodequeue-ajax-toggle{
   margin-right:15px;
 }
 #content .blogs-list .view-header h1{
-  font: 700 36px/40px 'Roboto Condensed', sans-serif, Arial;
+  font: 700 36px/40px 'Open Sans', sans-serif, Arial;
   color:#e12726;
 }
 #content .blogs-list .view-header h1 span{
@@ -2030,7 +2030,7 @@ ul.links li .nodequeue-ajax-toggle{
 }
 .blogs-list .views-row .views-field-title a{
   text-decoration:none;
-  font: 400 24px/28px 'Roboto Condensed', sans-serif, Arial;
+  font: 400 24px/28px 'Open Sans', sans-serif, Arial;
   color:#5f9ab3;
 }
 .blogs-list .views-row .field-name-body{
@@ -2106,7 +2106,7 @@ ul.links li .nodequeue-ajax-toggle{
 }
 .blog-detail .title{
   text-decoration:none;
-  font: 400 36px/40px 'Roboto Condensed', sans-serif, Arial;
+  font: 400 36px/40px 'Open Sans', sans-serif, Arial;
   color:#5f9ab3;
   margin-bottom:10px;
 }
@@ -2212,7 +2212,7 @@ ul.links li .nodequeue-ajax-toggle{
 @media only screen and (max-width: 1050px) {
 	body { min-width: 320px; }
 	.w2 { margin: 0 16px 20px; }
-	.main-menu > li > a { padding: 17px 19px 20px; }
+	.main-menu > li > a { padding: 17px 17px 20px; }
 	.main-menu > li:hover > a { padding: 17px 17px 20px; }
 	.three-col .col { padding: 20px 15px 30px; }
 }
@@ -2298,12 +2298,12 @@ ul.links li .nodequeue-ajax-toggle{
 		height: auto;
 	}
 	.main-menu {
-		font-size: 18px;
-		line-height: 21px;
+		font-size: 15px;
+		line-height: 23px;
 	}
 	.main-menu > li > a {
 		height:32px;
-		padding: 13px 8px 5px 9px;
+		padding: 13px 7px 5px 8px;
 	}
 	.main-menu > li:hover > a { padding: 13px 8px 5px 9px; }
 	.main-menu > li > a > span > .text { display: block; }
@@ -2570,10 +2570,10 @@ ul.links li .nodequeue-ajax-toggle{
     display:none;
   }
   .view-events-archive .events-list .view-header{
-  	font: 700 28px/38px 'Roboto Condensed', sans-serif, Arial;
+  	font: 700 28px/38px 'Open Sans', sans-serif, Arial;
   }
   .event-detail .top-content .title{
-  	font: 400 28px/30px 'Roboto Condensed', sans-serif, Arial;
+  	font: 400 28px/30px 'Open Sans', sans-serif, Arial;
   }
   .event-detail .gallery .gallery-image{
     width:48%;
@@ -2640,7 +2640,7 @@ ul.links li .nodequeue-ajax-toggle{
     margin-top:20px;
   }
   .webisodes-list .views-row .views-field-title{
-    font: 400 16px/18px 'Roboto Condensed',sans-serif,Arial;
+    font: 400 16px/18px 'Open Sans',sans-serif,Arial;
   }
   .webisodes-list .views-row.selected .overlay-text{
     font: 700 12px/20px 'Source Sans Pro',sans-serif Arial;
@@ -2712,7 +2712,7 @@ ul.links li .nodequeue-ajax-toggle{
 	#header .open-close .opener {
 		display: inline-block;
 		vertical-align: top;
-		font: 700 18px/21px 'Roboto Condensed', sans-serif, Arial;
+		font: 700 18px/21px 'Open Sans', sans-serif, Arial;
 		text-transform: capitalize;
 		text-shadow: -1px -1px 1px #760C0C;
 		margin: 0;
@@ -3136,7 +3136,7 @@ ul.links li .nodequeue-ajax-toggle{
 		padding: 0 5px;
 		margin:5px 0 2px -8px;
 		text-align: center;
-		font: 700 16px/31px 'Roboto Condensed', sans-serif, Arial;
+		font: 700 16px/31px 'Open Sans', sans-serif, Arial;
 		background: rgb(226,35,26) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UyMjMxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMyUiIHN0b3AtY29sb3I9IiNjZjI1MmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0OSUiIHN0b3AtY29sb3I9IiNlMTI4MjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5MyUiIHN0b3AtY29sb3I9IiNlNDUzM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NSUiIHN0b3AtY29sb3I9IiNlMzUxM2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlMjQyMzEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OCUiIHN0b3AtY29sb3I9IiNlMjIzMWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTIyMzFhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 		background: -moz-linear-gradient(top, rgba(226,35,26,1) 0%, rgba(226,35,26,1) 2%, rgba(207,37,42,1) 3%, rgba(225,40,38,1) 49%, rgba(228,83,62,1) 93%, rgba(227,81,60,1) 95%, rgba(226,66,49,1) 97%, rgba(226,35,26,1) 98%, rgba(226,35,26,1) 100%);
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(226,35,26,1)), color-stop(2%, rgba(226,35,26,1)), color-stop(3%, rgba(207,37,42,1)), color-stop(49%, rgba(225,40,38,1)), color-stop(93%, rgba(228,83,62,1)), color-stop(95%, rgba(227,81,60,1)), color-stop(97%, rgba(226,66,49,1)), color-stop(98%, rgba(226,35,26,1)), color-stop(100%, rgba(226,35,26,1)));
@@ -3227,7 +3227,7 @@ ul.links li .nodequeue-ajax-toggle{
 
 @media only screen and (max-width:400px) {
   .webisodes-list .views-row .views-field-title{
-    font: 400 12px/14px 'Roboto Condensed',sans-serif,Arial;
+    font: 400 12px/14px 'Open Sans',sans-serif,Arial;
   }
   .webisodes-list .item-list .pager a{
 		font: 700 12px/18px 'Source Sans Pro', sans-serif Arial;
@@ -3239,13 +3239,13 @@ ul.links li .nodequeue-ajax-toggle{
     display:none;
   }
   .view-events-archive .events-list .views-field-title a{
-    font: 400 18px/20px 'Roboto Condensed', sans-serif, Arial;
+    font: 400 18px/20px 'Open Sans', sans-serif, Arial;
   }
   .view-events-archive .events-list .views-field-field-event-details,.view-events-archive .events-list .views-field-view-node a{
     font: 400 12px/16px 'Source Sans Pro', sans-serif Arial;
   }
   .view-events-archive .events-list .view-header{
-    font: 700 22px/32px 'Roboto Condensed', sans-serif, Arial;
+    font: 700 22px/32px 'Open Sans', sans-serif, Arial;
   }
   .view-events-archive .events-list .views-row{
     height:118px;
@@ -3256,7 +3256,7 @@ ul.links li .nodequeue-ajax-toggle{
     font: 700 12px/18px 'Source Sans Pro', sans-serif Arial;
   }
   .event-detail .top-content .title{
-		font: 400 18px/20px 'Roboto Condensed', sans-serif, Arial;
+		font: 400 18px/20px 'Open Sans', sans-serif, Arial;
   }
   .event-detail .top-content .details,.event-detail .main-content{
 		font: 400 12px/18px 'Source Sans Pro', sans-serif Arial;
