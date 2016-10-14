@@ -442,15 +442,18 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
   dpm($vars);
   $view = $vars['view'];
 
-  foreach ($view->build_info['substitutions'] as $key => $value) {
-    $filtered = filter_xss($value);
-    $view->build_info['substitutions'][$key] = $filtered;
+  /* XSS mitigation */
+  if ($view['name'] == 'blogs_archive') {
+    foreach ($view->build_info['substitutions'] as $key => $value) {
+      $filtered = filter_xss($value);
+      $view->build_info['substitutions'][$key] = $filtered;
+    }
+
+    $filtered = filter_xss($vars['header']);
+    $vars['header'] = $filtered;
+
+    dpm($vars);
   }
-
-  $filtered = filter_xss($vars['header']);
-  $vars['header'] = $filtered;
-
-  dpm($vars);
 
   // Load the blog.js javascript file when showing the Blog view's page display.
   if ($view->name == 'webisodes_archive' || 'webisodes_amy' || 'webisodes_sarah' || 'webisodes_uncorked' && $view->current_display == 'page') {
