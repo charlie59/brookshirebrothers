@@ -22,9 +22,9 @@ if(!empty($slide_page)):?>
 					$year = '';
 					$agree = false;
 					if (count($_POST)) {
-						$month = $_POST['month'];
-						$day = $_POST['day'];
-						$year = $_POST['year'];
+						$month = filter_xss($_POST['month']);
+						$day = filter_xss($_POST['day']);
+						$year = filter_xss($_POST['year']);
 						$error = array();
 						if(!$month) {
 							$error[] = '* Month is a required field.';
