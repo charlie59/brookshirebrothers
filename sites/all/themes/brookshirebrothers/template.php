@@ -451,7 +451,7 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
     }
 
     // $filtered = filter_xss($vars['header']);
-    $vars['view']->header = 'Test';
+    $vars['header'] = 'Test';
 
     dpm($vars);
   }
