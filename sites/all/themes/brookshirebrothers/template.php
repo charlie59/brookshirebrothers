@@ -440,6 +440,7 @@ function Age($date = 'now')
 
 function brookshirebrothers_preprocess_views_view(&$vars) {
   dpm($vars);
+
   $view = $vars['view'];
 
   /* XSS mitigation */
@@ -450,7 +451,7 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
     }
 
     // $filtered = filter_xss($vars['header']);
-    // $vars['view']->header = $filtered;
+    $vars['view']->header = 'Test';
 
     dpm($vars);
   }
