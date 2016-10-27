@@ -334,7 +334,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	left: 0;
 	top:57px;
 }
-.main-menu > li:hover .img-holder { right:-195px; }
+.main-menu > li:hover .img-holder { right:-195px; min-height:160px; }
 .main-menu > li .img-holder:before{
 	position:absolute;
 	top:0;
