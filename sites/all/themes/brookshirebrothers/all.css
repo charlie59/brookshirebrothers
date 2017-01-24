@@ -679,7 +679,10 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	background: url(images/ico-arrow-1.png) no-repeat 0 0;
 }
 .col .text-box .learnmore:hover { text-decoration: underline; }
-.col .article-box .img-box { float: right; }
+.col .article-box .img-box {
+    float: right;
+    padding-left: 5px;
+}
 .col .article-box .img-box img {
     display: block;
     max-width: 150px;
@@ -2386,7 +2389,7 @@ ul.links li .nodequeue-ajax-toggle{
 		padding: 13px 17px 19px 13px;
 	}
 	.col .text-box {
-		padding: 24px 0 0;
+		padding: 8px 0 0;
 		min-height: 133px;
 	}
 	.col .title {
