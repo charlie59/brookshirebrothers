@@ -682,7 +682,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .col .article-box .img-box { float: right; }
 .col .article-box .img-box img {
     display: block;
-    max-width: 100%;
+    max-width: 150px;
     height: auto;
 }
 #footer {
