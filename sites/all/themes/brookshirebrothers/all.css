@@ -680,7 +680,11 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 }
 .col .text-box .learnmore:hover { text-decoration: underline; }
 .col .article-box .img-box { float: right; }
-.col .article-box .img-box img {display: block;}
+.col .article-box .img-box img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 #footer {
 	width: 100%;
 	overflow: hidden;
