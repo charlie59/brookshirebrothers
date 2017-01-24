@@ -540,7 +540,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	margin: 0 0 14px;
 	padding: 0;
 	text-transform: uppercase;
-	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+	text-shadow: -1px -1px 1px rgba(0, 0, 0, 1);
 	font: 700 16px/16px 'Open Sans', sans-serif, Arial;
 }
 .info-links li {
