@@ -144,9 +144,7 @@ function initFilterLocation(){
 		};
 		filterHolder.hide();
 		function sendForm(e){
-		    return false;
 		    /* store user data */
-		    alert('yes');
             saveStoreData();
 
       var weeklyad = holder.find('.weekly-ad');
