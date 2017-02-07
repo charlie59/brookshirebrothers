@@ -6,47 +6,47 @@ Redirect 301 /companynew/companycontact http://brookshirebrothers.force.com/Ques
 Redirect 301 /companynew/contactform http://brookshirebrothers.force.com/QuestionOrComments
 Redirect 301 /createnewaccount https://brookshirebrothers.force.com/Register
 #
-Redirect 301 /bakery http://www.brookshirebrothers.com/departments/bakery
-Redirect 301 /Bakery.aspx http://www.brookshirebrothers.com/departments/bakery
-Redirect 301 /beveragedepot http://www.brookshirebrothers.com/beverage-depot/beverage-depot
-Redirect 301 /blog.aspx http://www.brookshirebrothers.com/blog
-Redirect 301 /careers/careerscorporateopenings.aspx http://www.brookshirebrothers.com/careers
-Redirect 301 /careers/careersfairschedule http://www.brookshirebrothers.com/careers
-Redirect 301 /company/aboutus http://www.brookshirebrothers.com/about-us/about
-Redirect 301 /company/couponpolicy http://www.brookshirebrothers.com/coupon-policy
-Redirect 301 /company/donationpolicy http://www.brookshirebrothers.com/about-us/our-culture/what-we-support
-Redirect 301 /company/esop http://www.brookshirebrothers.com/about-us/our-culture/employee-owned
-Redirect 301 /company/privacypolicy http://www.brookshirebrothers.com/privacy-policy
-Redirect 301 /company/termsofuse http://www.brookshirebrothers.com/terms-of-use
-Redirect 301 /companyhome http://www.brookshirebrothers.com/about-us/about
-Redirect 301 /companynew/companyfaq http://www.brookshirebrothers.com/about-us/faq
-Redirect 301 /companynew/companyfaq.aspx http://www.brookshirebrothers.com/about-us/faq
-Redirect 301 /companynew/companyfaqplain.aspx http://www.brookshirebrothers.com/about-us/faq
-Redirect 301 /companynew http://www.brookshirebrothers.com/about-us/about
-Redirect 301 /companynew.aspx http://www.brookshirebrothers.com/about-us/about
-Redirect 301 /deli http://www.brookshirebrothers.com/departments/deli
-Redirect 301 /Deli.aspx http://www.brookshirebrothers.com/departments/deli
-Redirect 301 /DeliCase.aspx http://www.brookshirebrothers.com/departments/deli
-Redirect 301 /DeliCatering http://www.brookshirebrothers.com/departments/catering
-Redirect 301 /DeliCatering.aspx http://www.brookshirebrothers.com/departments/catering
-Redirect 301 /find-a-store http://www.brookshirebrothers.com/store-locator
-Redirect 301 /find-a-store.aspx http://www.brookshirebrothers.com/store-locator
-Redirect 301 /floral http://www.brookshirebrothers.com/departments/floral
-Redirect 301 /Floral.aspx http://www.brookshirebrothers.com/departments/floral
-Redirect 301 /giftcard http://www.brookshirebrothers.com/shop-online/gift-cards
-Redirect 301 /products/masons http://www.brookshirebrothers.com/departments/brands
-Redirect 301 /products/ourbrands http://www.brookshirebrothers.com/departments/brands
-Redirect 301 /products/seventh-generation http://www.brookshirebrothers.com/departments/brands
-Redirect 301 /recipe http://www.brookshirebrothers.com/recipes/recipes
-Redirect 301 /Recipe.aspx http://www.brookshirebrothers.com/recipes/recipes
-Redirect 301 /Recipe/Recipe-Library.aspx http://www.brookshirebrothers.com/recipes/recipes
-Redirect 301 /shop http://www.brookshirebrothers.com/shop-online/gift-cards
-Redirect 301 /specials/print-coupons http://www.brookshirebrothers.com/savings-promotions/print-coupons
-Redirect 301 /webisodes http://www.brookshirebrothers.com/recipes/approved-by-amy
-Redirect 301 /webisodesamy http://www.brookshirebrothers.com/recipes/approved-by-amy
-Redirect 301 /webisodesdan http://www.brookshirebrothers.com/beverage-depot/uncorked
-Redirect 301 /webisodeshome http://www.brookshirebrothers.com/recipes/sarahs-simple-solutions
-Redirect 301 /webisodessarah http://www.brookshirebrothers.com/recipes/sarahs-simple-solutions
+Redirect 301 /bakery /departments/bakery
+Redirect 301 /Bakery.aspx /departments/bakery
+Redirect 301 /beveragedepot /beverage-depot/beverage-depot
+Redirect 301 /blog.aspx /blog
+Redirect 301 /careers/careerscorporateopenings.aspx /careers
+Redirect 301 /careers/careersfairschedule /careers
+Redirect 301 /company/aboutus /about-us/about
+Redirect 301 /company/couponpolicy /coupon-policy
+Redirect 301 /company/donationpolicy /about-us/our-culture/what-we-support
+Redirect 301 /company/esop /about-us/our-culture/employee-owned
+Redirect 301 /company/privacypolicy /privacy-policy
+Redirect 301 /company/termsofuse /terms-of-use
+Redirect 301 /companyhome /about-us/about
+Redirect 301 /companynew/companyfaq /about-us/faq
+Redirect 301 /companynew/companyfaq.aspx /about-us/faq
+Redirect 301 /companynew/companyfaqplain.aspx /about-us/faq
+Redirect 301 /companynew /about-us/about
+Redirect 301 /companynew.aspx /about-us/about
+Redirect 301 /deli /departments/deli
+Redirect 301 /Deli.aspx /departments/deli
+Redirect 301 /DeliCase.aspx /departments/deli
+Redirect 301 /DeliCatering /departments/catering
+Redirect 301 /DeliCatering.aspx /departments/catering
+Redirect 301 /find-a-store /store-locator
+Redirect 301 /find-a-store.aspx /store-locator
+Redirect 301 /floral /departments/floral
+Redirect 301 /Floral.aspx /departments/floral
+Redirect 301 /giftcard /shop-online/gift-cards
+Redirect 301 /products/masons /departments/brands
+Redirect 301 /products/ourbrands /departments/brands
+Redirect 301 /products/seventh-generation /departments/brands
+Redirect 301 /recipe /recipes/recipes
+Redirect 301 /Recipe.aspx /recipes/recipes
+Redirect 301 /Recipe/Recipe-Library.aspx /recipes/recipes
+Redirect 301 /shop /shop-online/gift-cards
+Redirect 301 /specials/print-coupons /savings-promotions/print-coupons
+Redirect 301 /webisodes /recipes/approved-by-amy
+Redirect 301 /webisodesamy /recipes/approved-by-amy
+Redirect 301 /webisodesdan /beverage-depot/uncorked
+Redirect 301 /webisodeshome /recipes/sarahs-simple-solutions
+Redirect 301 /webisodessarah /recipes/sarahs-simple-solutions
 #
 
 #
@@ -145,13 +145,13 @@ DirectoryIndex index.php index.html index.htm
   # (http://example.com/... will be redirected to http://www.example.com/...)
   # dev site is excluded
   # uncomment the following:
+
   RewriteCond %{HTTP_HOST} .
-  RewriteCond %{HTTP_HOST} !^(dev|www)\. [NC]
-  RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} !^(www|dev)\. [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Redirect to HTTPS
   RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} !^dev\. [NC]
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -159,7 +159,7 @@ DirectoryIndex index.php index.html index.htm
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/... will be redirected to http://example.com/...)
   # uncomment the following:
-  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteCond %{HTTP_HOST} ^(www)\.(.+)$ [NC]
   # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
 
   # Modify the RewriteBase if you are using Drupal in a subdirectory or in a

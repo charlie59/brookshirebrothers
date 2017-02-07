@@ -144,6 +144,11 @@ function initFilterLocation(){
 		};
 		filterHolder.hide();
 		function sendForm(e){
+		    return false;
+		    /* store user data */
+		    alert('yes');
+            saveStoreData();
+
       var weeklyad = holder.find('.weekly-ad');
       jQuery('#loader').show();
       var literLocation = form.find('.filter-location-area'); /* [WM] 20140424 - get User's input text */
@@ -290,6 +295,12 @@ function initFilterLocation(){
 		form.submit(sendForm);
 		backBtn.bind('click', sendForm);
 	});
+}
+
+// save store data
+function saveStoreData(data) {
+    var ex = new Date(today.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
+    document.cookie = 'StorePrefs' + "=" + value + ex + "; path=/";
 }
 
 // cycle scroll gallery init
