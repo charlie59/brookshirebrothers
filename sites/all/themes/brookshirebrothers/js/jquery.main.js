@@ -145,7 +145,7 @@ function initFilterLocation(){
 		filterHolder.hide();
 		function sendForm(e){
 		    /* store user data */
-            saveStoreData();
+            saveStoreData('test');
 
       var weeklyad = holder.find('.weekly-ad');
       jQuery('#loader').show();
@@ -295,10 +295,10 @@ function initFilterLocation(){
 	});
 }
 
-// save store data
 function saveStoreData(data) {
-    var ex = new Date(today.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
-    document.cookie = 'StorePrefs' + "=" + value + ex + "; path=/";
+    var d = new Date();
+    var ex = new Date(d.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
+    document.cookie = 'StorePrefs' + "=" + data + ";expires=" + ex + "; path=/;secure";
 }
 
 // cycle scroll gallery init
