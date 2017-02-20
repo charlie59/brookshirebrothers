@@ -8,7 +8,7 @@ jQuery(function () {
     initOpenClose();
     initAccordion();
     initSameHeight();
-    saveStoreData();
+    initStoreData();
     jQuery('input, textarea').placeholder();
 });
 
@@ -302,10 +302,10 @@ function initFilterLocation() {
     });
 }
 
-function saveStoreData() {
+function initStoreData() {
     jQuery('#default_store_id').click(function() {
         var d = new Date();
-        aert(x);
+        alert(d);
         var ex = new Date(d.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
         document.cookie = 'StorePrefs' + "=" + data + ";expires=" + ex + "; path=/;secure";
     })
