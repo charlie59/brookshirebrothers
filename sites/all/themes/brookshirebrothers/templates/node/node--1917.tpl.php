@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>" + ";expires=" + ex + ";path=/;";
+        document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>" + ";path=/;";
         alert('y');
         $("#default_store_id").change(function() {
             var d = new Date();
