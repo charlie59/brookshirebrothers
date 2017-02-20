@@ -97,8 +97,8 @@
 
                   /* look for cookie */
 
-                  if ( (isset($COOKIE['defaultStore'])) && ($COOKIE['defaultStore'] > 0)) {
-                      header("Location: /weekly-ad?store=" . $COOKIE['defaultStore']);
+                  if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+                      header("Location: /weekly-ad?store=" . $_COOKIE['defaultStore']);
                       exit;
 
                   }
