@@ -5,6 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        alert('y');
         $('#default_store_id').click(function() {
             var d = new Date();
             alert(d);
