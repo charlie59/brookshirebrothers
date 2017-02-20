@@ -7,9 +7,8 @@
     $(document).ready(function() {
         $("#default_store_id").change(function() {
             var d = new Date();
-            alert(d);
             var ex = new Date(d.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
-            document.cookie = 'StorePrefs' + "=" + data + ";expires=" + ex + "; path=/;secure";
+            document.cookie = 'defaultStore' + "=" + <?php echo $_GET['store']; ?> + ";expires=" + ex + "; path=/;secure";
         });
     }(jQuery));
 </script>
