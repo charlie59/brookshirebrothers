@@ -7,10 +7,12 @@
     $(document).ready(function() {
         $("#default_store_id").change(function() {
             if ($(this).is(":checked")) {
+                alert("checked");
                 var d = new Date();
                 var ex = new Date(d.getTime() + 10 * 365 * 24 * 60 * 60);
                 document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + "expires=" + ex + ";path=/;";
             } else {
+                alert("not checked");
                 document.cookie = "defaultStore=" + ";path=/;";
             }
         });
