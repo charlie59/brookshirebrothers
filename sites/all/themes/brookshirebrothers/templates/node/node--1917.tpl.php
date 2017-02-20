@@ -5,12 +5,14 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>" + ";path=/;";
-        alert('y');
         $("#default_store_id").change(function() {
-            var d = new Date();
-            var ex = new Date(d.getTime() + 30 * 24 * 3600 * 10000); // plus 300 days
-            document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>" + "expires=" + ex + ";path=/;";
+            if ($(this).is(":checked")) {
+                var d = new Date();
+                var ex = new Date(d.getTime() + 10 * 365 * 24 * 60 * 60);
+                document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + "expires=" + ex + ";path=/;";
+            } else {
+                document.cookie = "defaultStore=" + ";path=/;";
+            }
         });
     }(jQuery));
 </script>
