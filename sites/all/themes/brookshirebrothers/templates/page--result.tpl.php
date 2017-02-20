@@ -100,6 +100,7 @@
                   if ( (isset($COOKIE['defaultStore'])) && ($COOKIE['defaultStore'] > 0)) {
                       header("Location: /weekly-ad?store=" . $COOKIE['defaultStore']);
                       exit;
+
                   }
                   ?>
 
