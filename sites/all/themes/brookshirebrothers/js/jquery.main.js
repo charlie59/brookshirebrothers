@@ -8,7 +8,6 @@ jQuery(function () {
     initOpenClose();
     initAccordion();
     initSameHeight();
-    initStoreData();
     jQuery('input, textarea').placeholder();
 });
 
@@ -300,15 +299,6 @@ function initFilterLocation() {
         form.submit(sendForm);
         backBtn.bind('click', sendForm);
     });
-}
-
-function initStoreData() {
-    jQuery('#default_store_id').click(function() {
-        var d = new Date();
-        alert(d);
-        var ex = new Date(d.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
-        document.cookie = 'StorePrefs' + "=" + data + ";expires=" + ex + "; path=/;secure";
-    })
 }
 
 // cycle scroll gallery init
