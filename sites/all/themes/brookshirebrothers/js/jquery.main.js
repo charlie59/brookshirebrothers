@@ -8,6 +8,7 @@ jQuery(function () {
     initOpenClose();
     initAccordion();
     initSameHeight();
+    saveStoreData();
     jQuery('input, textarea').placeholder();
 });
 
@@ -301,7 +302,7 @@ function initFilterLocation() {
     });
 }
 
-function saveStoreData(data) {
+function saveStoreData() {
     jQuery('#default_store_id').click(function() {
         var d = new Date();
         aert(x);
