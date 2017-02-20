@@ -8,7 +8,7 @@
         $("#default_store_id").change(function() {
             if ($(this).is(":checked")) {
                 var now = new Date();
-                now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 350 * 10);
+                now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
                 document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
             } else {
                 document.cookie = "defaultStore=" + ";path=/;";
