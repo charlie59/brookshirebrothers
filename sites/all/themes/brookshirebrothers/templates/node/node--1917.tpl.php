@@ -5,8 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        alert('y');
-        $('#default_store_id').click(function() {
+        $("#default_store_id").change(function() {
             var d = new Date();
             alert(d);
             var ex = new Date(d.getTime() + 30 * 24 * 3600 * 100000); // plus 3000 days
