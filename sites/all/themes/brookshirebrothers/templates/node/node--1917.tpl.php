@@ -3,7 +3,7 @@
 <p><input type="checkbox" id="default_store_id"<?php
 
   if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-      echo ' checked="checked"> This store is your default';
+      echo ' checked="checked"> This store is your default (uncheck to unset)';
     }  else {
     echo '> Set this store as your default';
   }
