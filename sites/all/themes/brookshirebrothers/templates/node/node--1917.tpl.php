@@ -3,9 +3,9 @@
     <p><input type="checkbox" id="default_store_id"<?php
 
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> This store is your default (uncheck to unset)';
+        echo ' checked="checked"> <span id="default_store_text">This store is your default (uncheck to unset)</span>';
       }  else {
-        echo ' checked=""> Set this store as your default';
+        echo ' checked=""> <span id="default_store_text">Set this store as your default</span>';
       }
 
       ?></p>
@@ -19,8 +19,10 @@
                     var now = new Date();
                     now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
                     document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
+                    $("#default_store_text").text('This store is your default (uncheck to unset)');
                 } else {
                     document.cookie = "defaultStore=" + ";path=/;";
+                    $("#default_store_text").text('Set this store as your default');
                 }
             });
         }(jQuery));
