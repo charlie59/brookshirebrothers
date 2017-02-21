@@ -1,3 +1,12 @@
+<?php
+$query = new EntityFieldQuery();
+$query->entityCondition('entity_type', 'node')
+  ->entityCondition('bundle', 'store_location')
+  ->propertyCondition('status', 1)
+  ->fieldCondition('field_number_store', 'value', $_GET['store'], '=');
+$result = $query->execute();
+var_dump($result);
+?>
 <section class="text-block">
 <div class="field-name-body">
     <p><input type="checkbox" id="default_store_id"<?php
