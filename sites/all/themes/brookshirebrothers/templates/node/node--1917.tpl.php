@@ -5,7 +5,12 @@ $query->entityCondition('entity_type', 'node')
   ->propertyCondition('status', 1)
   ->fieldCondition('field_number_store', 'value', $_GET['store'], '=');
 $result = $query->execute();
-var_dump($result);
+$result = $query->execute();
+if (isset($result['node'])) {
+  $item_nid = array_keys($result['node']);
+  $item = entity_load('node', $news_items_nid);
+  var_dump($item);
+}
 ?>
 <section class="text-block">
 <div class="field-name-body">
