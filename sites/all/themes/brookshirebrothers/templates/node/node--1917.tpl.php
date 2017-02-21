@@ -1,15 +1,14 @@
 <section class="text-block">
 <div class="field-name-body">
-    <p><input type="checkbox" id="default_store_id"<?php
+    <p><?php
 
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> This store is your default (uncheck to unset)';
+        echo 'This store is your default (uncheck to unset) <input type="checkbox" id="default_store_id" checked="checked">';
       }  else {
-        echo '> Set this store as your default';
+        echo 'Set this store as your default <input type="checkbox" id="default_store_id" checked="">';
       }
 
       ?></p>
-
 </div>
 
 
