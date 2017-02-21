@@ -16,9 +16,9 @@ if (isset($result['node'])) {
 <div class="field-name-body">
     <p><input type="checkbox" id="default_store_id"<?php
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> <span id="default_store_text">Store ' . $_COOKIE['defaultStore'] .' is your default (uncheck to unset)</span>';
+        echo ' checked="checked"> <span id="default_store_text">Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)</span>';
       }  else {
-        echo '> <span id="default_store_text">Set store ' . $_COOKIE['defaultStore'] .' as your default</span>';
+        echo '> <span id="default_store_text">Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default</span>';
       }
 
       ?></p>
@@ -32,10 +32,10 @@ if (isset($result['node'])) {
                     var now = new Date();
                     now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
                     document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
-                    $("#default_store_text").text('Store <?php echo $_COOKIE['defaultStore']; ?> is your default (uncheck to unset)');
+                    $("#default_store_text").text('Store <?php echo $_COOKIE['defaultStore']; ?> is your Weekly Ad default (uncheck to unset)');
                 } else {
                     document.cookie = "defaultStore=" + ";path=/;";
-                    $("#default_store_text").text('Set store <?php echo $_COOKIE['defaultStore']; ?> as your default');
+                    $("#default_store_text").text('Set store <?php echo $_COOKIE['defaultStore']; ?> as your Weekly Ad default');
                 }
             });
         }(jQuery));
