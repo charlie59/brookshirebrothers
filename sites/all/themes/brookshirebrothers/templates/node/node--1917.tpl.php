@@ -16,7 +16,7 @@ if (isset($result['node'])) {
 <div class="field-name-body">
     <p><input type="checkbox" id="default_store_id"<?php
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> <span id="default_store_text">' . $_COOKIE['defaultStore'] .' Store is your default (uncheck to unset)</span>';
+        echo ' checked="checked"> <span id="default_store_text">Store ' . $_COOKIE['defaultStore'] .' is your default (uncheck to unset)</span>';
       }  else {
         echo '> <span id="default_store_text">Set Store ' . $_COOKIE['defaultStore'] .' as your default</span>';
       }
