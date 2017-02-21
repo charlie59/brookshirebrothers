@@ -1,14 +1,17 @@
 <section class="text-block">
+<div class="field-name-body">
+    <p><input type="checkbox" id="default_store_id"<?php
 
-<p><input type="checkbox" id="default_store_id"<?php
+      if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+        echo ' checked="checked"> This store is your default (uncheck to unset)';
+      }  else {
+        echo '> Set this store as your default';
+      }
 
-  if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-      echo ' checked="checked"> This store is your default (uncheck to unset)';
-    }  else {
-    echo '> Set this store as your default';
-  }
+      ?></p>
 
-?></p>
+</div>
+
 
     <script type="text/javascript">
         $(document).ready(function() {
