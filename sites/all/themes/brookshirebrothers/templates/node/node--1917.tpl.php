@@ -8,7 +8,7 @@ $result = $query->execute();
 $result = $query->execute();
 if (isset($result['node'])) {
   $item_nid = array_keys($result['node']);
-  $item = entity_load('node', $news_items_nid);
+  $item = entity_load('node', $item_nid);
   var_dump($item);
 }
 ?>
