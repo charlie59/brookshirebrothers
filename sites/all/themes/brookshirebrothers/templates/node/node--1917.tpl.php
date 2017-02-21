@@ -1,5 +1,5 @@
 <?php
-$query = new EntityFieldQuery();
+/*$query = new EntityFieldQuery();
 $query->entityCondition('entity_type', 'node')
   ->entityCondition('bundle', 'store_location')
   ->propertyCondition('status', 1)
@@ -10,16 +10,15 @@ if (isset($result['node'])) {
   $item_nid = array_keys($result['node']);
   $item = entity_load('node', $item_nid);
   var_dump($item);
-}
+}*/
 ?>
 <section class="text-block">
 <div class="field-name-body">
     <p><input type="checkbox" id="default_store_id"<?php
-
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> <span id="default_store_text">This store is your default (uncheck to unset)</span>';
+        echo ' checked="checked"> <span id="default_store_text">' . $_COOKIE['defaultStore'] .' Store is your default (uncheck to unset)</span>';
       }  else {
-        echo '> <span id="default_store_text">Set this store as your default</span>';
+        echo '> <span id="default_store_text">Set Store ' . $_COOKIE['defaultStore'] .' as your default</span>';
       }
 
       ?></p>
