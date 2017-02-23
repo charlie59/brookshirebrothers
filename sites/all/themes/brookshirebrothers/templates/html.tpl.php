@@ -87,6 +87,11 @@ $weekly_ad_array=Array();
   <?php print $page_bottom; ?>
 </div>
 <script data-main="/js/app" src="/js/vendor/require.js"></script>
+    <script type="text/javascript" src="http://6242176.collect.igodigital.com/collect.js"></script>
+    <script type="text/javascript">
+        _etmc.push(["setOrgId", "6242176"]);
+        _etmc.push(["trackPageView"]);
+    </script>
 </body>
 </html>
 <?php endif;?>
