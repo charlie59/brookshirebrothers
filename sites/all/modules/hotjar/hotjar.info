@@ -4,9 +4,9 @@ core = 7.x
 package = Statistics
 configure = admin/config/system/hotjar
 
-; Information added by Drupal.org packaging script on 2015-08-15
-version = "7.x-1.1"
+; Information added by Drupal.org packaging script on 2017-02-14
+version = "7.x-1.2"
 core = "7.x"
 project = "hotjar"
-datestamp = "1439639640"
+datestamp = "1487092687"
 
