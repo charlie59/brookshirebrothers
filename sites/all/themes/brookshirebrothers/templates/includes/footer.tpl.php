@@ -24,7 +24,7 @@
         clear: both;
     display: flex;
     justify-content: center;
-margin: 1em 0;">
+margin: 3em 0 0;">
       <?php
       $block = block_load('block', '1');
       $block =_block_render_blocks(array($block));
