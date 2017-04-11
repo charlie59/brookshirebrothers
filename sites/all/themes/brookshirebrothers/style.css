@@ -14,3 +14,9 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 	.top-menu ul li.menu-mlid-386,
 	.top-menu ul li.menu-mlid-387 { display:none; }
 }
+
+.header-holder {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
