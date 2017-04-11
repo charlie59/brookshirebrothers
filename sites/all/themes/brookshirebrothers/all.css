@@ -334,29 +334,11 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	left: 0;
 	top:57px;
 }
-.main-menu > li:hover .img-holder { right:-195px; }
-.main-menu > li .img-holder:before{
-	position:absolute;
-	top:0;
-	right:0;
-	width:339px;
-	height:100%;
-	content:"";
-	z-index:1;
-	background: #544741;
-}
+
 .main-menu > li.first > .dropdown {
 	width:380px;
 }
-.main-menu > li.last > .dropdown {
-	left: auto;
-	right: 220px;
-	width:160px;
-}
-.main-menu > li.last > .img-holder {
-	right:-9999px;
-}
-.main-menu > li.last:hover .img-holder { right:0; }
+
 .main-menu > li > .dropdown > ul {
 	margin: 0;
 	float:left;
@@ -390,25 +372,14 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	margin: 0 0 6px;
 	list-style: none;
 }
-.main-menu > li > .dropdown > ul > li > ul > li > a, .img-holder > .img-link {
+.main-menu > li > .dropdown > ul > li > ul > li > a {
 	text-shadow: none;
 	padding: 0;
 	text-decoration: none;
 	color: #fff;
 	background: none;
 }
-.img-holder {
-	width:200px;
-	position:absolute;
-	right:-9999px;
-	background:#544741;
-	padding: 30px 10px 23px 20px;
-	box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	z-index:50;
-}
-.img-holder > .img-link > img { display: block; position:relative; z-index:200; }
+
 #header .open-close { position: relative; }
 #header .open-close .opener, #sidebar .open-close2 .opener2 { display: none; }
 #header .js-slide-hidden, #sidebar .js-slide-hidden {
@@ -2237,7 +2208,7 @@ ul.links li .nodequeue-ajax-toggle{
 }
 
 @media only screen and (max-device-width: 1024px) and (orientation: landscape) {
-  .main-menu > li .img-holder,.main-menu > li > .dropdown{
+  .main-menu > li > .dropdown{
     display:none;
   }
   .main-menu > li:hover > a{
@@ -2267,7 +2238,7 @@ ul.links li .nodequeue-ajax-toggle{
 }
 
 @media only screen and (max-width: 999px) {
-  .main-menu > li .img-holder,.main-menu > li > .dropdown{
+  .main-menu > li > .dropdown{
     display:none;
   }
   .main-menu > li:hover > a{
@@ -2799,7 +2770,6 @@ ul.links li .nodequeue-ajax-toggle{
 		vertical-align: top;
 		width: 100%;
 	}
-	.img-holder, .main-menu > li:hover .img-holder {top:-9999px; left:-9999px; }
 	.carousel .img-box {
 		float: none;
 		overflow: hidden;
