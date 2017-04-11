@@ -182,11 +182,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	display: block;
 	height: 100%;
 }
-#header .our-company {
-	float: right;
-	max-width: 700px;
-	padding: 6px 0 0;
-}
+
 .our-company .title {
 	float: left;
 	font: 14px/15px 'Open Sans', sans-serif, Arial;
@@ -200,7 +196,6 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	float: right;
 	padding: 5px 0 4px 15px;
 	margin: 0;
-	background: url(images/ico-arrow-2.png) no-repeat 0 0;
 }
 .company-logo li {
 	list-style: none;
@@ -2268,11 +2263,7 @@ ul.links li .nodequeue-ajax-toggle{
 		margin: 7px 0 0;
 		background-size: 100% auto;
 	}
-	#header .our-company {
-		float: none;
-		overflow: hidden;
-		text-align: right;
-	}
+
 	.our-company .title { display: none; }
 	.our-company .company-logo {
 		background-position: 0;
@@ -2674,7 +2665,7 @@ ul.links li .nodequeue-ajax-toggle{
 	}
 	.top-menu ul li.weekly, .top-menu ul li.refill { display: none; }
 	#header .header-holder { padding: 21px 20px 19px; }
-	#header .our-company { display: none; }
+	#footer .our-company { display: none; }
 	#header .logo {
 		float: none;
 		display: block;
