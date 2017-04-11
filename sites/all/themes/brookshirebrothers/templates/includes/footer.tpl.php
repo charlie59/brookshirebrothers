@@ -20,6 +20,12 @@
 			 $block =_block_get_renderable_array($block);
 			 print drupal_render($block);
 		?>
+      <?php
+      $block = block_load('block', '1');
+      $block =_block_render_blocks(array($block));
+      $block =_block_get_renderable_array($block);
+      print drupal_render($block);
+      ?>
 	</div>
 	<div class="footer-legal">
 		<strong>&copy; <?php echo date("Y") ?> Copyright Brookshire Brothers, Inc. All rights reserved.</strong><br>
