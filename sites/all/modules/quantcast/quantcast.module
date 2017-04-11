@@ -49,39 +49,85 @@ function quantcast_menu() {
 }
 
 /**
- * Implements hook_page_alter().
+ * Implements hook_theme().
  */
-function quantcast_page_alter(&$page) {
-  $qacct = variable_get('quantcast_account', '');
+function quantcast_theme() {
+  $path = drupal_get_path('module', 'quantcast');
+  return array(
+    'quantcast_tag_full' => array(
+      'template'  => 'quantcast-tag-full',
+      'path'      => "$path/theme",
+      'variables' => array('vars' => NULL),
+    ),
+    'quantcast_tag_head' => array(
+      'template'  => 'quantcast-tag-head',
+      'path'      => "$path/theme",
+      'variables' => array('vars' => NULL),
+    ),
+    'quantcast_tag_body' => array(
+      'template'  => 'quantcast-tag-body',
+      'path'      => "$path/theme",
+      'variables' => array('vars' => NULL),
+    ),
+  );
+}
+
+/**
+ * Based on visibility setting this function returns TRUE if scripts code should
+ * be added for the current role and otherwise FALSE.
+ */
+function _quantcast_visibility_roles($account) {
+  $visibility = variable_get('quantcast_visibility_roles', 0);
+  $enabled = $visibility;
+  $roles = variable_get('quantcast_roles', array());
+
+  if (array_sum($roles) > 0) {
+    // One or more roles are selected.
+    foreach (array_keys($account->roles) as $rid) {
+      // Is the current user a member of one of these roles?
+      if (isset($roles[$rid]) && $rid == $roles[$rid]) {
+        $enabled = !$visibility;
+        break;
+      }
+    }
+  }
+  else {
+    // No role is selected, add script.
+    $enabled = TRUE;
+  }
+
+  return $enabled;
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function quantcast_page_build(&$page) {
+  global $user;
+  if (!_quantcast_visibility_roles($user)) {
+    return;
+  }
+
+  if (path_is_admin(current_path())) {
+    return;
+  }
+
+  $qacct = check_plain(variable_get('quantcast_account', ''));
   if (!empty($qacct)) {
-    // Javascript version.
-    $script  = 'var _qevents = _qevents || [];';
-    $script .= '(function() {';
-    $script .= 'var elem = document.createElement("script");';
-    $script .= 'elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";';
-    $script .= 'elem.async = true;';
-    $script .= 'elem.type = "text/javascript";';
-    $script .= 'var scpt = document.getElementsByTagName("script")[0];';
-    $script .= 'scpt.parentNode.insertBefore(elem, scpt);';
-    $script .= '})();';
-    $script .= '_qevents.push({';
-    $script .= 'qacct:' . drupal_json_encode($qacct);
-    $script .= '});';
-    drupal_add_js($script, array(
-      'scope'   => variable_get('quantcast_js_scope', 'footer'),
-      'type'    => 'inline',
-      'weight'  => variable_get('quantcast_js_weight', 0),
-    ));
-    // Noscript version.
-    $page_scope = array(
-      'header' => 'page_top',
-      'footer' => 'page_bottom',
+    $scope = variable_get('quantcast_js_scope', 'page_bottom');
+    $vars = array(
+      'pcode' => $qacct,
     );
-    $noscript  = '<noscript>';
-    $noscript .= '<div style="display:none;">';
-    $noscript .= '<img src="//pixel.quantserve.com/pixel/' . $qacct . '.gif" border="0" height="1" width="1" alt="Quantcast"/>';
-    $noscript .= '</div>';
-    $noscript .= '</noscript>';
-    $page[$page_scope[variable_get('quantcast_js_scope', 'footer')]]['quantcast'] = array('#markup' => $noscript);
+    if ($scope == 'split') {
+      $head = array(
+        '#type'   => 'markup',
+        '#markup' => theme('quantcast_tag_head', array('vars' => $vars)),
+      );
+      drupal_add_html_head($head, 'quantcast');
+      $page['page_bottom']['quantcast']['#markup'] = theme('quantcast_tag_body', array('vars' => $vars));
+    }
+    else {
+      $page[$scope]['quantcast']['#markup'] = theme('quantcast_tag_full', array('vars' => $vars));
+    }
   }
 }

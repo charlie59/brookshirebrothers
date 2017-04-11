@@ -7,9 +7,9 @@ files[] = quantcast.install
 files[] = quantcast.module
 files[] = quantcast.admin.inc
 
-; Information added by drupal.org packaging script on 2011-08-31
-version = "7.x-2.0-rc1"
+; Information added by Drupal.org packaging script on 2017-04-06
+version = "7.x-2.0"
 core = "7.x"
 project = "quantcast"
-datestamp = "1314832022"
+datestamp = "1491507785"
 
