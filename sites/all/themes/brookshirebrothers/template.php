@@ -348,9 +348,9 @@ function menu_block_links_main($variables, $level=1) {
         $output .= l1($link['#title'], $link['#href'], $link);
       }
 
-	   if ($link['#original_link']['menu_name'] == 'main-menu' and $level == 1 and !empty ($link['#localized_options']['attributes']['title'])){
+	   /*if ($link['#original_link']['menu_name'] == 'main-menu' and $level == 1 and !empty ($link['#localized_options']['attributes']['title'])){
 				 $output .=  '<div class="img-holder">'.$link['#localized_options']['attributes']['title'].'</div>';
-			}
+			}*/
       $children = $link['#below'];
       if(count($children)){
           $level++;
