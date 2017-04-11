@@ -347,7 +347,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 	line-height: 24px;
 	font-weight: 400;
 	text-align: left;
-	width: 150px;
+	width: inherit;
 }
 .main-menu > li > .dropdown > ul > li {
 	margin: 0 0 5px;
