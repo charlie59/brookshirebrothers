@@ -7,17 +7,9 @@
                     alt="" width="290" height="62"></strong>
 
         <div id="block-search-form" style="float: right;"
-             class="block block-search contextual-links-region clearfix">
+             class="block block-search clearfix">
 
-            <div class="contextual-links-wrapper contextual-links-processed"><a
-                        class="contextual-links-trigger" href="#">Configure</a>
-                <ul class="contextual-links">
-                    <li class="block-configure first last"><a
-                                href="/admin/structure/block/manage/search/form/configure?destination=node/70">Configure
-                            block</a></li>
-                </ul>
-            </div>
-            <form action="/departments/bakery" method="post"
+            <form action="" method="post"
                   id="search-block-form" accept-charset="UTF-8" _lpchecked="1">
                 <div>
                     <div class="container-inline">
