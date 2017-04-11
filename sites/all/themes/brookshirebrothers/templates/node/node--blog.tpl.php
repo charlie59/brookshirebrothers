@@ -18,8 +18,10 @@
           <?php $tag_count=count($node->field_blog_tags["und"]); ?>
           <div class="tags">
             TAGS:
-            <?php foreach($node->field_blog_tags["und"] as $index=>$tag): ?>
-              <a href="/blog/tag/<?php echo !empty($tag["taxonomy_term"]->name)?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?>"><?php echo $tag["taxonomy_term"]->name!=""?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
+            <?php foreach($node->field_blog_tags["und"] as $index=>$tag):
+            $term_path = drupal_get_path_alias('taxonomy/term/' . $tag["tid"]) ;
+            ?>
+              <a href="/<?php echo $term_path; ?>"><?php echo $tag["taxonomy_term"]->name!=""?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
            <?php endforeach; ?>
           </div>
         <?php endif; ?>
@@ -28,8 +30,10 @@
         <?php $category_count=count($node->field_blog_categories["und"]); ?>
           <div class="categories">
             CATEGORIES:
-            <?php foreach($node->field_blog_categories["und"] as $index=>$category): ?>
-              <a href="/blog/category/<?php echo !empty($category["taxonomy_term"]->name)?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?>"><?php echo $category["taxonomy_term"]->name!=""?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
+            <?php foreach($node->field_blog_categories["und"] as $index=>$category):
+            $term_path = drupal_get_path_alias('taxonomy/term/' . $category["tid"]) ;
+            ?>
+              <a href="/<?php echo $term_path; ?>"><?php echo $category["taxonomy_term"]->name!=""?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
             <?php endforeach; ?>
           </div>
         <?php endif; ?>

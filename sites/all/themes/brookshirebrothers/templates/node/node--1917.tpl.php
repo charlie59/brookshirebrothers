@@ -1,5 +1,7 @@
 <?php
-/*$query = new EntityFieldQuery();
+/*
+ * Code to get entity values -- not necessary unless we want address
+$query = new EntityFieldQuery();
 $query->entityCondition('entity_type', 'node')
   ->entityCondition('bundle', 'store_location')
   ->propertyCondition('status', 1)
@@ -11,14 +13,17 @@ if (isset($result['node'])) {
   $item = entity_load('node', $item_nid);
   var_dump($item);
 }*/
+
+$frase_uno = 'Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)';
+$frase_dos = 'Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default';
 ?>
 <section class="text-block">
 <div class="field-name-body">
     <p><input type="checkbox" id="default_store_id"<?php
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> <span id="default_store_text">Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)</span>';
+        echo ' checked="checked"> <span id="default_store_text">' . $frase_uno. '</span>';
       }  else {
-        echo '> <span id="default_store_text">Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default</span>';
+        echo '> <span id="default_store_text">' . $frase_dos .'</span>';
       }
 
       ?></p>
@@ -32,10 +37,10 @@ if (isset($result['node'])) {
                     var now = new Date();
                     now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
                     document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
-                    $("#default_store_text").text('Store <?php echo $_COOKIE['defaultStore']; ?> is your Weekly Ad default (uncheck to unset)');
+                    $("#default_store_text").text('<?php echo $frase_uno; ?>');
                 } else {
                     document.cookie = "defaultStore=" + ";path=/;";
-                    $("#default_store_text").text('Set store <?php echo $_COOKIE['defaultStore']; ?> as your Weekly Ad default');
+                    $("#default_store_text").text('<?php echo $frase_dos; ?>');
                 }
             });
         }(jQuery));
