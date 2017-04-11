@@ -6,7 +6,7 @@
                     src="<?php echo url(path_to_theme(), array('absolute' => TRUE)); ?>/images/logo.png"
                     alt="" width="290" height="62"></strong>
 
-        <div id="block-search-form"
+        <div id="block-search-form" style="float: right;"
              class="block block-search contextual-links-region clearfix">
 
             <div class="contextual-links-wrapper contextual-links-processed"><a
