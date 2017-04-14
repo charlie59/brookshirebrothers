@@ -12,10 +12,11 @@ dependencies[] = libraries
 dependencies[] = views
 dependencies[] = views_geojson (>=7.x-1.0-beta2)
 dependencies[] = list
+configure = admin/config/search/google_store_locator
 
-; Information added by Drupal.org packaging script on 2016-08-28
-version = "7.x-1.2"
+; Information added by Drupal.org packaging script on 2017-04-01
+version = "7.x-1.3"
 core = "7.x"
 project = "google_store_locator"
-datestamp = "1472399640"
+datestamp = "1491079089"
 

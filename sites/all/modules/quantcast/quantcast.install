@@ -11,5 +11,4 @@
 function quantcast_uninstall() {
   variable_del('quantcast_account');
   variable_del('quantcast_js_scope');
-  variable_del('quantcast_js_weight');
 }
