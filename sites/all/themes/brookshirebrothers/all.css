@@ -332,11 +332,12 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 }
 .main-menu > li:hover .dropdown {
 	left: 0;
-	top:57px;
+	top:50px;
+    display: block;
 }
 
 .main-menu > li.first > .dropdown {
-	width:380px;
+	/*width:380px;*/
 }
 
 .main-menu > li > .dropdown > ul {
