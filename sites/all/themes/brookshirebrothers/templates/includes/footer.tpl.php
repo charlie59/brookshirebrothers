@@ -20,11 +20,7 @@
 			 $block =_block_get_renderable_array($block);
 			 print drupal_render($block);
 		?>
-        <div class="our-company" style="
-        clear: both;
-    display: flex;
-    justify-content: center;
-margin: 3em 0 0;">
+        <div class="our-company">
       <?php
       $block = block_load('block', '1');
       $block =_block_render_blocks(array($block));
