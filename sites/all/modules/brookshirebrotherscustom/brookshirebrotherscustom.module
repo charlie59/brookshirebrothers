@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Custom functions and hooks for Etype Services
+ *
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function brookshirebrotherscustom_menu() {
+
+  $items = array();
+
+  // Add a page callback for the url: "external-search.js".
+  $items['external-search.js'] = array(
+    'title' => 'External search',
+    'page callback' => '_module_search',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('search content'),
+  );
+
+  return $items;
+}
+
+/**
+ * Format JSON
+ */
+function _module_search($html) {
+  // Create a JSON string of the search block form html.
+  $json = drupal_json_encode(drupal_render(drupal_get_form('search_block_form')));
+
+  // Format the json as a callback function.
+  // See: http://docs.jquery.com/Ajax/jQuery.getJSON for more information.
+  if (isset($_GET['jsoncallback'])) {
+    $json = $_GET['jsoncallback'] . "(" . $json . ");";
+  }
+
+  // Output the JSON.
+  print $json;
+
+  // Stop the script, so the theme layer is not applied.
+  die;
+}
