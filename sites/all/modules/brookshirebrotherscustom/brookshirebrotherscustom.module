@@ -18,7 +18,7 @@ function brookshirebrotherscustom_menu() {
     'title' => 'External search',
     'page callback' => '_module_search',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('search content'),
+    'access arguments' => array('access content'),
   );
 
   return $items;
