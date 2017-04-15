@@ -33,9 +33,9 @@ function _module_search($html) {
 
   // Format the json as a callback function.
   // See: http://docs.jquery.com/Ajax/jQuery.getJSON for more information.
-  if (isset($_GET['jsoncallback'])) {
-    $json = $_GET['jsoncallback'] . "(" . $json . ");";
-  }
+  //if (isset($_GET['jsoncallback'])) {
+   // $json = $_GET['jsoncallback'] . "(" . $json . ");";
+  //}
 
   // Output the JSON.
   print $json;
