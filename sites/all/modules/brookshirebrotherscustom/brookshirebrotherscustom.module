@@ -30,7 +30,7 @@ function brookshirebrotherscustom_menu() {
 function _module_search($html) {
   // Create a JSON string of the search block form html.
   $json = drupal_json_encode(drupal_render(drupal_get_form('search_block_form')));
-  $json = str_replace("form action=\u0022\/external-search.js", "form action=\u0022https:\/\/www.br0okshirebrothers.com\/external-search.js");
+  $json = str_replace("form action=\u0022\/external-search.js", "form action=https://www.brookshirebrothers.com/external-search.js");
 
   // Format the json as a callback function.
   // See: http://docs.jquery.com/Ajax/jQuery.getJSON for more information.
