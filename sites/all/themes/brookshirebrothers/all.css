@@ -186,7 +186,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
     clear: both;
     display: flex;
     justify-content: center;
-    margin: 1em 0 0;
+    margin: 2.3em 0 0;
 }
 .our-company .title {
 	float: left;

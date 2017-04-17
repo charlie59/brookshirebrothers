@@ -21,7 +21,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     flex-wrap: wrap;
 }
 
-/* hide search results meta data */
+/* hide search results metadata */
 .search-info {
     display: none;
     visibility: hidden;
