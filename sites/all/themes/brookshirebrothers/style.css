@@ -20,3 +20,9 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+/* hide search results meta data */
+.search-info {
+    display: none;
+    visibility: hidden;
+}
