@@ -39,15 +39,7 @@
         <?php endif; ?>
       </div>
 
-      <div class="addtoany addtoany_list">
-        <?php
-        //$block = module_invoke('service_links', 'block_view', 'service_links');
-        //print $block['content'];
-        ?>
-          <a class="a2a_button_facebook"></a>
-          <a class="a2a_button_twitter"></a>
-          <a class="a2a_button_pinterest"></a>
-      </div>
+      <?php print render($content['links']); ?>
 
     </div>
   </div>
