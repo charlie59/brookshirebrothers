@@ -10,7 +10,6 @@
       <?php echo $node->body["und"][0]["safe_value"]; ?>
     </div>
     <div class="details">
-      <div class="align-left">
         <div class="author">
           POSTED BY <a href="/blog/author/<?php echo $node->name; ?>"><?php echo $node->name; ?></a>
         </div>
@@ -37,12 +36,10 @@
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
-      </div>
-
-        <div class="addtoany">
-          <?php print render($content['links']); ?>
-        </div>
     </div>
+      <div class="addtoany">
+        <?php print render($content['links']); ?>
+      </div>
   </div>
 
   <?php print render($content["comments"]); ?>
