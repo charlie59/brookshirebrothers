@@ -11,31 +11,31 @@
     </div>
     <div class="details">
         <div class="author">
-          POSTED BY <a href="/blog/author/<?php echo $node->name; ?>"><?php echo $node->name; ?></a>
+            POSTED BY <a href="/blog/author/<?php echo $node->name; ?>"><?php echo $node->name; ?></a>
         </div>
-        <?php if(!empty($node->field_blog_tags)): ?>
-          <?php $tag_count=count($node->field_blog_tags["und"]); ?>
+      <?php if(!empty($node->field_blog_tags)): ?>
+        <?php $tag_count=count($node->field_blog_tags["und"]); ?>
           <div class="tags">
-            TAGS:
+              TAGS:
             <?php foreach($node->field_blog_tags["und"] as $index=>$tag):
-            $term_path = drupal_get_path_alias('taxonomy/term/' . $tag["tid"]) ;
-            ?>
-              <a href="/<?php echo $term_path; ?>"><?php echo $tag["taxonomy_term"]->name!=""?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
-           <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
-
-        <?php if(!empty($node->field_blog_categories)): ?>
-        <?php $category_count=count($node->field_blog_categories["und"]); ?>
-          <div class="categories">
-            CATEGORIES:
-            <?php foreach($node->field_blog_categories["und"] as $index=>$category):
-            $term_path = drupal_get_path_alias('taxonomy/term/' . $category["tid"]) ;
-            ?>
-              <a href="/<?php echo $term_path; ?>"><?php echo $category["taxonomy_term"]->name!=""?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
+              $term_path = drupal_get_path_alias('taxonomy/term/' . $tag["tid"]) ;
+              ?>
+                <a href="/<?php echo $term_path; ?>"><?php echo $tag["taxonomy_term"]->name!=""?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
             <?php endforeach; ?>
           </div>
-        <?php endif; ?>
+      <?php endif; ?>
+
+      <?php if(!empty($node->field_blog_categories)): ?>
+        <?php $category_count=count($node->field_blog_categories["und"]); ?>
+          <div class="categories">
+              CATEGORIES:
+            <?php foreach($node->field_blog_categories["und"] as $index=>$category):
+              $term_path = drupal_get_path_alias('taxonomy/term/' . $category["tid"]) ;
+              ?>
+                <a href="/<?php echo $term_path; ?>"><?php echo $category["taxonomy_term"]->name!=""?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
+            <?php endforeach; ?>
+          </div>
+      <?php endif; ?>
     </div>
       <div class="addtoany">
         <?php print render($content['links']); ?>
