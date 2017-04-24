@@ -1710,6 +1710,12 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 ul.links li .nodequeue-ajax-toggle{
   margin-left:12px;
 }
+
+ul.links li.blog_usernames_blog {
+    display: none;
+    visibility: hidden;
+}
+
 .view-events-archive .view-content{
   display:none;
 }
