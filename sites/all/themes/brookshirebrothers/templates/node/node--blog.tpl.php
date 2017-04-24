@@ -39,13 +39,13 @@
         <?php endif; ?>
       </div>
 
-      <?php print render($content['links']); ?>
-
+        <div class="addtoany">
+          <?php print render($content['links']); ?>
+        </div>
     </div>
   </div>
-    <div class="addtoany">
-      <?php print render($content["comments"]); ?>
-    </div>
+
+  <?php print render($content["comments"]); ?>
 </section>
 <script type="text/javascript">
   $(function() {
