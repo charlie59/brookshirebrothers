@@ -39,7 +39,7 @@
         <?php endif; ?>
       </div>
 
-      <div class="align-right">
+      <div class="addtoany addtoany_list">
         <?php
         //$block = module_invoke('service_links', 'block_view', 'service_links');
         //print $block['content'];
