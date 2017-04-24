@@ -24,3 +24,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 .addtoany {
     display: block;
 }
+
+.addtoany ul.inline li {
+    padding: 0;
+}
