@@ -43,8 +43,9 @@
 
     </div>
   </div>
-
-  <?php print render($content["comments"]); ?>
+    <div class="addtoany">
+      <?php print render($content["comments"]); ?>
+    </div>
 </section>
 <script type="text/javascript">
   $(function() {
