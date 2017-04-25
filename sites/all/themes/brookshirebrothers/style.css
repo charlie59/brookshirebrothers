@@ -23,6 +23,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 
 .addtoany {
     display: block;
+    margin-top: 0.6em;
 }
 
 .addtoany ul.inline li {
