@@ -10,6 +10,10 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 	padding:21px 21px 28px 14px;
 }
 
+.main-menu > li.menu-mlid-559 > .dropdown {
+    width: 200px;
+}
+
 @media only screen and (max-width:767px) {
 	.top-menu ul li.menu-mlid-386,
 	.top-menu ul li.menu-mlid-387 { display:none; }
