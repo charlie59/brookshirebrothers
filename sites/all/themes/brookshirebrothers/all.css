@@ -1639,10 +1639,12 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .not-enough-slides .btn-prev,.not-enough-slides .btn-next{
   display:none;
 }
-.store-location .check-box .chk-area{
+.store-location .check-box .chk-area,
+#weekly-ad .chk-area {
   display:none;
 }
-.store-location .check-box .jcf-hidden{
+.store-location .check-box .jcf-hidden,
+#weekly-ad .jcf-hidden {
   position:static !important;
   float:left;
   height:16px;
@@ -3199,7 +3201,8 @@ ul.links li.blog_usernames_blog {
   .main-menu > li.active-trail:hover > a:after,.main-menu > li.active-trail:hover > a:before{
   background-color: #544741;
   }
-  .store-location .check-box .jcf-hidden{
+  .store-location .check-box .jcf-hidden,
+  #weekly-ad .jcf-hidden {
     margin-top:1px;
   }
 	.age-val-intro img { float:none; display:block; margin:0 auto 15px auto; }
