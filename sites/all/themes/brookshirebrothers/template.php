@@ -19,6 +19,11 @@ function brookshirebrothers_breadcrumb($variables) {
   }
 }
 
+function brookshirebrothers_preprocess_html(&$vars) {
+  global $conf;
+  $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
+}
+
 /**
  * Override or insert variables into the page template.
  */
@@ -83,6 +88,9 @@ function brookshirebrothers_preprocess_page(&$vars) {
   $slogan_text = $vars['site_slogan'];
   $site_name_text = $vars['site_name'];
   $vars['site_name_and_slogan'] = $site_name_text . ' ' . $slogan_text;
+
+  global $conf;
+  $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
 }
 
 /**

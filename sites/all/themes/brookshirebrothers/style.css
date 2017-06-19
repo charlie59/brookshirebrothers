@@ -33,3 +33,18 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 .addtoany ul.inline li {
     padding: 0;
 }
+
+.italic {
+    font-style: italic;
+}
+
+.invisible {
+    visibility: hidden;
+    display: none;
+}
+
+.link {
+    text-decoration: underline;
+    color: #000;
+    cursor: pointer;
+}
