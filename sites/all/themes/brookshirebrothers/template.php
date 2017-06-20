@@ -22,6 +22,26 @@ function brookshirebrothers_breadcrumb($variables) {
 function brookshirebrothers_preprocess_html(&$vars) {
   global $conf;
   $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
+  $google_maps_api_key = $vars['google_maps_api_key'];
+  $google_maps_api_key_js = <<<END
+(function ($) { 
+  $(document).ready(function() {
+    google_maps_api_key = '$google_maps_api_key';
+  }) 
+})(jQuery);
+END;
+  drupal_add_js($google_maps_api_key_js, [
+    'type' => 'inline',
+    'scope' => 'footer',
+    'weight' => 1,
+  ]);
+  drupal_add_js(drupal_get_path('theme', 'brookshirebrothers') . '/js/store-locator.js', [
+    'scope' => 'footer',
+  ]);
+
+  if(isset($_GET['pharmacy']) && $_GET['pharmacy'] === "true") {
+    $vars['pharmacy'] = $_GET['pharmacy'];
+  }
 }
 
 /**

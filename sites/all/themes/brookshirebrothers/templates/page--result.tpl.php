@@ -1,54 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function () {
-        // check for Geolocation support
-        if (navigator.geolocation) {
-            navigator.permissions.query({'name': 'geolocation'})
-                .then(function (permission) {
-                    // console.log(permission.state);
-                    if (permission.state == 'granted') {
-                        $("#search").addClass('italic').val('...finding your location');
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            var pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude
-                            };
-                            // console.log(pos);
-                            var latlng = pos.lat + "," + pos.lng;
-                            // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
-                            $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=<?php echo $google_maps_api_key; ?>', function (data) {
-                                // console.log(data);
-                                // this check should take care of errors
-                                if (data.status === 'OK') {
-                                    if (data.results[0]) {
-                                        var obj = data.results[0];
-                                        for (j = 0; j < obj.address_components.length; j++) {
-                                            if (obj.address_components[j].types[0] == 'postal_code') {
-                                                // console.log("Zip Code: " + obj.address_components[j].short_name);
-                                                var zip = obj.address_components[j].short_name;
-                                                $("#search").removeClass('italic').val(zip);
-                                                break;
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    $("#search").removeClass('italic').val('');
-                                }
-                            });
-                        });
-                    } else {
-                        // do something to ask for location permission?
-                    }
-                });
-        } else {
-            // console.log('Geolocation is not supported on this computer.');
-        }
-
-        // More options
-        $("#moreoptions").click(function() {if ($("#moreoptionssection").hasClass('invisible')) {$("#moreoptionssection").removeClass('invisible');} else {$("#moreoptionssection").addClass('invisible');}})
-    });
-</script>
 <div class="w2">
-
   <?php include path_to_theme() . '/templates/includes/nav_menu_header.tpl.php'; ?>
     <div class="w1">
       <?php include path_to_theme() . '/templates/includes/header.tpl.php'; ?>
@@ -69,8 +19,7 @@
                             <div class="row-box">
                                 <label for="search"><?php print t('Search by City, State or Zip Code'); ?></label>
                                 <div class="row">
-                                    <input class="filter-location-area"
-                                           id="search" type="text" required>
+                                    <input class="filter-location-area" id="search" type="text" required>
                                 </div>
                             </div>
                             <div class="row-box add-select">
@@ -114,6 +63,7 @@
                               foreach ($terms as $term) {
                                 $courses[$term->tid] = $term->name; ?>
                                   <div class="check-box">
+                                      <?php if (isset($pharmacy) && ): ?>
                                         <input value="<?php print $term->name; ?>"
                                                checked="checked"
                                                id="check<?php echo $i; ?>"
