@@ -1,5 +1,7 @@
 // page init
 jQuery(function () {
+    "use strict";
+
     initSplitDropDown();
     initGoogleMaps();
     initFilterLocation();
@@ -13,6 +15,7 @@ jQuery(function () {
 
 // split drop down
 function initSplitDropDown() {
+    "use strict";
     jQuery('.main-menu').each(function () {
         var list = jQuery(this);
         var items = list.find('>li');
@@ -67,6 +70,7 @@ function initSplitDropDown() {
 
 // google maps init
 function initGoogleMaps() {
+    "use strict";
     jQuery('.google-map-holder').each(function () {
         var set = jQuery(this);
         var attrAddress = set.find('.address').text();
@@ -101,14 +105,14 @@ function initGoogleMaps() {
             google.maps.event.addListener(marker, 'click', function (e) {
                 infowindow.open(map, marker);
             });
-        };
+        }
     });
 
     function getPosition(address) {
         var d = jQuery.Deferred();
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({'address': address}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
+            if (status === google.maps.GeocoderStatus) {
                 d.resolve(results);
             }
         });
@@ -118,7 +122,8 @@ function initGoogleMaps() {
 
 // filter location init
 function initFilterLocation() {
-    var activeClass = 'filter-active';
+    "use strict";
+     var activeClass = 'filter-active';
 
     jQuery('.filter-location').each(function () {
         var holder = jQuery(this);
@@ -149,7 +154,9 @@ function initFilterLocation() {
             jQuery('#loader').show();
             var literLocation = form.find('.filter-location-area');
             /* [WM] 20140424 - get User's input text */
-            if (e) e.preventDefault();
+            if (e) {
+                e.preventDefault();
+            }
             jQuery.ajax({
                 type: 'get',
                 cache: false,
@@ -177,8 +184,9 @@ function initFilterLocation() {
                         var lng = results[0].geometry.location.lng();
 
                         for (var i in dataObject) {
-                            dataObject[i].features[0].properties.i = i;
-                            html += tmpl("result_tmpl", dataObject[i].features[0].properties);
+                            if (dataObject[i].features[0]) {
+                                html += tmpl("result_tmpl", dataObject[i].features[0].properties);
+                            }
                         }
 
                         //jQuery.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=false', function(){
@@ -229,13 +237,11 @@ function initFilterLocation() {
                     else if (distance <= limit) {
                         semiresultsArray.push(obj[currIndex]);
                     }
-                    ;
                     currIndex++;
                     if (obj[currIndex]) {
                         chechAddress();
                     }
                 }
-                ;
             }
 
             chechAddress();
@@ -261,9 +267,9 @@ function initFilterLocation() {
                     jQuery.each(checkboxArray, function (el2, key2) {
                         var key2 = jQuery.trim(key2);
 
-                        if (key.toLowerCase() == key2.toLowerCase()) {
+                        if (key.toLowerCase() === key2.toLowerCase()) {
                             resultsArray.push(obj);
-                            return true
+                            return true;
                         } else {
                             return false;
                         }
@@ -278,13 +284,14 @@ function initFilterLocation() {
                 showResultCount(semiresultsArray);
                 return semiresultsArray;
             }
-        };
+        }
+
         function getPosition(address) {
             var d = jQuery.Deferred();
 
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({'address': address}, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
+                if (status === google.maps.GeocoderStatus.OK) {
                     d.resolve(results);
                 }
             });
@@ -303,6 +310,7 @@ function initFilterLocation() {
 
 // cycle scroll gallery init
 function initCycleCarousel() {
+    "use strict";
     jQuery('div.carousel').scrollAbsoluteGallery({
         mask: 'div.mask',
         slider: 'div.slideset',
@@ -995,6 +1003,7 @@ ResponsiveHelper = (function ($) {
  * jQuery Accordion plugin
  */
 ;(function ($) {
+    "use strict";
     $.fn.slideAccordion = function (opt) {
         // default options
         var options = $.extend({

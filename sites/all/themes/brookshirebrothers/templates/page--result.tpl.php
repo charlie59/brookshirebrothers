@@ -11,8 +11,7 @@
                           <input type="hidden" name="weekly-ad"
                                  class="weekly-ad" value="true">
                           <h1><?php print t('Find a Weekly Ad'); ?></h1>
-                      <?php }
-                      else { ?>
+                      <?php } else { ?>
                           <h1><?php print t('Find a Store'); ?></h1>
                       <?php } ?>
                         <div class="row-holder">
@@ -104,22 +103,16 @@
                     </form>
                     <section class="content-holder filter-holder">
                       <?php if (isset($_GET['weekly-ad']) && $_GET['weekly-ad'] == "true") {
-
                         /* look for cookie */
-
                         if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
                           header("Location: /weekly-ad?store=" . $_COOKIE['defaultStore']);
                           exit;
-
                         }
                         ?>
-
-
                           <input type="hidden" name="weekly-ad"
                                  class="weekly-ad" value="true">
                           <h1>Choose a Store to See This Week&rsquo;s Ads</h1>
-                      <?php }
-                      else { ?>
+                      <?php } else { ?>
                           <h1>Stores Near You</h1>
                       <?php } ?>
                         <ul class="info-box">
