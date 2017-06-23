@@ -185,6 +185,7 @@ function initFilterLocation() {
 
                         for (var i in dataObject) {
                             if (dataObject[i].features[0]) {
+                                dataObject[i].features[0].properties.i = i;
                                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
                             }
                         }
