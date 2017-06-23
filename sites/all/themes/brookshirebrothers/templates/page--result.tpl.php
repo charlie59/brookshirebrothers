@@ -43,13 +43,11 @@
                               foreach ($terms as $term) {
                                 $courses[$term->tid] = $term->name; ?>
                                   <div class="check-box">
-
                                         <input value="<?php print $term->name; ?>"
                                                checked="checked"
                                                id="check<?php echo $i; ?>"
                                                type="checkbox">
                                         <label for="check<?php echo $i; ?>"><?php print $term->name; ?> </label>
-
                                   </div>
                                 <?php $i++;
                               } ?>
@@ -61,11 +59,18 @@
                               $terms = taxonomy_get_tree($vocabulary->vid);
                               $courses = [];
                               foreach ($terms as $term) {
-                                $courses[$term->tid] = $term->name; ?>
+                                $courses[$term->tid] = $term->name;
+                                if (isset($pharmacy)) {
+                                    $checked = '';
+                                    if ($term->name == "Pharmacy" || $term->name == 'Drive-thru Pharmacy') {
+                                        $checked = 'checked="checked"';
+                                    }
+                                } else {
+                                    $checked = 'checked="checked"';
+                                } ?>
                                   <div class="check-box">
-                                      <?php if (isset($pharmacy) && ): ?>
                                         <input value="<?php print $term->name; ?>"
-                                               checked="checked"
+                                          <?php print $checked; ?>
                                                id="check<?php echo $i; ?>"
                                                type="checkbox">
                                         <label for="check<?php echo $i; ?>"><?php print $term->name; ?> </label>
@@ -83,7 +88,7 @@
                                 $courses[$term->tid] = $term->name; ?>
                                   <div class="check-box">
                                         <input value="<?php print $term->name; ?>"
-                                               checked="checked"
+                                          <?php print $checked; ?>
                                                id="check<?php echo $i; ?>"
                                                type="checkbox">
                                         <label for="check<?php echo $i; ?>"><?php print $term->name; ?> </label>
