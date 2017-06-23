@@ -1,11 +1,7 @@
 <header id="header">
     <div class="header-holder">
-        <strong class="logo"><a href="<?php print $front_page ?>">Brookshire
-                Brothers - A Celebration of Family and Community</a></strong>
-        <strong class="logo-print"><img
-                    src="<?php echo url(path_to_theme(), array('absolute' => TRUE)); ?>/images/logo.png"
-                    alt="" width="290" height="62"></strong>
-
+        <strong class="logo"><a href="<?php print $front_page ?>">Brookshire Brothers - A Celebration of Family and Community</a></strong>
+        <strong class="logo-print"><img src="<?php echo url(path_to_theme(), array('absolute' => TRUE)); ?>/images/logo.png" alt="" width="290" height="62"></strong>
       <?php print render($page['header']); ?>
     </div>
   <?php $block = block_load('menu_block', '4');

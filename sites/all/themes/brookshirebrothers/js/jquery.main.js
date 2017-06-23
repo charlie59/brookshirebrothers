@@ -71,7 +71,8 @@ function initSplitDropDown() {
 // google maps init
 function initGoogleMaps() {
     "use strict";
-    jQuery('.google-map-holder').each(function () {
+
+    jQuery('#google-map-holder').each(function () {
         var set = jQuery(this);
         var attrAddress = set.find('.address').text();
         var iframe = set.find('.map-box');
@@ -100,10 +101,6 @@ function initGoogleMaps() {
             var marker = new google.maps.Marker({
                 map: map,
                 position: location
-            });
-
-            google.maps.event.addListener(marker, 'click', function (e) {
-                infowindow.open(map, marker);
             });
         }
     });
@@ -184,10 +181,8 @@ function initFilterLocation() {
                         var lng = results[0].geometry.location.lng();
 
                         for (var i in dataObject) {
-                            if (dataObject[i].features[0]) {
-                                dataObject[i].features[0].properties.i = i;
-                                html += tmpl("result_tmpl", dataObject[i].features[0].properties);
-                            }
+                            dataObject[i].features[0].properties.i = i;
+                            html += tmpl("result_tmpl", dataObject[i].features[0].properties);
                         }
 
                         //jQuery.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=false', function(){

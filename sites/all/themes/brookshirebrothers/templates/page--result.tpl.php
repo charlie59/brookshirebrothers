@@ -109,20 +109,33 @@
                           exit;
                         }
                         ?>
-                          <input type="hidden" name="weekly-ad"
-                                 class="weekly-ad" value="true">
+                          <input type="hidden" name="weekly-ad" class="weekly-ad" value="true">
                           <h1>Choose a Store to See This Week&rsquo;s Ads</h1>
                       <?php } else { ?>
                           <h1>Stores Near You</h1>
                       <?php } ?>
                         <ul class="info-box">
                             <li><span class="result-count">12</span> Stores
-                                within <span
-                                        class="selected-miles">100 miles</span>
+                                within <span class="selected-miles">100 miles</span>
                                 of <span class="your-location">Texas</span></li>
                             <li><a href="#" class="back-btn">Search Again</a>
                             </li>
                         </ul>
+                        <div id="map" style="width: 300px;"></div>
+                        <script>
+                            function initMap() {
+                                var uluru = {lat: -25.363, lng: 131.044};
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 4,
+                                    center: uluru
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                });
+                            }
+                        </script>
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQNRPaZd4ibswz8dB7gpOZyajfvtkRaAI&callback=initMap" type="text/javascript"></script>
                         <script type="text/html" id="result_tmpl">
                             <section class="<%=(i % 2 == 1 ? "
                                      even" : "even odd")%>">

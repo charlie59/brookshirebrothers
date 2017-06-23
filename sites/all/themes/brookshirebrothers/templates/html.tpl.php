@@ -56,14 +56,10 @@
                 swf: 'swf/',
             }
         </script>
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,900,400italic|Roboto+Condensed:400,300,700|Open+Sans'
-              rel='stylesheet' type='text/css'>
-        <script type="text/javascript"
-                src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,900,400italic|Roboto+Condensed:400,300,700|Open+Sans' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">window.jQuery || document.write('<script src="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/js/jquery-1.8.3.min.js"><\/script>')</script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry"
-                type="text/javascript"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry" type="text/javascript"></script>
       <?php print $styles; ?>
         <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/ie.css" /><![endif]-->
         <!--[if IE]><script type="text/javascript" src="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/js/ie.js"></script><![endif]-->
@@ -108,8 +104,7 @@
             fbq('init', '749139291929800'); // Insert your pixel ID here.
             fbq('track', 'PageView');
         </script>
-        <noscript><img height="1" width="1" style="display:none"
-                       src="https://www.facebook.com/tr?id=749139291929800&ev=PageView&noscript=1"
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=749139291929800&ev=PageView&noscript=1"
             /></noscript>
         <!-- DO NOT MODIFY -->
         <!-- End Facebook Pixel Code -->
@@ -122,8 +117,7 @@
         <div id="wrapper" class="inner">
           <?php endif; ?>
             <div id="skip-link">
-                <a href="#main-content"
-                   class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
+                <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
             </div>
           <?php print $page_top; ?>
           <?php print $page; ?>
