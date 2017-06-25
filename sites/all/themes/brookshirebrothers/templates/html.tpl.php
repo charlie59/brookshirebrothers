@@ -140,7 +140,7 @@
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry&callback=initMap" type="text/javascript"></script>
-        <script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>
+        <!--<script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>-->
     </body>
     </html>
 <?php endif; ?>

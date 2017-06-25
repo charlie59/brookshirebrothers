@@ -67,7 +67,7 @@ function initSplitDropDown() {
 
 // google maps init
 function initGoogleMaps() {
-    jQuery('.google-map-holder').each(function () {
+    jQuery('#map').each(function () {
         var set = jQuery(this);
         var attrAddress = set.find('.address').text();
         var iframe = set.find('.map-box');
