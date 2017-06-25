@@ -25,6 +25,7 @@ $(document).ready(function () {
     } else {
         // check for Geolocation support
         if ("geolocation" in navigator) {
+            /* navigator.permissions only in Chrome Jun 2017 */
             /*navigator.permissions.query({'name': 'geolocation'})
                 .then(function (permissionStatus) {
                     console.log('geolocation permission state is ', permissionStatus.state);
@@ -36,6 +37,7 @@ $(document).ready(function () {
                     }
                 });
                 */
+            $("#search").addClass('italic').val('...finding your location');
             navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
                     lat: position.coords.latitude,
@@ -48,7 +50,6 @@ $(document).ready(function () {
                     // console.log(data);
                     // this check should take care of errors
                     if (data.status === 'OK') {
-                        $("#search").addClass('italic').val('...finding your location');
                         var zip;
                         if (data.results[0]) {
                             /**
