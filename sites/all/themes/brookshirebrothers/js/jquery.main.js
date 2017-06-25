@@ -161,12 +161,12 @@ function initFilterLocation() {
                 data: 'ajax=1&weeklyad=' + weeklyad.val(),
                 dataType: 'text',
                 success: function (data) {
-                    var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
-                    selectedDistance = parseInt(selectedOption.text(), 10);
+                    //var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
+                    //selectedDistance = parseInt(selectedOption.text(), 10);
 
-                    if (selectedOption.hasClass(overClass)) {
+                    //if (selectedOption.hasClass(overClass)) {
                         selectedDistance = 99999;
-                    }
+                    //}
 
                     jQuery(data).appendTo(jQuery('body'));
                     resultCount.text('0');
@@ -174,11 +174,11 @@ function initFilterLocation() {
 
                     getPosition(literLocation.val()).done(function (results) {
                         //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
-                        var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-                        var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
+                        //var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+                        //var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
                         var html = '';
-                        var lat = results[0].geometry.location.lat();
-                        var lng = results[0].geometry.location.lng();
+                        //var lat = results[0].geometry.location.lat();
+                        //var lng = results[0].geometry.location.lng();
 
                         for (var i in dataObject) {
                             dataObject[i].features[0].properties.i = i;
