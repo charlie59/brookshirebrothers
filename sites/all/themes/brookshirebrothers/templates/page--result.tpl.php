@@ -170,5 +170,5 @@
             map: map
         });
     }
-    initMap();
+    //initMap();
 </script>
