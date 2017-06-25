@@ -142,19 +142,6 @@
                         </script>
                       <?php $results = entity_load_by_type('node', 'store_location') ?>
                         <div class="store-block"></div>
-                        <script>
-                            function initMap() {
-                                var uluru = {lat: -25.363, lng: 131.044};
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 4,
-                                    center: uluru
-                                });
-                                var marker = new google.maps.Marker({
-                                    position: uluru,
-                                    map: map
-                                });
-                            }
-                        </script>
                     </section>
                 </section>
               <?php if ($page['sidebar_first']): ?>
