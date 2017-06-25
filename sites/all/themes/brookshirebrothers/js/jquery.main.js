@@ -160,6 +160,7 @@ function initFilterLocation() {
                 data: 'ajax=1&weeklyad=' + weeklyad.val(),
                 dataType: 'text',
                 success: function (data) {
+                    console.log(data);
                     //var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
                     selectedDistance = parseInt(selectedOption.text(), 10);
 
