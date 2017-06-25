@@ -170,7 +170,7 @@ function initFilterLocation() {
 
                     jQuery(data).appendTo(jQuery('body'));
                     resultCount.text('0');
-                    selectedMiles.text(selectedOption.text());
+                    // selectedMiles.text(selectedOption.text());
 
                     getPosition(literLocation.val()).done(function (results) {
                         //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
