@@ -36,7 +36,6 @@ $(document).ready(function () {
                     }
                 });
                 */
-            $("#search").addClass('italic').val('...finding your location');
             navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
                     lat: position.coords.latitude,
@@ -49,6 +48,7 @@ $(document).ready(function () {
                     // console.log(data);
                     // this check should take care of errors
                     if (data.status === 'OK') {
+                        $("#search").addClass('italic').val('...finding your location');
                         var zip;
                         if (data.results[0]) {
                             /**
