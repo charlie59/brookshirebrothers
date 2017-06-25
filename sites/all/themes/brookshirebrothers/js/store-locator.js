@@ -24,54 +24,58 @@ $(document).ready(function () {
         $("#search").val(zip);
     } else {
         // check for Geolocation support
-        if (navigator.geolocation) {
-            navigator.permissions.query({'name': 'geolocation'})
+        if ("geolocation" in navigator) {
+            /*navigator.permissions.query({'name': 'geolocation'})
                 .then(function (permissionStatus) {
                     console.log('geolocation permission state is ', permissionStatus.state);
                     permissionStatus.onchange = function() {
                         console.log('geolocation permission state has changed to ', this.state);
                     };
                     if (permissionStatus.state === 'granted') {
-                        $("#search").addClass('italic').val('...finding your location');
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            var pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude
-                            };
-                            // console.log(pos);
-                            var latlng = pos.lat + "," + pos.lng;
-                            // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
-                            $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
-                                // console.log(data);
-                                // this check should take care of errors
-                                if (data.status === 'OK') {
-                                    var zip;
-                                    if (data.results[0]) {
-                                        /**
-                                         * @typedef {Object} obj
-                                         * @property {string} address_components
-                                         */
-                                        var obj = data.results[0];
-                                        var j = 0;
-                                        for (j = 0; j < obj.address_components.length; j++) {
-                                            if (obj.address_components[j].types[0] === 'postal_code') {
-                                                // console.log("Zip Code: " + obj.address_components[j].short_name);
-                                                zip = obj.address_components[j].short_name;
-                                                $("#search").removeClass('italic').val(zip);
-                                                break;
-                                            }
-                                        }
-                                        // set cookie
-                                        document.cookie = "storezip=" + zip;
-                                    }
-                                } else {
-                                    $("#search").removeClass('italic').val('');
-                                }
-                            });
-                        });
+
                     }
                 });
-        } else {alert("no geolocation support");}
+                */
+            $("#search").addClass('italic').val('...finding your location');
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                // console.log(pos);
+                var latlng = pos.lat + "," + pos.lng;
+                // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
+                $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
+                    // console.log(data);
+                    // this check should take care of errors
+                    if (data.status === 'OK') {
+                        var zip;
+                        if (data.results[0]) {
+                            /**
+                             * @typedef {Object} obj
+                             * @property {string} address_components
+                             */
+                            var obj = data.results[0];
+                            var j = 0;
+                            for (j = 0; j < obj.address_components.length; j++) {
+                                if (obj.address_components[j].types[0] === 'postal_code') {
+                                    // console.log("Zip Code: " + obj.address_components[j].short_name);
+                                    zip = obj.address_components[j].short_name;
+                                    $("#search").removeClass('italic').val(zip);
+                                    break;
+                                }
+                            }
+                            // set cookie
+                            document.cookie = "storezip=" + zip;
+                        }
+                    } else {
+                        $("#search").removeClass('italic').val('');
+                    }
+                });
+            });
+        } else {
+            console.log("no geolocation support");
+        }
     }
 
     // More options
