@@ -1,7 +1,6 @@
 // page init
 jQuery(function () {
     "use strict";
-
     initSplitDropDown();
     initGoogleMaps();
     initFilterLocation();
@@ -138,12 +137,12 @@ function initFilterLocation() {
         var yopurAddress = filterHolder.find('.your-location');
         var overClass = 'over';
 
-        var mapOptions = {
+        /*var mapOptions = {
             zoom: 11,
             mapTypeControl: false,
             center: new google.maps.LatLng(-34.397, 150.644),
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+        };*/
         filterHolder.hide();
         function sendForm(e) {
 
