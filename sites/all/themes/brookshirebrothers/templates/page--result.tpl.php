@@ -124,6 +124,20 @@
 
                         <div id="map" style="height: 300px;"></div>
 
+                        <script>
+                            function initMap() {
+                                var uluru = {lat: -25.363, lng: 131.044};
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 4,
+                                    center: uluru
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                });
+                            }
+                            initMap();
+                        </script>
 
                         <script type="text/html" id="result_tmpl">
                             <section class="<%=(i % 2 == 1 ? "
@@ -156,19 +170,3 @@
     </div>
   <?php include path_to_theme() . '/templates/includes/footer.tpl.php'; ?>
 </div>
-
-
-<script>
-    function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-    //initMap();
-</script>
