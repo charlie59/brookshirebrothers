@@ -72,7 +72,7 @@ function initSplitDropDown() {
 function initGoogleMaps() {
     "use strict";
 
-    jQuery('#google-map-holder').each(function () {
+    /*jQuery('#google-map-holder').each(function () {
         var set = jQuery(this);
         var attrAddress = set.find('.address').text();
         var iframe = set.find('.map-box');
@@ -103,7 +103,7 @@ function initGoogleMaps() {
                 position: location
             });
         }
-    });
+    });*/
 
     function getPosition(address) {
         var d = jQuery.Deferred();
