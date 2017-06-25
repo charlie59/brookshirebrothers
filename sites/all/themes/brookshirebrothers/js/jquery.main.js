@@ -1,9 +1,8 @@
 // page init
 jQuery(function () {
-    "use strict";
     initSplitDropDown();
-    // initGoogleMaps();
-    // initFilterLocation();
+    initGoogleMaps();
+    initFilterLocation();
     jcf.customForms.replaceAll();
     initCycleCarousel();
     initOpenClose();
@@ -14,7 +13,6 @@ jQuery(function () {
 
 // split drop down
 function initSplitDropDown() {
-    "use strict";
     jQuery('.main-menu').each(function () {
         var list = jQuery(this);
         var items = list.find('>li');
@@ -69,9 +67,7 @@ function initSplitDropDown() {
 
 // google maps init
 function initGoogleMaps() {
-    "use strict";
-
-    /*jQuery('#google-map-holder').each(function () {
+    jQuery('.google-map-holder').each(function () {
         var set = jQuery(this);
         var attrAddress = set.find('.address').text();
         var iframe = set.find('.map-box');
@@ -101,14 +97,18 @@ function initGoogleMaps() {
                 map: map,
                 position: location
             });
-        }
-    });*/
+
+            google.maps.event.addListener(marker, 'click', function (e) {
+                infowindow.open(map, marker);
+            });
+        };
+    });
 
     function getPosition(address) {
         var d = jQuery.Deferred();
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({'address': address}, function (results, status) {
-            if (status === google.maps.GeocoderStatus) {
+            if (status == google.maps.GeocoderStatus.OK) {
                 d.resolve(results);
             }
         });
@@ -118,8 +118,7 @@ function initGoogleMaps() {
 
 // filter location init
 function initFilterLocation() {
-    "use strict";
-     var activeClass = 'filter-active';
+    var activeClass = 'filter-active';
 
     jQuery('.filter-location').each(function () {
         var holder = jQuery(this);
@@ -137,12 +136,12 @@ function initFilterLocation() {
         var yopurAddress = filterHolder.find('.your-location');
         var overClass = 'over';
 
-        /*var mapOptions = {
+        var mapOptions = {
             zoom: 11,
             mapTypeControl: false,
             center: new google.maps.LatLng(-34.397, 150.644),
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        };*/
+        };
         filterHolder.hide();
         function sendForm(e) {
 
@@ -150,9 +149,7 @@ function initFilterLocation() {
             jQuery('#loader').show();
             var literLocation = form.find('.filter-location-area');
             /* [WM] 20140424 - get User's input text */
-            if (e) {
-                e.preventDefault();
-            }
+            if (e) e.preventDefault();
             jQuery.ajax({
                 type: 'get',
                 cache: false,
@@ -160,24 +157,24 @@ function initFilterLocation() {
                 data: 'ajax=1&weeklyad=' + weeklyad.val(),
                 dataType: 'text',
                 success: function (data) {
-                    console.log(data);
-                    //var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
+                    var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
                     selectedDistance = parseInt(selectedOption.text(), 10);
 
-                    //if (selectedOption.hasClass(overClass)) {
-                        //selectedDistance = 99999;
-                    //}
+                    if (selectedOption.hasClass(overClass)) {
+                        selectedDistance = 99999;
+                    }
 
                     jQuery(data).appendTo(jQuery('body'));
-                    // selectedMiles.text(selectedOption.text());
+                    resultCount.text('0');
+                    selectedMiles.text(selectedOption.text());
 
                     getPosition(literLocation.val()).done(function (results) {
                         //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
-                        //var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+                        var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
                         var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
                         var html = '';
-                        //var lat = results[0].geometry.location.lat();
-                        //var lng = results[0].geometry.location.lng();
+                        var lat = results[0].geometry.location.lat();
+                        var lng = results[0].geometry.location.lng();
 
                         for (var i in dataObject) {
                             dataObject[i].features[0].properties.i = i;
@@ -232,11 +229,13 @@ function initFilterLocation() {
                     else if (distance <= limit) {
                         semiresultsArray.push(obj[currIndex]);
                     }
+                    ;
                     currIndex++;
                     if (obj[currIndex]) {
                         chechAddress();
                     }
                 }
+                ;
             }
 
             chechAddress();
@@ -262,9 +261,9 @@ function initFilterLocation() {
                     jQuery.each(checkboxArray, function (el2, key2) {
                         var key2 = jQuery.trim(key2);
 
-                        if (key.toLowerCase() === key2.toLowerCase()) {
+                        if (key.toLowerCase() == key2.toLowerCase()) {
                             resultsArray.push(obj);
-                            return true;
+                            return true
                         } else {
                             return false;
                         }
@@ -279,14 +278,13 @@ function initFilterLocation() {
                 showResultCount(semiresultsArray);
                 return semiresultsArray;
             }
-        }
-
+        };
         function getPosition(address) {
             var d = jQuery.Deferred();
 
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({'address': address}, function (results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
+                if (status == google.maps.GeocoderStatus.OK) {
                     d.resolve(results);
                 }
             });
@@ -305,7 +303,6 @@ function initFilterLocation() {
 
 // cycle scroll gallery init
 function initCycleCarousel() {
-    "use strict";
     jQuery('div.carousel').scrollAbsoluteGallery({
         mask: 'div.mask',
         slider: 'div.slideset',
@@ -998,7 +995,6 @@ ResponsiveHelper = (function ($) {
  * jQuery Accordion plugin
  */
 ;(function ($) {
-    "use strict";
     $.fn.slideAccordion = function (opt) {
         // default options
         var options = $.extend({
@@ -3010,11 +3006,11 @@ jcf.addModule({
             t = i.HAS_POINTEREVENTS ? i.PointerEvent.getEvents() : i.NO_MOUSEEVENTS ? ["touchstart", "touchmove", "touchend touchcancel"] : ["touchstart mousedown", "touchmove mousemove", "touchend touchcancel mouseup"], i.EVENT_TYPES[i.EVENT_START] = t[0], i.EVENT_TYPES[i.EVENT_MOVE] = t[1], i.EVENT_TYPES[i.EVENT_END] = t[2]
         }, getTouchList: function (t) {
             return i.HAS_POINTEREVENTS ? i.PointerEvent.getTouchList() : t.touches ? t.touches : [{
-                        identifier: 1,
-                        pageX: t.pageX,
-                        pageY: t.pageY,
-                        target: t.target
-                    }]
+                identifier: 1,
+                pageX: t.pageX,
+                pageY: t.pageY,
+                target: t.target
+            }]
         }, collectEventData: function (t, e, n) {
             var r = this.getTouchList(n, e), o = i.POINTER_TOUCH;
             return (n.type.match(/mouse/) || i.PointerEvent.matchType(i.POINTER_MOUSE, n)) && (o = i.POINTER_MOUSE), {
@@ -3249,8 +3245,8 @@ jcf.addModule({
             t.eventType == i.EVENT_END && e.trigger(this.name, t)
         }
     }, "object" == typeof module && "object" == typeof module.exports ? module.exports = i : (t.Hammer = i, "function" == typeof t.define && t.define.amd && t.define("hammer", [], function () {
-            return i
-        }))
+        return i
+    }))
 })(this), function (t, e) {
     "use strict";
     t !== e && (Hammer.event.bindDom = function (n, i, r) {
