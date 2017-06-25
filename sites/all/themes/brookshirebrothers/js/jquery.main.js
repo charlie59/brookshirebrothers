@@ -2,8 +2,8 @@
 jQuery(function () {
     "use strict";
     initSplitDropDown();
-    initGoogleMaps();
-    initFilterLocation();
+    // initGoogleMaps();
+    // initFilterLocation();
     jcf.customForms.replaceAll();
     initCycleCarousel();
     initOpenClose();
@@ -161,20 +161,19 @@ function initFilterLocation() {
                 dataType: 'text',
                 success: function (data) {
                     //var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
-                    //selectedDistance = parseInt(selectedOption.text(), 10);
+                    selectedDistance = parseInt(selectedOption.text(), 10);
 
                     //if (selectedOption.hasClass(overClass)) {
-                        selectedDistance = 99999;
+                        //selectedDistance = 99999;
                     //}
 
                     jQuery(data).appendTo(jQuery('body'));
-                    resultCount.text('0');
                     // selectedMiles.text(selectedOption.text());
 
                     getPosition(literLocation.val()).done(function (results) {
                         //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
                         //var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-                        //var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
+                        var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
                         var html = '';
                         //var lat = results[0].geometry.location.lat();
                         //var lng = results[0].geometry.location.lng();

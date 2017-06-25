@@ -5,8 +5,7 @@
         <div id="main">
             <div class="main-holder">
                 <section id="content" class="filter-location store-location">
-                    <form id="store-locator" action="/store-locator"
-                          class="form-block add-form location-form">
+                    <form id="store-locator" action="/store-locator" class="form-block add-form location-form">
                       <?php if (isset($_GET['weekly-ad']) && $_GET['weekly-ad'] == "true") { ?>
                           <input type="hidden" name="weekly-ad"
                                  class="weekly-ad" value="true">
