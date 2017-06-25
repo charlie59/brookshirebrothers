@@ -68,7 +68,7 @@ $(document).ready(function () {
                         });
                     }
                 });
-        }
+        } else {alert("no geolocation support");}
     }
 
     // More options
