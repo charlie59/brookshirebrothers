@@ -26,9 +26,12 @@ $(document).ready(function () {
         // check for Geolocation support
         if (navigator.geolocation) {
             navigator.permissions.query({'name': 'geolocation'})
-                .then(function (permission) {
+                .then(function (permissionStatus) {
                     console.log('geolocation permission state is ', permissionStatus.state);
-                    if (permission.state === 'granted') {
+                    permissionStatus.onchange = function() {
+                        console.log('geolocation permission state has changed to ', this.state);
+                    };
+                    if (permissionStatus.state === 'granted') {
                         $("#search").addClass('italic').val('...finding your location');
                         navigator.geolocation.getCurrentPosition(function (position) {
                             var pos = {
