@@ -5,7 +5,7 @@ engine = phptemplate
 stylesheets[all][] = all.css
 stylesheets[all][] = style.css
 
-scripts[] = js/jquery.main.js
+;scripts[] = js/jquery.main.js
 
 regions[header] = Header
 regions[page_top] = Page top
