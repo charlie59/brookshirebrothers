@@ -167,4 +167,3 @@
     </div>
   <?php include path_to_theme() . '/templates/includes/footer.tpl.php'; ?>
 </div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&callback=initMap" type="text/javascript"></script>
