@@ -166,7 +166,7 @@
         var lat = '';
         var lng = '';
 
-        $.getJSON("http://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result){
+        jQuery.getJSON("http://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
             console.log(result);
         }
 
