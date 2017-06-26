@@ -112,7 +112,7 @@
                           <h1>Stores Near You</h1>
                       <?php } ?>
                         <ul class="info-box">
-                            <li><span class="result-count">12</span> Stores
+                            <li><span class="result-count">12</span> <span class="result-text">Stores</span>
                                 within <span class="selected-miles">100 miles</span>
                                 of <span class="your-location">Texas</span></li>
                             <li><a href="#" class="back-btn">Search Again</a>
@@ -122,6 +122,7 @@
                         <script type="text/html" id="result_tmpl">
                             <section class="<%=(i % 2 == 1 ? "
                                      even" : "even odd")%>">
+                            <h1><%=num%></h1>
                             <div class="store-info">
                                 <strong class="title"><%=title%></strong>
                                 <address><%=address%><br><%=locality%></address>

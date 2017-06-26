@@ -1,7 +1,10 @@
 /* jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
 /* global define, $, JSLINT, brackets,  */
 var google_maps_api_key = google_maps_api_key;
-storezip = getCookie("storezip");
+var storeZip = getCookie("storeZip");
+var storeMap;
+var storeLocations;
+
 
 function getCookie(name) {
     "use strict";
@@ -20,12 +23,12 @@ function getCookie(name) {
 $(document).ready(function () {
     "use strict";
     // use cookie value if it has been set for session
-    if (storezip !== null) {
-        $("#search").val(storezip);
-        //initMap(storezip);
+    if (storeZip !== null) {
+        $("#search").val(storeZip);
     } else {
         // check for Geolocation support
         if ("geolocation" in navigator) {
+
             /* navigator.permissions only in Chrome Jun 2017 */
             /*navigator.permissions.query({'name': 'geolocation'})
                 .then(function (permissionStatus) {
@@ -61,15 +64,13 @@ $(document).ready(function () {
                             for (j = 0; j < obj.address_components.length; j++) {
                                 if (obj.address_components[j].types[0] === 'postal_code') {
                                     // console.log("Zip Code: " + obj.address_components[j].short_name);
-                                    storezip = obj.address_components[j].short_name;
-                                    $("#search").removeClass('italic').val(storezip);
-                                    // initMap(storezip);
+                                    storeZip = obj.address_components[j].short_name;
+                                    $("#search").removeClass('italic').val(storeZip);
                                     break;
                                 }
                             }
                             // set cookie
-                            document.cookie = "storezip=" + storezip;
-
+                            document.cookie = "storeZip=" + storeZip;
                         }
                     } else {
                         $("#search").removeClass('italic').val('');
@@ -96,26 +97,47 @@ $(document).ready(function () {
     });
 
     /*
-     * make map based on storezip
+     * make map based on storeZip
      */
-    function initMap(storezip) {
-        // console.log(storezip);
-        if (storezip !== null) {
-            if (storezip.length > 0) {
-                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storezip, function(data) {
+    function initMap(storeZip) {
+        // console.log(storeZip);
+        if (storeZip !== null) {
+            if (storeZip.length > 0) {
+                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storeZip, function(data) {
                     // console.log(data);
                     if (data.status === 'OK') {
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
                         // console.log(lat + ' ' + lng);
-                        $("#result_tmpl").before( '<div id="map" style="height: 300px;"></div>' );
+                        $("#result_tmpl").before( '<div id="storeMap" style="height: 300px;"></div>' );
                         var uluru = {lat: lat, lng: lng};
-                        var map = new google.maps.Map(document.getElementById('map'), {
+                        storeMap = new google.maps.Map(document.getElementById('storeMap'), {
                             zoom: 8,
                             center: uluru,
                             mapTypeId: google.maps.MapTypeId.ROADMAP,
                             imageDefaultUI: true
                         });
+
+                        var infoWindow = new google.maps.InfoWindow(), marker, i;
+                        var num_markers = storeLocations.length;
+                        var markers = [];
+                        for (var j = 0; j < num_markers; j++) {
+                            var res = storeLocations[j][1].split(",");
+                            // console.log(storeLocations[j][0]);
+                            markers[j] = new google.maps.Marker({
+                                position: {lat: parseFloat(res[0].trim()), lng: parseFloat(res[1].trim())},
+                                map: storeMap,
+                                title: storeLocations[j][0]
+                            });
+                            // Allow each marker to have an info window
+                            google.maps.event.addListener(markers[j], 'click', (function(marker, j) {
+                                console.log(marker);
+                                return function() {
+                                    infoWindow.setContent(this.title);
+                                    infoWindow.open(storeMap, marker);
+                                }
+                            })(markers[j], j));
+                        }
                     }
                 });
             }
@@ -139,6 +161,7 @@ $(document).ready(function () {
             var selectedDistance;
             var convertCoeff = 1000 * 1.61;
             var resultCount = filterHolder.find('.result-count');
+            var resultText = filterHolder.find('.result-text');
             var selectedMiles = filterHolder.find('.selected-miles');
             var yourAddress = filterHolder.find('.your-location');
             var overClass = 'over';
@@ -152,10 +175,11 @@ $(document).ready(function () {
             filterHolder.hide();
             function sendForm(e) {
                 var weeklyad = holder.find('.weekly-ad');
+                storeLocations = [];
+                $("#storeMap").remove();
                 jQuery('#loader').show();
                 var literLocation = form.find('.filter-location-area');
-                /* [WM] 20140424 - get User's input text */
-                if (e) e.preventDefault();
+                e.preventDefault();
                 jQuery.ajax({
                     type: 'get',
                     cache: false,
@@ -175,20 +199,21 @@ $(document).ready(function () {
                         selectedMiles.text(selectedOption.text());
 
                         getPosition(literLocation.val()).done(function (results) {
-                            //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
-                            var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+                            var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
                             var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
                             var html = '';
                             var lat = results[0].geometry.location.lat();
                             var lng = results[0].geometry.location.lng();
 
                             for (var i in dataObject) {
+                                // add properties
+                                var num = parseInt(i) + 1;
                                 dataObject[i].features[0].properties.i = i;
+                                dataObject[i].features[0].properties.num = num;
+                                var storeLocation = [num, dataObject[i].features[0].geometry.coordinates];
+                                storeLocations.push(storeLocation);
                                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
                             }
-
-                            // TODO: add map marker
-
 
                             filterList.html(html);
                         });
@@ -204,12 +229,10 @@ $(document).ready(function () {
                     holder.addClass(activeClass);
                     form.hide();
                     filterHolder.show();
-                    initMap(storezip);
                 } else {
                     holder.removeClass(activeClass);
                     form.show();
                     filterHolder.hide();
-                    $("#map").remove();
                 }
             }
 
@@ -260,11 +283,10 @@ $(document).ready(function () {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key)
-
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
-
                             if (key.toLowerCase() === key2.toLowerCase()) {
+                                // console.log(obj);
                                 resultsArray.push(obj);
                                 return true
                             } else {
@@ -296,7 +318,12 @@ $(document).ready(function () {
 
             function showResultCount(currArr) {
                 resultCount.text(currArr.length);
+                // console.log(currArr.length);
                 selectedMiles.text(distanceSelect.children().eq(distanceSelect.get(0).selectedIndex).text())
+                if (currArr.length > 0) {
+                    initMap(storeZip);
+                }
+                currArr.length === 1? resultText.text('Store'): resultText.text('Stores');
             }
 
             form.submit(sendForm);
