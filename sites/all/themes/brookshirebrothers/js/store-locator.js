@@ -73,7 +73,10 @@ $(document).ready(function () {
                         $("#search").removeClass('italic').val('');
                     }
                 });
-            });
+            }, function errorCallback(error) {
+                console.log(error);
+            }
+            );
         } else {
             console.log("no geolocation support");
         }
