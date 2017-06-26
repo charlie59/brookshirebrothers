@@ -43,11 +43,11 @@ $(document).ready(function () {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-                // console.log(pos);
+                console.log(pos);
                 var latlng = pos.lat + "," + pos.lng;
                 // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
                 $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
-                    // console.log(data);
+                    console.log(data);
                     // this check should take care of errors
                     if (data.status === 'OK') {
                         var zip;
