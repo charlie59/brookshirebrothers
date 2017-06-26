@@ -124,6 +124,7 @@ $(document).ready(function () {
 
     // filter location init
     function initFilterLocation() {
+        "use strict";
         var activeClass = 'filter-active';
 
         jQuery('.filter-location').each(function () {
