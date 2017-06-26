@@ -165,6 +165,11 @@
         console.log(zip);
         var lat = '';
         var lng = '';
+
+        $.getJSON("http://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result){
+            console.log(result);
+        }
+
         var geocoder= new google.maps.Geocoder();
         geocoder.geocode( { 'address': zip}, function(results, status) {
             console.log(status);
