@@ -22,6 +22,7 @@ $(document).ready(function () {
     var zip = getCookie("storezip");
     if (zip !== null) {
         $("#search").val(zip);
+        initMap(zip);
     } else {
         // check for Geolocation support
         if ("geolocation" in navigator) {
@@ -60,8 +61,9 @@ $(document).ready(function () {
                             for (j = 0; j < obj.address_components.length; j++) {
                                 if (obj.address_components[j].types[0] === 'postal_code') {
                                     // console.log("Zip Code: " + obj.address_components[j].short_name);
-                                    zip = obj.address_components[j].short_name;
+                                    var zip = obj.address_components[j].short_name;
                                     $("#search").removeClass('italic').val(zip);
+                                    initMap(zip);
                                     break;
                                 }
                             }
@@ -82,8 +84,6 @@ $(document).ready(function () {
         }
     }
 
-    initMap(zip);
-
     // More options
     $("#moreoptions").click(function() {
         if ($("#moreoptionssection").hasClass('invisible')) {
@@ -96,21 +96,27 @@ $(document).ready(function () {
     });
 
     function initMap(zip) {
+        console.log(zip);
         if (zip !== null) {
-            console.log(zip);
             if (zip.length > 0) {
-                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
-                    console.log(result);
-                    if (result.Status === 'OK') {
-                        var lat = result[0].geometry.location.lat;
-                        var lng = result[0].geometry.location.lng;
+                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(data) {
+                    console.log(data);
+                    if (data.status === 'OK') {
+                        var lat = data.results[0].geometry.location.lat;
+                        var lng = data.results[0].geometry.location.lng;
                         console.log(lat + ' ' + lng);
+
+                        var uluru = {lat: lat, lng: lng};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 8,
+                            center: uluru,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            imageDefaultUI: true
+                        });
                     }
                 });
             }
         }
-
-
 
         /*
          var geocoder= new google.maps.Geocoder();
@@ -124,12 +130,6 @@ $(document).ready(function () {
          }
          });
          console.log(lat + ' ' + lng);
-         var uluru = {lat: lat, lng: lng};
-         var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 8,
-         center: uluru,
-         mapTypeId: google.maps.MapTypeId.ROADMAP,
-         imageDefaultUI: true
-         });*/
+         */
     }
 });
