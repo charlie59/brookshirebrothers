@@ -154,14 +154,31 @@
   <?php include path_to_theme() . '/templates/includes/footer.tpl.php'; ?>
 </div>
 <script>
+    (function ($) {
+        $(document).ready(function() {
+            google_maps_api_key = '<?php echo google_maps_api_key; ?>';
+        })
+    })(jQuery);
+
     function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var zip = getCookie("storezip");
+        var lat = '';
+        var lng = '';
+        geocoder.geocode( { 'address': zip}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                lat = results[0].geometry.location.lat();
+                lng = results[0].geometry.location.lng();
+            });
+        }
+        var uluru = {lat: lat, lng: lng};
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
+            zoom: 8,
             center: uluru,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             imageDefaultUI: true
         });
     }
 </script>
+<script src="/sites/all/themes/brookshirebrothers/js/store-locator.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry&callback=initMap" type="text/javascript"></script>
+<!-- add store-locator script here -->

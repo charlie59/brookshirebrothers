@@ -21,26 +21,7 @@ function brookshirebrothers_breadcrumb($variables) {
 }
 
 function brookshirebrothers_preprocess_html(&$vars) {
-  if (arg(1) == '46') {
-    global $conf;
-    $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
-    $google_maps_api_key = $vars['google_maps_api_key'];
-    $google_maps_api_key_js = <<<END
-(function ($) { 
-  $(document).ready(function() {
-    google_maps_api_key = '$google_maps_api_key';
-  }) 
-})(jQuery);
-END;
-    drupal_add_js($google_maps_api_key_js, [
-      'type' => 'inline',
-      'scope' => 'footer',
-      'weight' => 1,
-    ]);
-    drupal_add_js(drupal_get_path('theme', 'brookshirebrothers') . '/js/store-locator.js', [
-      'scope' => 'footer',
-    ]);
-  }
+ //
 }
 
 /**
@@ -108,12 +89,13 @@ function brookshirebrothers_preprocess_page(&$vars) {
   $site_name_text = $vars['site_name'];
   $vars['site_name_and_slogan'] = $site_name_text . ' ' . $slogan_text;
 
-  // set var for maps api key
-  global $conf;
-  $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
-
   // set pharmacy var for store locator
   if (arg(1) == '46') {
+
+    // set var for maps api key
+    global $conf;
+    $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
+
     if (isset($_GET['pharmacy']) && $_GET['pharmacy'] == "true") {
       $vars['pharmacy'] = $_GET['pharmacy'];
     }
