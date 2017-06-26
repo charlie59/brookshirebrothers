@@ -125,8 +125,9 @@
         <script data-main="/js/app" src="/js/vendor/require.js"></script>
         <script type="text/javascript" src="https://6311223.collect.igodigital.com/collect.js"></script>
         <script type="text/javascript"> _etmc.push(["setOrgId", "6311223"]);
-            _etmc.push(["trackPageView"]); </script>
-        <!--<script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>-->
+            _etmc.push(["trackPageView"]);
+        </script>
+        <script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>
     </body>
     </html>
 <?php endif; ?>
