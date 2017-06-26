@@ -154,29 +154,28 @@
   <?php include path_to_theme() . '/templates/includes/footer.tpl.php'; ?>
 </div>
 <script>
-    (function ($) {
-        $(document).ready(function() {
-            google_maps_api_key = '<?php echo google_maps_api_key; ?>';
-        })
-    })(jQuery);
+    google_maps_api_key = '<?php echo $google_maps_api_key; ?>';
 
     function initMap() {
-        /*var storezip = getCookie("storezip");
+        var storezip = getCookie("storezip");
         if (storezip === null) {
             storezip = jQuery("#search").val();
         }
 
         console.log(storezip);
         if (storezip.length > 0) {
-            jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + storezip, function(result) {
+            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + storezip, function(result) {
                 console.log(result);
+                if (result.Status === 'OK') {
+
+                }
             });
         }
         var lat = '';
         var lng = '';
 
 
-
+/*
         var geocoder= new google.maps.Geocoder();
         geocoder.geocode( { 'address': zip}, function(results, status) {
             console.log(status);
