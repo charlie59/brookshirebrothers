@@ -50,7 +50,6 @@ $(document).ready(function () {
                     // console.log(data);
                     // this check should take care of errors
                     if (data.status === 'OK') {
-                        var zip;
                         if (data.results[0]) {
                             /**
                              * @typedef {Object} obj
@@ -68,6 +67,7 @@ $(document).ready(function () {
                             }
                             // set cookie
                             document.cookie = "storezip=" + zip;
+
                         }
                     } else {
                         $("#search").removeClass('italic').val('');
@@ -82,6 +82,8 @@ $(document).ready(function () {
         }
     }
 
+    initMap(zip);
+
     // More options
     $("#moreoptions").click(function() {
         if ($("#moreoptionssection").hasClass('invisible')) {
@@ -92,4 +94,42 @@ $(document).ready(function () {
             $("#moreoptions").text('More options');
         }
     });
+
+    function initMap(zip) {
+        if (zip !== null) {
+            console.log(zip);
+            if (zip.length > 0) {
+                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
+                    console.log(result);
+                    if (result.Status === 'OK') {
+                        var lat = result[0].geometry.location.lat;
+                        var lng = result[0].geometry.location.lng;
+                        console.log(lat + ' ' + lng);
+                    }
+                });
+            }
+        }
+
+
+
+        /*
+         var geocoder= new google.maps.Geocoder();
+         geocoder.geocode( { 'address': zip}, function(results, status) {
+         console.log(status);
+         console.log(google.maps.GeocoderStatus.OK);
+         console.log(results);
+         if (status === 'Ok') {
+         lat = results[0].geometry.location.lat();
+         lng = results[0].geometry.location.lng();
+         }
+         });
+         console.log(lat + ' ' + lng);
+         var uluru = {lat: lat, lng: lng};
+         var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 8,
+         center: uluru,
+         mapTypeId: google.maps.MapTypeId.ROADMAP,
+         imageDefaultUI: true
+         });*/
+    }
 });
