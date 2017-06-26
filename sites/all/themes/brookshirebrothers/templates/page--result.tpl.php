@@ -170,7 +170,7 @@
             console.log(status);
             console.log(google.maps.GeocoderStatus.OK);
             console.log(results);
-            if (status === google.maps.GeocoderStatus.OK) {
+            if (status === 'Ok') {
                 lat = results[0].geometry.location.lat();
                 lng = results[0].geometry.location.lng();
             }
