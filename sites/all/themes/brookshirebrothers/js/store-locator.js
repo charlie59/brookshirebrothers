@@ -117,19 +117,5 @@ $(document).ready(function () {
                 });
             }
         }
-
-        /*
-         var geocoder= new google.maps.Geocoder();
-         geocoder.geocode( { 'address': zip}, function(results, status) {
-         console.log(status);
-         console.log(google.maps.GeocoderStatus.OK);
-         console.log(results);
-         if (status === 'Ok') {
-         lat = results[0].geometry.location.lat();
-         lng = results[0].geometry.location.lng();
-         }
-         });
-         console.log(lat + ' ' + lng);
-         */
     }
 });
