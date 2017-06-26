@@ -1,7 +1,6 @@
 // page init
 jQuery(function () {
     initSplitDropDown();
-    //initGoogleMaps();
     jcf.customForms.replaceAll();
     initCycleCarousel();
     initOpenClose();
@@ -63,58 +62,6 @@ function initSplitDropDown() {
         });
     });
 }
-
-// google maps init
-function initGoogleMaps() {
-    jQuery('#map').each(function () {
-        var set = jQuery(this);
-        var attrAddress = set.find('.address').text();
-        var iframe = set.find('.map-box');
-        var linkToMap = set.find('.btn-map');
-
-        linkToMap.attr('target', '_blank');
-
-        var mapOptions = {
-            zoom: 13,
-            center: new google.maps.LatLng(-34.397, 150.644),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(iframe.get(0), mapOptions);
-
-        getPosition(attrAddress).done(function (results) {
-            map.setCenter(results[0].geometry.location);
-            iframe.data('formatted_address', results[0].formatted_address);
-            linkToMap.attr('href', 'https://maps.google.com/maps?q=' + results[0].formatted_address);
-            makeMarker(results[0].geometry.location, results[0].formatted_address);
-        });
-        function makeMarker(location, address) {
-            var infowindow = new google.maps.InfoWindow({
-                content: attrAddress
-            });
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: location
-            });
-
-            google.maps.event.addListener(marker, 'click', function (e) {
-                infowindow.open(map, marker);
-            });
-        };
-    });
-
-    function getPosition(address) {
-        var d = jQuery.Deferred();
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({'address': address}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                d.resolve(results);
-            }
-        });
-        return d;
-    }
-}
-
 
 // cycle scroll gallery init
 function initCycleCarousel() {
