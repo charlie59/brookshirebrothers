@@ -154,3 +154,13 @@
     </div>
   <?php include path_to_theme() . '/templates/includes/footer.tpl.php'; ?>
 </div>
+<script>
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry&callback=initMap" type="text/javascript"></script>

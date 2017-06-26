@@ -34,5 +34,3 @@ if(!empty($slide_page)):?>
 </div>
 
 
-
-
