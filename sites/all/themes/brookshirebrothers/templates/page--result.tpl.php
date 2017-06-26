@@ -161,16 +161,23 @@
     })(jQuery);
 
     function initMap() {
-        var zip = getCookie("storezip");
-        console.log(zip);
+        var storezip = getCookie("storezip");
+        if (storezip == null) {
+            storezip = jQuery("#search").val();
+        }
+
+        console.log(storezip);
+        if (storezip.length > 0) {
+            jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
+                console.log(result);
+            });
+        }
         var lat = '';
         var lng = '';
 
-        jQuery.getJSON("http://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
-            console.log(result);
-        });
 
-        var geocoder= new google.maps.Geocoder();
+
+        /*var geocoder= new google.maps.Geocoder();
         geocoder.geocode( { 'address': zip}, function(results, status) {
             console.log(status);
             console.log(google.maps.GeocoderStatus.OK);
@@ -187,7 +194,7 @@
             center: uluru,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             imageDefaultUI: true
-        });
+        });*/
     }
 </script>
 <script src="/sites/all/themes/brookshirebrothers/js/store-locator.js"></script>
