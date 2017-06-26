@@ -168,6 +168,7 @@
         var geocoder= new google.maps.Geocoder();
         geocoder.geocode( { 'address': zip}, function(results, status) {
             console.log(status);
+            console.log(results);
             if (status === google.maps.GeocoderStatus.OK) {
                 lat = results[0].geometry.location.lat();
                 lng = results[0].geometry.location.lng();
