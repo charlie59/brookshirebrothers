@@ -95,17 +95,20 @@ $(document).ready(function () {
         }
     });
 
+    /*
+     * make map based on zip
+     */
     function initMap(zip) {
-        console.log(zip);
+        // console.log(zip);
         if (zip !== null) {
             if (zip.length > 0) {
                 $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + zip, function(data) {
-                    console.log(data);
+                    // console.log(data);
                     if (data.status === 'OK') {
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
-                        console.log(lat + ' ' + lng);
-
+                        // console.log(lat + ' ' + lng);
+                        $("#result_tmpl").before( '<div id="map" style="height: 300px;"></div>' );
                         var uluru = {lat: lat, lng: lng};
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 8,
