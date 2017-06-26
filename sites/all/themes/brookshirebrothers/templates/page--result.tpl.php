@@ -168,7 +168,7 @@
             if (status === google.maps.GeocoderStatus.OK) {
                 lat = results[0].geometry.location.lat();
                 lng = results[0].geometry.location.lng();
-            });
+            }
         }
         var uluru = {lat: lat, lng: lng};
         var map = new google.maps.Map(document.getElementById('map'), {
