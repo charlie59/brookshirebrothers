@@ -157,45 +157,45 @@
     (function ($) {
         $(document).ready(function() {
             google_maps_api_key = '<?php echo google_maps_api_key; ?>';
-
-            function initMap() {
-                var storezip = getCookie("storezip");
-                if (storezip === null) {
-                    storezip = jQuery("#search").val();
-                }
-
-                console.log(storezip);
-                if (storezip.length > 0) {
-                    jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + storezip, function(result) {
-                        console.log(result);
-                    });
-                }
-                var lat = '';
-                var lng = '';
-
-
-
-                /*var geocoder= new google.maps.Geocoder();
-                 geocoder.geocode( { 'address': zip}, function(results, status) {
-                 console.log(status);
-                 console.log(google.maps.GeocoderStatus.OK);
-                 console.log(results);
-                 if (status === 'Ok') {
-                 lat = results[0].geometry.location.lat();
-                 lng = results[0].geometry.location.lng();
-                 }
-                 });
-                 console.log(lat + ' ' + lng);
-                 var uluru = {lat: lat, lng: lng};
-                 var map = new google.maps.Map(document.getElementById('map'), {
-                 zoom: 8,
-                 center: uluru,
-                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                 imageDefaultUI: true
-                 });*/
-            }
         })
     })(jQuery);
+
+    function initMap() {
+        /*var storezip = getCookie("storezip");
+        if (storezip === null) {
+            storezip = jQuery("#search").val();
+        }
+
+        console.log(storezip);
+        if (storezip.length > 0) {
+            jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + storezip, function(result) {
+                console.log(result);
+            });
+        }
+        var lat = '';
+        var lng = '';
+
+
+
+        var geocoder= new google.maps.Geocoder();
+        geocoder.geocode( { 'address': zip}, function(results, status) {
+            console.log(status);
+            console.log(google.maps.GeocoderStatus.OK);
+            console.log(results);
+            if (status === 'Ok') {
+                lat = results[0].geometry.location.lat();
+                lng = results[0].geometry.location.lng();
+            }
+        });
+        console.log(lat + ' ' + lng);
+        var uluru = {lat: lat, lng: lng};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: uluru,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            imageDefaultUI: true
+        });*/
+    }
 </script>
 <script src="/sites/all/themes/brookshirebrothers/js/store-locator.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $google_maps_api_key; ?>&libraries=geometry&callback=initMap" type="text/javascript"></script>
