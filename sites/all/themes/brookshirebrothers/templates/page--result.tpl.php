@@ -96,8 +96,7 @@
                             </div>
                         </section>
                         <div class="btn-holder add-btn">
-                            <input class="btn-submit" type="submit"
-                                   value="SEARCH">
+                            <input class="btn-submit" type="submit" value="SEARCH">
                         </div>
                     </form>
                     <section class="content-holder filter-holder">
