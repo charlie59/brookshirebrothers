@@ -173,6 +173,7 @@
                 lng = results[0].geometry.location.lng();
             }
         });
+        console.log(lat + ' ' + lng);
         var uluru = {lat: lat, lng: lng};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 8,
