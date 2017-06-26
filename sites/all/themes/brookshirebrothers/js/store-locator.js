@@ -99,7 +99,7 @@ $(document).ready(function () {
         console.log(zip);
         if (zip !== null) {
             if (zip.length > 0) {
-                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=' + google_maps_api_key&address=" + zip, function(data) {
+                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + zip, function(data) {
                     console.log(data);
                     if (data.status === 'OK') {
                         var lat = data.results[0].geometry.location.lat;
