@@ -168,7 +168,7 @@
 
         console.log(storezip);
         if (storezip.length > 0) {
-            jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip, function(result) {
+            jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=" + storezip, function(result) {
                 console.log(result);
             });
         }
