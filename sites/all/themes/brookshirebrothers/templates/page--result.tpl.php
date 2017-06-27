@@ -119,6 +119,7 @@
                             </li>
                         </ul>
 
+                        <div id="map_container"></div>
                         <script type="text/html" id="result_tmpl">
                             <section class="<%=(i % 2 == 1 ? "
                                      even" : "even odd")%>">

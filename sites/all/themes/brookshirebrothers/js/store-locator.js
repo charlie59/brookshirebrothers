@@ -36,7 +36,7 @@ jQuery(document).ready(function () {
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
                         // console.log(lat + ' ' + lng);
-                        jQuery("#result_tmpl").before( '<div id="storeMap" style="height:300px;"></div>' );
+                        jQuery("#map_container").html( '<div id="storeMap" style="height:300px;"></div>' );
                         var uluru = {lat: lat, lng: lng};
                         storeMap = new google.maps.Map(document.getElementById('storeMap'), {
                             zoom: 8,
