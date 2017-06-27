@@ -134,8 +134,8 @@ jQuery(document).ready(function () {
                             }
                         });
                     }, function (error) {
-                        alert(error);
-                        console.log(error);
+                        alert(error); // actually useful
+                        // console.log(error);
                         searchBox.removeClass('italic').val('');
                     }
                 );
