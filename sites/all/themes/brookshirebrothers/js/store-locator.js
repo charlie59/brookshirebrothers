@@ -173,7 +173,7 @@ jQuery(document).ready(function () {
             filterHolder.hide();
 
             function sendForm(e) {
-                storeZip = searchBox.val(); // they might have changed it
+                storeZip = searchBox.val(); // they might gone back to the form and changed it from the cookie value
                 var weeklyad = holder.find('.weekly-ad');
                 storeLocations = [];
                 jQuery("#storeMap").remove();
