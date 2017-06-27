@@ -107,7 +107,7 @@ jQuery(document).ready(function () {
 
                 searchBox.addClass('italic').val('...finding your location');
                 navigator.geolocation.getCurrentPosition(function (position) {
-                        var timer = setTimeout(stopLookup, 10000);
+                        // var timer = setTimeout(stopLookup, 10000);
                         var pos = {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
@@ -136,7 +136,7 @@ jQuery(document).ready(function () {
                                     }
                                     // set cookie
                                     document.cookie = "storeZip=" + storeZip;
-                                    clearTimeout(timer);
+                                    // clearTimeout(timer);
                                 }
                             } else {
                                 searchBox.removeClass('italic').val('');
