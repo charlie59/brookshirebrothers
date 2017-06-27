@@ -78,7 +78,7 @@ jQuery(document).ready(function () {
         "use strict";
 
         function stopLookup() {
-            alert('stopped');
+            // alert('stopped');
             searchBox.removeClass('italic').val('');
         }
 
@@ -107,7 +107,6 @@ jQuery(document).ready(function () {
 
                 searchBox.addClass('italic').val('...finding your location');
                 navigator.geolocation.getCurrentPosition(function (position) {
-                        // var timer = setTimeout(stopLookup, 10000);
                         var pos = {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
@@ -116,6 +115,7 @@ jQuery(document).ready(function () {
                         var latlng = pos.lat + "," + pos.lng;
                         // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
                         jQuery.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
+                            var timer = setTimeout(stopLookup, 15000); // bail after 15 seconds
                             // console.log(data);
                             // this check should take care of errors
                             if (data.status === 'OK') {
@@ -136,11 +136,11 @@ jQuery(document).ready(function () {
                                     }
                                     // set cookie
                                     document.cookie = "storeZip=" + storeZip;
-                                    // clearTimeout(timer);
                                 }
                             } else {
                                 searchBox.removeClass('italic').val('');
                             }
+                            clearTimeout(timer);
                         });
                     }, function (error) {
                         // alert(error);
