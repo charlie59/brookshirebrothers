@@ -135,7 +135,7 @@ jQuery(document).ready(function () {
                         });
                     }, function (error) {
                         // alert(error);
-                        alert('We were unable to determine your location, please enter your zip code.'); // actually
+                        alert('We were unable to determine your location. Please enter a zip code.'); // actually
                     // useful
                         // console.log(error);
                         searchBox.removeClass('italic').val('');
