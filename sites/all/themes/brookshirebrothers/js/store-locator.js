@@ -216,7 +216,7 @@ jQuery(document).ready(function () {
                                 var city = dataObject[i].features[0].properties.locality.replace(/,.*/g, '');
                                 var address = dataObject[i].features[0].properties.address + ',' + locality;
                                 var encoded = address.replace(/[\s]+/g, '+');
-                                console.log(city);
+                                // console.log(city);
                                 var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank">' + city + "</a></div>";
                                 var storeLocation = [info, dataObject[i].features[0].geometry.coordinates];
                                 storeLocations.push(storeLocation);
