@@ -12,7 +12,9 @@ function getCookie(name) {
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) === ' ') {c = c.substring(1, c.length);}
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+        }
         if (c.indexOf(nameEQ) === 0) {
             return decodeURIComponent(c.substring(nameEQ.length, c.length));
         }
@@ -30,13 +32,13 @@ jQuery(document).ready(function () {
         // console.log(storeZip);
         if (storeZip !== null) {
             if (storeZip.length > 0) {
-                jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storeZip, function(data) {
+                jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storeZip, function (data) {
                     // console.log(data);
                     if (data.status === 'OK') {
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
                         // console.log(lat + ' ' + lng);
-                        jQuery("#map_container").html( '<div id="storeMap" style="height:300px;"></div>' );
+                        jQuery("#map_container").html('<div id="storeMap" style="height:300px;"></div>');
                         var uluru = {lat: lat, lng: lng};
                         storeMap = new google.maps.Map(document.getElementById('storeMap'), {
                             zoom: 8,
@@ -57,9 +59,9 @@ jQuery(document).ready(function () {
                                 title: storeLocations[j][0]
                             });
                             // Allow each marker to have an info window
-                            google.maps.event.addListener(markers[j], 'click', (function(marker, j) {
+                            google.maps.event.addListener(markers[j], 'click', (function (marker, j) {
                                 // console.log(marker);
-                                return function() {
+                                return function () {
                                     infoWindow.setContent(this.title);
                                     infoWindow.open(storeMap, marker);
                                 }
@@ -74,6 +76,10 @@ jQuery(document).ready(function () {
     // filter location init
     function initFilterLocation() {
         "use strict";
+
+        function stopLookup() {
+            searchBox.removeClass('italic').val('');
+        }
 
         var activeClass = 'filter-active';
         var searchBox = jQuery("#search");
@@ -100,6 +106,7 @@ jQuery(document).ready(function () {
 
                 searchBox.addClass('italic').val('...finding your location');
                 navigator.geolocation.getCurrentPosition(function (position) {
+                        var timer = setTimeout(stopLookup, 10000);
                         var pos = {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
@@ -128,6 +135,7 @@ jQuery(document).ready(function () {
                                     }
                                     // set cookie
                                     document.cookie = "storeZip=" + storeZip;
+                                    clearTimeout(timer);
                                 }
                             } else {
                                 searchBox.removeClass('italic').val('');
@@ -136,7 +144,7 @@ jQuery(document).ready(function () {
                     }, function (error) {
                         // alert(error);
                         alert('We were unable to determine your location. Please enter a zip code.'); // actually
-                    // useful
+                        // useful
                         // console.log(error);
                         searchBox.removeClass('italic').val('');
                     }
@@ -147,7 +155,7 @@ jQuery(document).ready(function () {
         }
 
         // More options
-        jQuery("#moreoptions").click(function() {
+        jQuery("#moreoptions").click(function () {
             if (jQuery("#moreoptionssection").hasClass('invisible')) {
                 jQuery("#moreoptionssection").removeClass('invisible');
                 jQuery("#moreoptions").text('Less options');
@@ -315,6 +323,7 @@ jQuery(document).ready(function () {
                     return semiresultsArray;
                 }
             }
+
             function getPosition(address) {
                 var d = jQuery.Deferred();
 
@@ -334,7 +343,7 @@ jQuery(document).ready(function () {
                 if (currArr.length > 0) {
                     initMap(storeZip);
                 }
-                currArr.length === 1? resultText.text('Store'): resultText.text('Stores');
+                currArr.length === 1 ? resultText.text('Store') : resultText.text('Stores');
             }
 
             form.submit(sendForm);
