@@ -57,8 +57,6 @@
             }
         </script>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,900,400italic|Roboto+Condensed:400,300,700|Open+Sans' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">window.jQuery || document.write('<script src="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/js/jquery-1.8.3.min.js"><\/script>')</script>
       <?php print $styles; ?>
         <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/ie.css" /><![endif]-->
         <!--[if IE]><script type="text/javascript" src="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/js/ie.js"></script><![endif]-->

@@ -1,5 +1,5 @@
 /* jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-/* global define, $, JSLINT, brackets,  */
+/* global define, jQuery, JSLINT, brackets,  */
 var google_maps_api_key = google_maps_api_key;
 var storeZip = getCookie("storeZip");
 var storeMap;
@@ -20,11 +20,12 @@ function getCookie(name) {
     return null;
 }
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
     "use strict";
+    var searchBox = jQuery("#search");
     // use cookie value if it has been set for session
     if (storeZip !== null) {
-        $("#search").val(storeZip);
+        searchBox.val(storeZip);
     } else {
         // check for Geolocation support
         if ("geolocation" in navigator) {
@@ -41,7 +42,7 @@ $(document).ready(function () {
                     }
                 });
                 */
-            $("#search").addClass('italic').val('...finding your location');
+            searchBox.addClass('italic').val('...finding your location');
             navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
                     lat: position.coords.latitude,
@@ -50,7 +51,7 @@ $(document).ready(function () {
                 // console.log(pos);
                 var latlng = pos.lat + "," + pos.lng;
                 // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
-                $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
+                jQuery.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
                     // console.log(data);
                     // this check should take care of errors
                     if (data.status === 'OK') {
@@ -65,7 +66,7 @@ $(document).ready(function () {
                                 if (obj.address_components[j].types[0] === 'postal_code') {
                                     // console.log("Zip Code: " + obj.address_components[j].short_name);
                                     storeZip = obj.address_components[j].short_name;
-                                    $("#search").removeClass('italic').val(storeZip);
+                                    searchBox.removeClass('italic').val(storeZip);
                                     break;
                                 }
                             }
@@ -73,7 +74,7 @@ $(document).ready(function () {
                             document.cookie = "storeZip=" + storeZip;
                         }
                     } else {
-                        $("#search").removeClass('italic').val('');
+                        searchBox.removeClass('italic').val('');
                     }
                 });
             }, function errorCallback(error) {
@@ -86,13 +87,13 @@ $(document).ready(function () {
     }
 
     // More options
-    $("#moreoptions").click(function() {
-        if ($("#moreoptionssection").hasClass('invisible')) {
-            $("#moreoptionssection").removeClass('invisible');
-            $("#moreoptions").text('Less options');
+    jQuery("#moreoptions").click(function() {
+        if (jQuery("#moreoptionssection").hasClass('invisible')) {
+            jQuery("#moreoptionssection").removeClass('invisible');
+            jQuery("#moreoptions").text('Less options');
         } else {
-            $("#moreoptionssection").addClass('invisible');
-            $("#moreoptions").text('More options');
+            jQuery("#moreoptionssection").addClass('invisible');
+            jQuery("#moreoptions").text('More options');
         }
     });
 
@@ -103,13 +104,13 @@ $(document).ready(function () {
         // console.log(storeZip);
         if (storeZip !== null) {
             if (storeZip.length > 0) {
-                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storeZip, function(data) {
+                jQuery.getJSON("https://maps.googleapis.com/maps/api/geocode/json?&key=" + google_maps_api_key + "&address=" + storeZip, function(data) {
                     // console.log(data);
                     if (data.status === 'OK') {
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
                         // console.log(lat + ' ' + lng);
-                        $("#result_tmpl").before( '<div id="storeMap" style="height: 300px;"></div>' );
+                        jQuery("#result_tmpl").before( '<div id="storeMap" style="height:300px;"></div>' );
                         var uluru = {lat: lat, lng: lng};
                         storeMap = new google.maps.Map(document.getElementById('storeMap'), {
                             zoom: 8,
@@ -131,7 +132,7 @@ $(document).ready(function () {
                             });
                             // Allow each marker to have an info window
                             google.maps.event.addListener(markers[j], 'click', (function(marker, j) {
-                                console.log(marker);
+                                // console.log(marker);
                                 return function() {
                                     infoWindow.setContent(this.title);
                                     infoWindow.open(storeMap, marker);
@@ -176,7 +177,7 @@ $(document).ready(function () {
             function sendForm(e) {
                 var weeklyad = holder.find('.weekly-ad');
                 storeLocations = [];
-                $("#storeMap").remove();
+                jQuery("#storeMap").remove();
                 jQuery('#loader').show();
                 var literLocation = form.find('.filter-location-area');
                 e.preventDefault();
@@ -210,7 +211,7 @@ $(document).ready(function () {
                                 var num = parseInt(i) + 1;
                                 dataObject[i].features[0].properties.i = i;
                                 dataObject[i].features[0].properties.num = num;
-                                var storeLocation = [num, dataObject[i].features[0].geometry.coordinates];
+                                var storeLocation = [dataObject[i].features[0].properties.address, dataObject[i].features[0].geometry.coordinates];
                                 storeLocations.push(storeLocation);
                                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
                             }
