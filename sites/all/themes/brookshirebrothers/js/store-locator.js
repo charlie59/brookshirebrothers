@@ -136,6 +136,7 @@ jQuery(document).ready(function () {
                     }, function (error) {
                         alert(error);
                         console.log(error);
+                        searchBox.removeClass('italic').val('');
                     }
                 );
             } else {
