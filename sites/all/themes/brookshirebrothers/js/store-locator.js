@@ -207,6 +207,7 @@ jQuery(document).ready(function () {
                             var lng = results[0].geometry.location.lng();
 
                             for (var i in dataObject) {
+                                console.log(dataObject[i].features[0].properties);
                                 // add properties
                                 var num = parseInt(i) + 1;
                                 dataObject[i].features[0].properties.i = i;
