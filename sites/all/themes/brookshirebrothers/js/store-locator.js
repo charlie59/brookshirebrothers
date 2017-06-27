@@ -78,7 +78,7 @@ jQuery(document).ready(function () {
         "use strict";
 
         function stopLookup() {
-            // alert('stopped');
+            alert('We were unable to determine your location. Please enter a zip code.');
             searchBox.removeClass('italic').val('');
         }
 
@@ -144,8 +144,7 @@ jQuery(document).ready(function () {
                         });
                     }, function (error) {
                         // alert(error);
-                        alert('We were unable to determine your location. Please enter a zip code.'); // actually
-                        // useful
+                        alert('We were unable to determine your location. Please enter a zip code.');
                         // console.log(error);
                         searchBox.removeClass('italic').val('');
                     }
