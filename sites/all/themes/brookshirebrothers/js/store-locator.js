@@ -207,12 +207,18 @@ jQuery(document).ready(function () {
                             var lng = results[0].geometry.location.lng();
 
                             for (var i in dataObject) {
-                                console.log(dataObject[i].features[0].properties);
+                                // console.log(dataObject[i].features[0].properties);
                                 // add properties
                                 var num = parseInt(i) + 1;
                                 dataObject[i].features[0].properties.i = i;
                                 dataObject[i].features[0].properties.num = num;
-                                var storeLocation = [dataObject[i].features[0].properties.address, dataObject[i].features[0].geometry.coordinates];
+                                var locality = dataObject[i].features[0].properties.locality.replace(/<[^>]+>/g, '');
+                                var city = dataObject[i].features[0].properties.locality.replace(/,.*/g, '');
+                                var address = dataObject[i].features[0].properties.address + ',' + locality;
+                                var encoded = address.replace(/[\s]+/g, '+');
+                                console.log(city);
+                                var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank">' + city + "</a></div>";
+                                var storeLocation = [info, dataObject[i].features[0].geometry.coordinates];
                                 storeLocations.push(storeLocation);
                                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
                             }
