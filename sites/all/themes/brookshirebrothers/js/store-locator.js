@@ -97,6 +97,7 @@ jQuery(document).ready(function () {
                  }
                  });
                  */
+
                 searchBox.addClass('italic').val('...finding your location');
                 navigator.geolocation.getCurrentPosition(function (position) {
                         var pos = {
@@ -170,7 +171,9 @@ jQuery(document).ready(function () {
             var overClass = 'over';
 
             filterHolder.hide();
+
             function sendForm(e) {
+                storeZip = searchBox.val(); // they might have changed it
                 var weeklyad = holder.find('.weekly-ad');
                 storeLocations = [];
                 jQuery("#storeMap").remove();
