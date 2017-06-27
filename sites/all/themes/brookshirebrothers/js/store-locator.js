@@ -134,6 +134,7 @@ jQuery(document).ready(function () {
                             }
                         });
                     }, function errorCallback(error) {
+                        alert(error);
                         console.log(error);
                     }
                 );
