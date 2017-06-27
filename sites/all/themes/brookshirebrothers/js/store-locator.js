@@ -22,80 +22,6 @@ function getCookie(name) {
 
 jQuery(document).ready(function () {
     "use strict";
-    var searchBox = jQuery("#search");
-    // use cookie value if it has been set for session
-    if (storeZip !== null) {
-        searchBox.val(storeZip);
-    } else {
-        // check for Geolocation support
-        if ("geolocation" in navigator) {
-
-            /* navigator.permissions only in Chrome Jun 2017 */
-            /*navigator.permissions.query({'name': 'geolocation'})
-                .then(function (permissionStatus) {
-                    console.log('geolocation permission state is ', permissionStatus.state);
-                    permissionStatus.onchange = function() {
-                        console.log('geolocation permission state has changed to ', this.state);
-                    };
-                    if (permissionStatus.state === 'granted') {
-
-                    }
-                });
-                */
-            searchBox.addClass('italic').val('...finding your location');
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                // console.log(pos);
-                var latlng = pos.lat + "," + pos.lng;
-                // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
-                jQuery.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
-                    // console.log(data);
-                    // this check should take care of errors
-                    if (data.status === 'OK') {
-                        if (data.results[0]) {
-                            /**
-                             * @typedef {Object} obj
-                             * @property {string} address_components
-                             */
-                            var obj = data.results[0];
-                            var j = 0;
-                            for (j = 0; j < obj.address_components.length; j++) {
-                                if (obj.address_components[j].types[0] === 'postal_code') {
-                                    // console.log("Zip Code: " + obj.address_components[j].short_name);
-                                    storeZip = obj.address_components[j].short_name;
-                                    searchBox.removeClass('italic').val(storeZip);
-                                    break;
-                                }
-                            }
-                            // set cookie
-                            document.cookie = "storeZip=" + storeZip;
-                        }
-                    } else {
-                        searchBox.removeClass('italic').val('');
-                    }
-                });
-            }, function errorCallback(error) {
-                console.log(error);
-            }
-            );
-        } else {
-            console.log("no geolocation support");
-        }
-    }
-
-    // More options
-    jQuery("#moreoptions").click(function() {
-        if (jQuery("#moreoptionssection").hasClass('invisible')) {
-            jQuery("#moreoptionssection").removeClass('invisible');
-            jQuery("#moreoptions").text('Less options');
-        } else {
-            jQuery("#moreoptionssection").addClass('invisible');
-            jQuery("#moreoptions").text('More options');
-        }
-    });
 
     /*
      * make map based on storeZip
@@ -148,7 +74,83 @@ jQuery(document).ready(function () {
     // filter location init
     function initFilterLocation() {
         "use strict";
+
         var activeClass = 'filter-active';
+        var searchBox = jQuery("#search");
+
+        // use cookie value if it has been set for session
+        if (storeZip !== null) {
+            searchBox.val(storeZip);
+        } else {
+            // check for Geolocation support
+            if ("geolocation" in navigator) {
+
+                /* navigator.permissions only in Chrome Jun 2017 */
+                /*navigator.permissions.query({'name': 'geolocation'})
+                 .then(function (permissionStatus) {
+                 console.log('geolocation permission state is ', permissionStatus.state);
+                 permissionStatus.onchange = function() {
+                 console.log('geolocation permission state has changed to ', this.state);
+                 };
+                 if (permissionStatus.state === 'granted') {
+
+                 }
+                 });
+                 */
+                searchBox.addClass('italic').val('...finding your location');
+                navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        // console.log(pos);
+                        var latlng = pos.lat + "," + pos.lng;
+                        // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
+                        jQuery.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
+                            // console.log(data);
+                            // this check should take care of errors
+                            if (data.status === 'OK') {
+                                if (data.results[0]) {
+                                    /**
+                                     * @typedef {Object} obj
+                                     * @property {string} address_components
+                                     */
+                                    var obj = data.results[0];
+                                    var j = 0;
+                                    for (j = 0; j < obj.address_components.length; j++) {
+                                        if (obj.address_components[j].types[0] === 'postal_code') {
+                                            // console.log("Zip Code: " + obj.address_components[j].short_name);
+                                            storeZip = obj.address_components[j].short_name;
+                                            searchBox.removeClass('italic').val(storeZip);
+                                            break;
+                                        }
+                                    }
+                                    // set cookie
+                                    document.cookie = "storeZip=" + storeZip;
+                                }
+                            } else {
+                                searchBox.removeClass('italic').val('');
+                            }
+                        });
+                    }, function errorCallback(error) {
+                        console.log(error);
+                    }
+                );
+            } else {
+                console.log("no geolocation support");
+            }
+        }
+
+        // More options
+        jQuery("#moreoptions").click(function() {
+            if (jQuery("#moreoptionssection").hasClass('invisible')) {
+                jQuery("#moreoptionssection").removeClass('invisible');
+                jQuery("#moreoptions").text('Less options');
+            } else {
+                jQuery("#moreoptionssection").addClass('invisible');
+                jQuery("#moreoptions").text('More options');
+            }
+        });
 
         jQuery('.filter-location').each(function () {
             var holder = jQuery(this);
@@ -167,12 +169,6 @@ jQuery(document).ready(function () {
             var yourAddress = filterHolder.find('.your-location');
             var overClass = 'over';
 
-            var mapOptions = {
-                zoom: 11,
-                mapTypeControl: false,
-                center: new google.maps.LatLng(-34.397, 150.644),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
             filterHolder.hide();
             function sendForm(e) {
                 var weeklyad = holder.find('.weekly-ad');
