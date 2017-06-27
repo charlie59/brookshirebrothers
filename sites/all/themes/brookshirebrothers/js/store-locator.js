@@ -133,7 +133,7 @@ jQuery(document).ready(function () {
                                 searchBox.removeClass('italic').val('');
                             }
                         });
-                    }, function errorCallback(error) {
+                    }, function (error) {
                         alert(error);
                         console.log(error);
                     }
