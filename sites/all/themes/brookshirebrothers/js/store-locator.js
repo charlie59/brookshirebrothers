@@ -78,6 +78,7 @@ jQuery(document).ready(function () {
         "use strict";
 
         function stopLookup() {
+            alert('stopped');
             searchBox.removeClass('italic').val('');
         }
 
