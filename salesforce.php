@@ -16,8 +16,8 @@ require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
 try {
   $mySforceConnection = new SforceEnterpriseClient();
   $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
-  $mylogin = $mySforceConnection->login('drupalintegration@brookshirebros.com', 'Br00kshire2017');
-  print_r($mySforceConnection->describeSObject('Task'));
+  $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
+  print_r($mySforceConnection->describeSObject('Store__c'));
 
 } catch (Exception $e) {
   echo $mySforceConnection->getLastRequest();

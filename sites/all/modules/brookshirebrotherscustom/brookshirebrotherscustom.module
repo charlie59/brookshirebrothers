@@ -13,10 +13,9 @@ function brookshirebrotherscustom_menu() {
 
   $items = array();
 
-  // Add a page callback for the url: "external-search.js".
-  $items['external-search.js'] = array(
-    'title' => 'External search',
-    'page callback' => '_module_search',
+  $items['tester'] = array(
+    'title' => 'Test Functions',
+    'page callback' => 'brookshirebrotherscustom_tester',
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
   );
@@ -24,23 +23,18 @@ function brookshirebrotherscustom_menu() {
   return $items;
 }
 
-/**
- * Format JSON
- */
-function _module_search($html) {
-  // Create a JSON string of the search block form html.
-  $json = drupal_json_encode(drupal_render(drupal_get_form('search_block_form')));
-  // $json = str_replace("form action=\u0022\/external-search.js", "form action=\u0022https:\/\/www.brookshirebrothers.com\/external-search.js");
 
-  // Format the json as a callback function.
-  // See: http://docs.jquery.com/Ajax/jQuery.getJSON for more information.
-  if (isset($_GET['jsoncallback'])) {
-    $json = $_GET['jsoncallback'] . "(" . $json . ");";
+function brookshirebrotherscustom_tester() {
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
+
+  try {
+    $mySforceConnection = new SforceEnterpriseClient();
+    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
+    $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
+    print_r($mySforceConnection->describeSObject('Account'));
+
+  } catch (Exception $e) {
+    echo $mySforceConnection->getLastRequest();
+    echo $e->faultstring;
   }
-
-  // Output the JSON.
-  print $json;
-
-  // Stop the script, so the theme layer is not applied.
-  die;
 }
