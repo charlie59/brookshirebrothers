@@ -60,3 +60,11 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     height: 300px;
     margin-bottom: 15px;
 }
+
+#map_container .infoDiv a {
+    text-decoration: none;
+}
+
+#map_container .infoDiv a:hover {
+    text-decoration: underline;
+}

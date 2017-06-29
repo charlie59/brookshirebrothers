@@ -144,7 +144,7 @@ jQuery(document).ready(function () {
                         });
                     }, function (error) {
                         // alert(error);
-                        alert('We were unable to determine your location. Please enter a zip code.');
+                        // alert('We were unable to determine your location. Please enter a zip code.');
                         // console.log(error);
                         searchBox.removeClass('italic').val('');
                     }
@@ -225,10 +225,11 @@ jQuery(document).ready(function () {
                                 dataObject[i].features[0].properties.num = num;
                                 var locality = dataObject[i].features[0].properties.locality.replace(/<[^>]+>/g, '');
                                 var city = dataObject[i].features[0].properties.locality.replace(/,.*/g, '');
-                                var address = dataObject[i].features[0].properties.address + ',' + locality;
-                                var encoded = address.replace(/[\s]+/g, '+');
+                                var address = dataObject[i].features[0].properties.address;
+                                var address_loc = dataObject[i].features[0].properties.address + ',' + locality;
+                                var encoded = address_loc.replace(/[\s]+/g, '+');
                                 // console.log(city);
-                                var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank">' + city + "</a></div>";
+                                var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank">' + address + ', ' + city + "</a></div>";
                                 var storeLocation = [info, dataObject[i].features[0].geometry.coordinates];
                                 storeLocations.push(storeLocation);
                                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
@@ -348,6 +349,7 @@ jQuery(document).ready(function () {
 
             form.submit(sendForm);
             backBtn.bind('click', sendForm);
+            searchBox.bind('focus', function(){searchBox.val('');});
         });
     }
 
