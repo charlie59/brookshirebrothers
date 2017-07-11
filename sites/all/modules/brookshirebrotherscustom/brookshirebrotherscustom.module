@@ -20,6 +20,13 @@ function brookshirebrotherscustom_menu() {
     'access arguments' => array('access content'),
   );
 
+  $items['describe'] = array(
+    'title' => 'Test Functions',
+    'page callback' => 'brookshirebrotherscustom_describe',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+  );
+
   return $items;
 }
 
@@ -32,7 +39,27 @@ function brookshirebrotherscustom_tester() {
     $mySforceConnection = new SforceEnterpriseClient();
     $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
-    print_r($mySforceConnection->describeSObject('Account'));
+    $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c, ShippingStreet from Account Where Type = 'BB Store'";
+    $response = $mySforceConnection->query($query);
+    print_r($response);
+
+
+  } catch (Exception $e) {
+    echo $mySforceConnection->getLastRequest();
+    echo $e->faultstring;
+  }
+}
+
+function brookshirebrotherscustom_describe() {
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
+
+  try {
+    $mySforceConnection = new SforceEnterpriseClient();
+    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
+    $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
+    $response = $mySforceConnection->describeSObject("Account");
+    print_r($response);
+
 
   } catch (Exception $e) {
     echo $mySforceConnection->getLastRequest();
