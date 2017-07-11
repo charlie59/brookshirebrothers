@@ -17,14 +17,14 @@ function brookshirebrotherscustom_menu() {
     'title' => 'Test Functions',
     'page callback' => 'brookshirebrotherscustom_tester',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('access content'),
+    'access arguments' => array('access administration pages'),
   );
 
   $items['describe'] = array(
     'title' => 'Test Functions',
     'page callback' => 'brookshirebrotherscustom_describe',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('access content'),
+    'access arguments' => array('access administration pages'),
   );
 
   return $items;
@@ -39,7 +39,7 @@ function brookshirebrotherscustom_tester() {
     $mySforceConnection = new SforceEnterpriseClient();
     $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
-    $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c, ShippingStreet from Account Where Type = 'BB Store'";
+    $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
     $response = $mySforceConnection->query($query);
     print_r($response);
 
