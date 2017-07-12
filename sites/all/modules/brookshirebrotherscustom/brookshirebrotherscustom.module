@@ -53,6 +53,12 @@ function brookshirebrotherscustom_tester() {
     }
     print_r($ids);
 
+    $fieldlist = "Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c";
+    $sObjectType = "Account";
+
+    $response = $mySforceConnection->retrieve($fieldList, $sObjectType, $ids);
+    print_r($response);
+
 
   } catch (Exception $e) {
     echo $mySforceConnection->getLastRequest();
