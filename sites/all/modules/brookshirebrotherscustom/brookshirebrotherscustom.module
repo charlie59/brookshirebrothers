@@ -40,8 +40,8 @@ function brookshirebrotherscustom_tester() {
   require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
 
   try {
-    $mySforceConnection = new SforceEnterpriseClient();
-    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
+    $mySforceConnection = new SforcePartnerClient();
+    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
     // $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
     $query = "Select Id from Account Where Type = 'BB Store'";
