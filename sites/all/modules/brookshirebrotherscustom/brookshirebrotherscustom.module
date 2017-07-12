@@ -45,7 +45,7 @@ function brookshirebrotherscustom_tester() {
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
     $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
     $response = $mySforceConnection->query($query);
-    print_r($response);
+    print_r($response->records);
 
 
   } catch (Exception $e) {
