@@ -51,7 +51,7 @@ function brookshirebrotherscustom_tester() {
     foreach ($response->records as $object) {
       $ids[] = $object->Id;
     }
-    print_r($ids);
+    // print_r($ids);
 
     $fieldList = "Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c";
     $sObjectType = "Account";
