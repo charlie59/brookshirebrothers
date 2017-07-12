@@ -46,13 +46,12 @@ function brookshirebrotherscustom_tester() {
     // $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
     $query = "Select Id from Account Where Type = 'BB Store'";
     $response = $mySforceConnection->query($query);
+    //print_r($response);
 
-    print_r($response);
     $ids = array();
     foreach ($response->records as $object) {
-      $ids[] = $object->Id;
+      $ids[] = $object->Id[0];
     }
-
     print_r($ids);
 
     exit;
