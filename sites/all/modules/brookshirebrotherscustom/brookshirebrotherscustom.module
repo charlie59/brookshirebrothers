@@ -40,7 +40,7 @@ function brookshirebrotherscustom_tester() {
   require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
 
   try {
-    $mySforceConnection = new SforceEnterpriseClient();
+    $mySforceConnection = new SforcePartnerClient();
     $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
     $query = "Select Id, Store_Number__c from Account";
