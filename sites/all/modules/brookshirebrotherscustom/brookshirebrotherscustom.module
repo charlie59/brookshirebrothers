@@ -53,6 +53,8 @@ function brookshirebrotherscustom_tester() {
 
 function brookshirebrotherscustom_describe() {
   require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceHeaderOptions.php');
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
 
   try {
     $mySforceConnection = new SforceEnterpriseClient();
