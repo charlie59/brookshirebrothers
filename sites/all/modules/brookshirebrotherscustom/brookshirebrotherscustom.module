@@ -46,7 +46,12 @@ function brookshirebrotherscustom_tester() {
     // $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
     $query = "Select Id from Account Where Type = 'BB Store'";
     $response = $mySforceConnection->query($query);
-    print_r($response->records);
+
+    $ids = array();
+    foreach ($response->records as $object) {
+      $ids[] = $object->Id;
+    }
+    print_r($ids);
 
 
   } catch (Exception $e) {
@@ -66,12 +71,7 @@ function brookshirebrotherscustom_describe() {
     $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
     $response = $mySforceConnection->describeSObject("Account");
-    $ids = array();
-    foreach ($response as $object) {
-      $ids[] = $object->Id;
-    }
-
-    print_r($ids);
+    print_r($response);
 
 
   } catch (Exception $e) {
