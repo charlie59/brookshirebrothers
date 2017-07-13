@@ -13,14 +13,15 @@ function brookshirebrotherscustom_menu() {
 
   $items = array();
 
-  $items['tester'] = array(
+  $items['store_updater'] = array(
     'title' => 'Test Functions',
-    'page callback' => 'brookshirebrotherscustom_tester',
+    'page callback' => 'brookshirebrotherscustom_store_updater',
     'type' => MENU_CALLBACK,
     'access arguments' => array('access administration pages'),
+    'file' => 'includes/store_updater.inc'
   );
 
-  $items['describe'] = array(
+  $items['admin/describe'] = array(
     'title' => 'Test Functions',
     'page callback' => 'brookshirebrotherscustom_describe',
     'type' => MENU_CALLBACK,
@@ -28,43 +29,6 @@ function brookshirebrotherscustom_menu() {
   );
 
   return $items;
-}
-
-
-
-function brookshirebrotherscustom_tester() {
-
-  require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
-  require_once (SOAP_CLIENT_BASEDIR.'/SforcePartnerClient.php');
-  require_once (SOAP_CLIENT_BASEDIR.'/SforceHeaderOptions.php');
-  require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
-
-  try {
-    $mySforceConnection = new SforcePartnerClient();
-    $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
-    $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
-    // $query = "Select Id, Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c from Account Where Type = 'BB Store'";
-    $query = "Select Id from Account Where Type = 'BB Store'";
-    $response = $mySforceConnection->query($query);
-    //print_r($response);
-
-    $ids = array();
-    foreach ($response->records as $object) {
-      $ids[] = $object->Id[0];
-    }
-    // print_r($ids);
-
-    $fieldList = "Store_Number__c, BillingStreet, BillingCity, BillingState, BillingPostalCode, Has_Weekly_Ad__c, Allows_Rx_Transfer_and_Refills__c";
-    $sObjectType = "Account";
-
-    $response = $mySforceConnection->retrieve($fieldList, $sObjectType, $ids);
-    print_r($response);
-
-
-  } catch (Exception $e) {
-    echo $mySforceConnection->getLastRequest();
-    echo $e->faultstring;
-  }
 }
 
 function brookshirebrotherscustom_describe() {
