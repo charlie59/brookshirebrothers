@@ -81,6 +81,7 @@ class Store_Updater {
             // echo $field_number_store . " matched!\n";
             $wrapper = entity_metadata_wrapper('node', $nid);
             $fields = explode(',', $this->fieldList);
+            $wrapper->field_specification = []; // clear field_specification (Departments)
 
             foreach ($fields as $field) {
               $fixed = trim($field);
@@ -90,14 +91,12 @@ class Store_Updater {
                 case "Name":
                   $wrapper->field_display_title->set($value);
                   $wrapper->field_store_name->set($value);
-
                   /* taxonomies */
                   if ($foo = taxonomy_get_term_by_name($fixed)) {
                     $foo_keys = array_keys($foo);
                     $wrapper->field_department->set($foo_keys[0]);
                     $wrapper->field_locations->set($foo_keys[0]);
                   }
-
                   break;
                 case "BillingStreet":
                   $wrapper->gsl_addressfield->thoroughfare->set($value);
@@ -113,11 +112,19 @@ class Store_Updater {
                   break;
                 case "Pharmacy_Number__c":
                   /*
-                   * If the Pharmany Number is not 0 these fields must be set
+                   * If the Pharmacy Number is not 0 these fields must be set
                    * field_specification (multiple select from taxonomy)
                    * field_pharmacy (boolean)
                    * field_pharmacy_number
                    */
+                  if (!empty($value)) {
+                    $wrapper->field_specification[] = 3;
+                    $wrapper->field_pharmacy->set(1);
+                    $wrapper->field_pharmacy_number->set($value);
+                  } else {
+                    $wrapper->field_pharmacy->set(0);
+                    $wrapper->field_pharmacy_number->set('');
+                  }
 
                 case "Has_Weekly_Ad__c":
                   $val = $value == 'true'? 1: 0;
