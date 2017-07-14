@@ -1495,7 +1495,7 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .store-section dl dt {
 	float: left;
 	clear: left;
-	width: 154px;
+	width: 158px;
 }
 .store-section dl dd { float: left; }
 .store-section dl dd .tel {
