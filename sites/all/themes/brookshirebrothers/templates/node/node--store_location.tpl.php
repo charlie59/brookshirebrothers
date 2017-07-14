@@ -118,10 +118,6 @@
                 <dt><?php print t('State Board Number:'); ?></dt>
                 <dd><?php echo $node->field_state_board_number['und'][0]['value']; ?></dd>
             <?php endif; ?>
-            <?php if ($node->field_flu_shot['und'][0]['value'] == 1): ?>
-                <dt><?php print t('Flu Shots:'); ?></dt>
-                <dd><?php print t('Contact the Pharmacy'); ?></dd>
-            <?php endif; ?>
           </dl>
       </div>
   <?php endif; ?>
