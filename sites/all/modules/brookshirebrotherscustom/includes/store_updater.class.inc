@@ -313,6 +313,7 @@ class Store_Updater {
             $wrapper->save();
             $ptr ++;
             echo $ptr . "\n";
+            flush();
           }
         }
       }
