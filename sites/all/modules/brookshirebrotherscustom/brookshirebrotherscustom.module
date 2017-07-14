@@ -33,13 +33,13 @@ function brookshirebrotherscustom_menu() {
 
 function brookshirebrotherscustom_describe() {
 
-  require_once (SOAP_CLIENT_BASEDIR.'/SforceEnterpriseClient.php');
+  require_once (SOAP_CLIENT_BASEDIR.'/SforcePartnerClient.php');
   require_once (SOAP_CLIENT_BASEDIR.'/SforceHeaderOptions.php');
   require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
 
   try {
-    $mySforceConnection = new SforceEnterpriseClient();
-    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/enterprise.wsdl.xml');
+    $mySforceConnection = new SforcePartnerClient();
+    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
     $response = $mySforceConnection->describeSObject("Account");
     print_r($response);
