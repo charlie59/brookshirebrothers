@@ -310,7 +310,7 @@ class Store_Updater {
             }
             // var_dump($wrapper->getPropertyInfo());
             $wrapper->save();
-            // exit;
+            exit;
           }
         }
       }
