@@ -51,15 +51,43 @@
                      href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
               </dd>
           <?php endif; ?>
-          <?php if (isset($node->field_store_phone['und'][0]['value'])): ?>
-              <dt class="tel-txt"><?php print t('Phone:'); ?></dt>
-              <dd><a class="tel"
-                     href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
-              </dd>
+        </dl>
+    </div>
+    <!-- features -->
+    <div class="detail-box">
+        <strong class="title"><?php print t('FEATURES'); ?></strong>
+        <dl>
+          <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Pharmacy:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_drive_thru['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Drive-Thru Pharmacy:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_flu_shot['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Offers Flu Shot:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_beverage_depot['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Beverage Depot:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_bakery['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Bakery:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_deli['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Deli:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
+          <?php if ($node->field_floral['und'][0]['value'] == 1): ?>
+              <dt><?php print t('Floral:'); ?></dt>
+              <dd>√</dd>
           <?php endif; ?>
           <?php if ($node->field_redbox['und'][0]['value'] == 1): ?>
-              <dt class="tel-txt"><?php print t('Redbox:'); ?></dt>
-              <dd>Available</dd>
+              <dt><?php print t('Redbox:'); ?></dt>
+              <dd>√</dd>
           <?php endif; ?>
         </dl>
     </div>
