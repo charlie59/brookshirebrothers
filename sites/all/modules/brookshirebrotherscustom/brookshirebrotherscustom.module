@@ -41,7 +41,7 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
   $items['brookshirebrotherscustom_store_updater_cron'] = array(
     'description' => 'Update Store Locations',
-    'rule' => '0 1 * * *',
+    'rule' => '0 2 * * *',
     'callback' => 'brookshirebrotherscustom_store_updater',
     'file' => 'includes/store_updater.inc'
   );
