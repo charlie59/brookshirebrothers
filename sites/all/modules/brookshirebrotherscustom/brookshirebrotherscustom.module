@@ -14,21 +14,39 @@ function brookshirebrotherscustom_menu() {
   $items = array();
 
   $items['store-updater'] = array(
-    'title' => 'Test Functions',
+    'title' => 'Store Updater',
     'page callback' => 'brookshirebrotherscustom_store_updater',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('access content'),
+    'access arguments' => array('access administration pages'),
     'file' => 'includes/store_updater.inc'
   );
 
   $items['describe'] = array(
-    'title' => 'Test Functions',
+    'title' => 'Describe Account Object',
     'page callback' => 'brookshirebrotherscustom_describe',
     'type' => MENU_CALLBACK,
     'access arguments' => array('access administration pages'),
   );
 
   return $items;
+}
+
+/**
+ * Cron Jobs
+ * @param $op
+ * @param null $job
+ * @return mixed
+ */
+function brookshirebrotherscustom_cronapi($op, $job = NULL) {
+
+  $items['brookshirebrotherscustom_store_updater_cron'] = array(
+    'description' => 'Update Store Locations',
+    'rule' => '0 1 * * *',
+    'callback' => 'brookshirebrotherscustom_store_updater',
+    'file' => 'includes/store_updater.inc'
+  );
+  return $items;
+
 }
 
 function brookshirebrotherscustom_describe() {
