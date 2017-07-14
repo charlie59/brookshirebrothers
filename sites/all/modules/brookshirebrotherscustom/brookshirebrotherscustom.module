@@ -13,7 +13,7 @@ function brookshirebrotherscustom_menu() {
 
   $items = array();
 
-  $items['/admin/store-updater'] = array(
+  $items['admin/store-updater'] = array(
     'title' => 'Store Updater',
     'page callback' => 'brookshirebrotherscustom_store_updater',
     'type' => MENU_CALLBACK,
@@ -21,7 +21,7 @@ function brookshirebrotherscustom_menu() {
     'file' => 'includes/store_updater.inc'
   );
 
-  $items['describe'] = array(
+  $items['admin/describe'] = array(
     'title' => 'Describe Account Object',
     'page callback' => 'brookshirebrotherscustom_describe',
     'type' => MENU_CALLBACK,
