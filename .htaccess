@@ -5,7 +5,6 @@ Redirect 301 /company/vendorinformation https://brookshirebrothers.force.com/ven
 Redirect 301 /companynew/companycontact http://brookshirebrothers.force.com/QuestionOrComments
 Redirect 301 /companynew/contactform http://brookshirebrothers.force.com/QuestionOrComments
 Redirect 301 /createnewaccount https://brookshirebrothers.force.com/Register
-#
 Redirect 301 /bakery http://www.brookshirebrothers.com/departments/bakery
 Redirect 301 /Bakery.aspx http://www.brookshirebrothers.com/departments/bakery
 Redirect 301 /beveragedepot http://www.brookshirebrothers.com/beverage-depot/beverage-depot
