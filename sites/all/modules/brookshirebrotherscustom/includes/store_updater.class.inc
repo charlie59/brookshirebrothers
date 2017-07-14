@@ -123,7 +123,7 @@ class Store_Updater {
           if (isset($result['node'])) {
             $arr = array_values($result['node']);
             $nid = $arr[0]->nid;
-            echo $nid . "\n";
+            // echo $nid . "\n";
             $wrapper = entity_metadata_wrapper('node', $nid);
             $fields = explode(',', $this->fieldList);
             $wrapper->field_specification = []; // clear field_specification (Departments)
@@ -312,6 +312,7 @@ class Store_Updater {
             // var_dump($wrapper->getPropertyInfo());
             $wrapper->save();
             $ptr ++;
+            echo $ptr . "\n";
           }
         }
       }
