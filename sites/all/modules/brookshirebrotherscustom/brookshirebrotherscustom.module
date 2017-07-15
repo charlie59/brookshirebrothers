@@ -13,11 +13,11 @@ function brookshirebrotherscustom_menu() {
 
   $items = array();
 
-  $items['store-updater'] = array(
+  $items['admin/store-updater'] = array(
     'title' => 'Store Updater',
     'page callback' => 'brookshirebrotherscustom_store_updater',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('access content'),
+    'access arguments' => array('access administration pages'),
     'file' => 'includes/store_updater.inc'
   );
 
