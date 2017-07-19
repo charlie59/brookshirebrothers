@@ -85,7 +85,7 @@
               <dt><?php print t('Floral:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
-          <?php if ($node->field_redbox['und'][0]['value'] == 1): ?>
+          <?php if (isset($node->field_redbox) && $node->field_redbox['und'][0]['value'] == 1): ?>
               <dt><?php print t('Redbox:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
