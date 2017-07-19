@@ -4,6 +4,7 @@
  *
  * @param $breadcrumb
  *   An array containing the breadcrumb links.
+ *
  * @return a string containing the breadcrumb output.
  */
 function brookshirebrothers_breadcrumb($variables) {
@@ -19,54 +20,58 @@ function brookshirebrothers_breadcrumb($variables) {
   }
 }
 
+function brookshirebrothers_preprocess_html(&$vars) {
+ //
+}
+
 /**
  * Override or insert variables into the page template.
  */
 function brookshirebrothers_preprocess_page(&$vars) {
-   if (isset($vars['node'])) {
-	$vars['theme_hook_suggestions'][] = 'page__'. str_replace('_', '--', $vars['node']->type);
-	}
-  $vars['tabs2'] = array(
+  if (isset($vars['node'])) {
+    $vars['theme_hook_suggestions'][] = 'page__' . str_replace('_', '--', $vars['node']->type);
+  }
+  $vars['tabs2'] = [
     '#theme' => 'menu_local_tasks',
     '#secondary' => $vars['tabs']['#secondary'],
-  );
+  ];
   unset($vars['tabs']['#secondary']);
 
   if (isset($vars['main_menu'])) {
-    $vars['primary_nav'] = theme('links__system_main_menu', array(
+    $vars['primary_nav'] = theme('links__system_main_menu', [
       'links' => $vars['main_menu'],
-      'attributes' => array(
-        'class' => array('links', 'inline', 'main-menu'),
-      ),
-      'heading' => array(
+      'attributes' => [
+        'class' => ['links', 'inline', 'main-menu'],
+      ],
+      'heading' => [
         'text' => t('Main menu'),
         'level' => 'h2',
-        'class' => array('element-invisible'),
-      )
-    ));
+        'class' => ['element-invisible'],
+      ],
+    ]);
   }
   else {
     $vars['primary_nav'] = FALSE;
   }
   if (isset($vars['secondary_menu'])) {
-    $vars['secondary_nav'] = theme('links__system_secondary_menu', array(
+    $vars['secondary_nav'] = theme('links__system_secondary_menu', [
       'links' => $vars['secondary_menu'],
-      'attributes' => array(
-        'class' => array('links', 'inline', 'secondary-menu'),
-      ),
-      'heading' => array(
+      'attributes' => [
+        'class' => ['links', 'inline', 'secondary-menu'],
+      ],
+      'heading' => [
         'text' => t('Secondary menu'),
         'level' => 'h2',
-        'class' => array('element-invisible'),
-      )
-    ));
+        'class' => ['element-invisible'],
+      ],
+    ]);
   }
   else {
     $vars['secondary_nav'] = FALSE;
   }
 
   // Prepare header.
-  $site_fields = array();
+  $site_fields = [];
   if (!empty($vars['site_name'])) {
     $site_fields[] = $vars['site_name'];
   }
@@ -83,6 +88,18 @@ function brookshirebrothers_preprocess_page(&$vars) {
   $slogan_text = $vars['site_slogan'];
   $site_name_text = $vars['site_name'];
   $vars['site_name_and_slogan'] = $site_name_text . ' ' . $slogan_text;
+
+  // set pharmacy var for store locator
+  if (arg(1) == '46') {
+
+    // set var for maps api key
+    global $conf;
+    $vars['google_maps_api_key'] = $conf['google_maps_api_key'];
+
+    if (isset($_GET['pharmacy']) && $_GET['pharmacy'] == "true") {
+      $vars['pharmacy'] = $_GET['pharmacy'];
+    }
+  }
 }
 
 /**
@@ -117,21 +134,23 @@ function brookshirebrothers_preprocess_region(&$vars) {
 }
 
 /**
- * Styles the menu for a Menu Block module. This function is called inside templates/menu-block-wrapper.tpl.php
+ * Styles the menu for a Menu Block module. This function is called inside
+ * templates/menu-block-wrapper.tpl.php
  */
-function l1($text, $path, $myclass1, array $options = array()) {
+function l1($text, $path, $myclass1, array $options = []) {
   global $language_url;
   static $use_theme = NULL;
 
   // Merge in defaults.
-  $options += array(
-    'attributes' => array(),
+  $options += [
+    'attributes' => [],
     'html' => FALSE,
-  );
+  ];
 
   // Append active class.
   if (($path == $_GET['q'] || ($path == '<front>' && drupal_is_front_page())) &&
-    (empty($options['language']) || $options['language']->language == $language_url->language)) {
+    (empty($options['language']) || $options['language']->language == $language_url->language)
+  ) {
     $options['attributes']['class'][] = 'active';
   }
 
@@ -154,9 +173,13 @@ function l1($text, $path, $myclass1, array $options = array()) {
     }
   }
   if ($use_theme) {
-    return theme('link', array('text' => $text, 'path' => $path, 'options' => $options));
+    return theme('link', [
+      'text' => $text,
+      'path' => $path,
+      'options' => $options,
+    ]);
   }
-  if($myclass1 == 'mark pos3') {
+  if ($myclass1 == 'mark pos3') {
     return '<a class="btn-lightbox" href="#popup1"><span>' . ($options['html'] ? $text : check_plain($text)) . '</span></a>';
   }
   else {
@@ -282,7 +305,7 @@ function menu_block_links($variables, $level=1) {
   }
   return $output;
 }*/
-function menu_block_links($variables, $level=1) {
+function menu_block_links($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
   array_pop($links);
@@ -294,10 +317,10 @@ function menu_block_links($variables, $level=1) {
     $num_links = count($links);
     foreach ($links as $link) {
       $class = $link['#attributes']['class'];
-      if(count($class)){
-        $class = ' class="'.implode(' ', $class).'"';
+      if (count($class)) {
+        $class = ' class="' . implode(' ', $class) . '"';
       }
-      else{
+      else {
         $class = '';
       }
       $output .= '<li' . $class . '>';
@@ -305,13 +328,13 @@ function menu_block_links($variables, $level=1) {
         $output .= l($link['#title'], $link['#href'], $link);
       }
       $children = $link['#below'];
-      if(count($children)){
-          $level++;
-          $vars = array();
-          $vars['links'] = $children;
-          $vars['attributes'] = array('class' => 'level-'.$level);
-          $output .= menu_block_links($vars, $level);
-		  $level--;
+      if (count($children)) {
+        $level++;
+        $vars = [];
+        $vars['links'] = $children;
+        $vars['attributes'] = ['class' => 'level-' . $level];
+        $output .= menu_block_links($vars, $level);
+        $level--;
       }
       $output .= "</li>\n";
     }
@@ -320,7 +343,7 @@ function menu_block_links($variables, $level=1) {
   return $output;
 }
 
-function menu_block_links_main($variables, $level=1) {
+function menu_block_links_main($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
   array_pop($links);
@@ -328,19 +351,19 @@ function menu_block_links_main($variables, $level=1) {
   global $language_url;
   $output = '';
   if (!empty($links)) {
-   if ($level==2){
-            $output .= '<div class="dropdown"><ul' . drupal_attributes($attributes) .'>';
-           }
-           else{
-            $output .= '<ul' . drupal_attributes($attributes) . '>';
-           }
+    if ($level == 2) {
+      $output .= '<div class="dropdown"><ul' . drupal_attributes($attributes) . '>';
+    }
+    else {
+      $output .= '<ul' . drupal_attributes($attributes) . '>';
+    }
     $num_links = count($links);
     foreach ($links as $link) {
       $class = $link['#attributes']['class'];
-      if(count($class)){
-        $class = ' class="'.implode(' ', $class).'"';
+      if (count($class)) {
+        $class = ' class="' . implode(' ', $class) . '"';
       }
-      else{
+      else {
         $class = '';
       }
       $output .= '<li' . $class . '>';
@@ -348,40 +371,39 @@ function menu_block_links_main($variables, $level=1) {
         $output .= l1($link['#title'], $link['#href'], $link);
       }
 
-	   /*if ($link['#original_link']['menu_name'] == 'main-menu' and $level == 1 and !empty ($link['#localized_options']['attributes']['title'])){
-				 $output .=  '<div class="img-holder">'.$link['#localized_options']['attributes']['title'].'</div>';
-			}*/
+      /*if ($link['#original_link']['menu_name'] == 'main-menu' and $level == 1 and !empty ($link['#localized_options']['attributes']['title'])){
+          $output .=  '<div class="img-holder">'.$link['#localized_options']['attributes']['title'].'</div>';
+       }*/
       $children = $link['#below'];
-      if(count($children)){
-          $level++;
-          $vars = array();
-          $vars['links'] = $children;
+      if (count($children)) {
+        $level++;
+        $vars = [];
+        $vars['links'] = $children;
 
-		   if ($level==2){
+        if ($level == 2) {
 
-            $vars['attributes'] = array('class' => 'alt level-'.$level);
-           }
-           else{
-            $vars['attributes'] = array('class' => 'level-'.$level);
-           }
+          $vars['attributes'] = ['class' => 'alt level-' . $level];
+        }
+        else {
+          $vars['attributes'] = ['class' => 'level-' . $level];
+        }
 
-          $output .= menu_block_links_main($vars, $level);
-		  $level--;
+        $output .= menu_block_links_main($vars, $level);
+        $level--;
       }
       $output .= "</li>\n";
     }
-    if ($level==2){
-				$output .= '</ul></div>';
-			}
-			else
-			{
-				$output .= '</ul>';
-			}
+    if ($level == 2) {
+      $output .= '</ul></div>';
+    }
+    else {
+      $output .= '</ul>';
+    }
   }
   return $output;
 }
 
-function menu_block_links_sidebar($variables, $level=1) {
+function menu_block_links_sidebar($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
   array_pop($links);
@@ -393,10 +415,10 @@ function menu_block_links_sidebar($variables, $level=1) {
     $num_links = count($links);
     foreach ($links as $link) {
       $class = $link['#attributes']['class'];
-      if(count($class)){
-        $class = ' class="'.implode(' ', $class).'"';
+      if (count($class)) {
+        $class = ' class="' . implode(' ', $class) . '"';
       }
-      else{
+      else {
         $class = '';
       }
       $output .= '<li' . $class . '>';
@@ -404,13 +426,13 @@ function menu_block_links_sidebar($variables, $level=1) {
         $output .= l($link['#title'], $link['#href'], $link);
       }
       $children = $link['#below'];
-      if(count($children)){
-          $level++;
-          $vars = array();
-          $vars['links'] = $children;
-          $vars['attributes'] = array('class' => 'inner-nav '.$level);
-          $output .= menu_block_links_sidebar($vars, $level);
-		  $level--;
+      if (count($children)) {
+        $level++;
+        $vars = [];
+        $vars['links'] = $children;
+        $vars['attributes'] = ['class' => 'inner-nav ' . $level];
+        $output .= menu_block_links_sidebar($vars, $level);
+        $level--;
       }
       $output .= "</li>\n";
     }
@@ -418,24 +440,25 @@ function menu_block_links_sidebar($variables, $level=1) {
   }
   return $output;
 }
+
 function entity_load_by_type($entity_type, $bundle) {
   global $language;
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', $entity_type)
     ->entityCondition('bundle', $bundle);
   $results = $query->execute();
-  if(!empty($results['node'])) {
+  if (!empty($results['node'])) {
     $nids = array_keys($results['node']);
     $nodes = entity_load($entity_type, $nids);
     return $nodes;
-  } else {
-    return false;
+  }
+  else {
+    return FALSE;
   }
 }
 
-function Age($date = 'now')
-{
-    return intval(substr(date('Ymd') - date('Ymd', strtotime($date)), 0, -4));
+function Age($date = 'now') {
+  return intval(substr(date('Ymd') - date('Ymd', strtotime($date)), 0, -4));
 }
 
 function brookshirebrothers_preprocess_views_view(&$vars) {

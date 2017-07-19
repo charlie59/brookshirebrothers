@@ -18,7 +18,7 @@ $frase_uno = 'Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (u
 $frase_dos = 'Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default';
 ?>
 <section class="text-block">
-<div class="field-name-body">
+<div class="field-name-body" id="weekly-ad">
     <p><input type="checkbox" id="default_store_id"<?php
       if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
         echo ' checked="checked"> <span id="default_store_text">' . $frase_uno. '</span>';

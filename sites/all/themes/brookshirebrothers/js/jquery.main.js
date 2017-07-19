@@ -1,8 +1,6 @@
 // page init
 jQuery(function () {
     initSplitDropDown();
-    initGoogleMaps();
-    initFilterLocation();
     jcf.customForms.replaceAll();
     initCycleCarousel();
     initOpenClose();
@@ -62,242 +60,6 @@ function initSplitDropDown() {
                 }
             });
         });
-    });
-}
-
-// google maps init
-function initGoogleMaps() {
-    jQuery('.google-map-holder').each(function () {
-        var set = jQuery(this);
-        var attrAddress = set.find('.address').text();
-        var iframe = set.find('.map-box');
-        var linkToMap = set.find('.btn-map');
-
-        linkToMap.attr('target', '_blank')
-
-        var mapOptions = {
-            zoom: 13,
-            center: new google.maps.LatLng(-34.397, 150.644),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(iframe.get(0), mapOptions);
-
-        getPosition(attrAddress).done(function (results) {
-            map.setCenter(results[0].geometry.location);
-            iframe.data('formatted_address', results[0].formatted_address);
-            linkToMap.attr('href', 'https://maps.google.com/maps?q=' + results[0].formatted_address);
-            makeMarker(results[0].geometry.location, results[0].formatted_address);
-        });
-        function makeMarker(location, address) {
-            var infowindow = new google.maps.InfoWindow({
-                content: attrAddress
-            });
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: location
-            });
-
-            google.maps.event.addListener(marker, 'click', function (e) {
-                infowindow.open(map, marker);
-            });
-        };
-    });
-
-    function getPosition(address) {
-        var d = jQuery.Deferred();
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({'address': address}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                d.resolve(results);
-            }
-        });
-        return d;
-    }
-}
-
-// filter location init
-function initFilterLocation() {
-    var activeClass = 'filter-active';
-
-    jQuery('.filter-location').each(function () {
-        var holder = jQuery(this);
-        var form = holder.find('.location-form');
-        var filterHolder = holder.find('.filter-holder');
-        var filterList = filterHolder.find('.store-block');
-        var literLocation = form.find('.filter-location-area');
-        var backBtn = filterHolder.find('.back-btn');
-        var distanceSelect = form.find('.filter-distance');
-        var checkboxes = form.find('input[type="checkbox"]');
-        var selectedDistance;
-        var convertCoeff = 1000 * 1.61;
-        var resultCount = filterHolder.find('.result-count');
-        var selectedMiles = filterHolder.find('.selected-miles');
-        var yopurAddress = filterHolder.find('.your-location');
-        var overClass = 'over';
-
-        var mapOptions = {
-            zoom: 11,
-            mapTypeControl: false,
-            center: new google.maps.LatLng(-34.397, 150.644),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        filterHolder.hide();
-        function sendForm(e) {
-
-            var weeklyad = holder.find('.weekly-ad');
-            jQuery('#loader').show();
-            var literLocation = form.find('.filter-location-area');
-            /* [WM] 20140424 - get User's input text */
-            if (e) e.preventDefault();
-            jQuery.ajax({
-                type: 'get',
-                cache: false,
-                url: form.attr('action'),
-                data: 'ajax=1&weeklyad=' + weeklyad.val(),
-                dataType: 'text',
-                success: function (data) {
-                    var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
-                    selectedDistance = parseInt(selectedOption.text(), 10);
-
-                    if (selectedOption.hasClass(overClass)) {
-                        selectedDistance = 99999;
-                    }
-
-                    jQuery(data).appendTo(jQuery('body'));
-                    resultCount.text('0');
-                    selectedMiles.text(selectedOption.text());
-
-                    getPosition(literLocation.val()).done(function (results) {
-                        //var currCoord = [results[0].geometry.location.k, results[0].geometry.location.A]
-                        var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-                        var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
-                        var html = '';
-                        var lat = results[0].geometry.location.lat();
-                        var lng = results[0].geometry.location.lng();
-
-                        for (var i in dataObject) {
-                            dataObject[i].features[0].properties.i = i;
-                            html += tmpl("result_tmpl", dataObject[i].features[0].properties);
-                        }
-
-                        //jQuery.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=false', function(){
-                        // console.log(arguments[0].results[0].address_components[arguments[0].results[0].address_components.length-1].long_name)
-                        // console.log(arguments[0].results[0].address_components[4].long_name)
-                        //yopurAddress.text(arguments[0].results[0].address_components[4].long_name);
-                        //});
-                        filterList.html(html);
-                    });
-                    yopurAddress.text(literLocation.val());
-                    /* [WM] 20140424 - Updated Value of Label with User's input text */
-                    switchOnFilter();
-                    jQuery('#loader').hide();
-                }
-            });
-        }
-
-        function switchOnFilter() {
-            if (!holder.hasClass(activeClass)) {
-                holder.addClass(activeClass);
-                form.hide();
-                filterHolder.show();
-            } else {
-                holder.removeClass(activeClass);
-                form.show();
-                filterHolder.hide();
-            }
-        }
-
-        function getCoordinates(obj, yourCoord, limit) {
-            var semiresultsArray = [];
-            var currIndex = 0;
-
-            function chechAddress() {
-                if (obj[currIndex]) {
-                    var currObj = obj[currIndex];
-                    var coordArr = currObj.features[0].geometry.coordinates.split(',');
-                    var currA = parseFloat(coordArr[0]);
-                    var currB = parseFloat(coordArr[1]);
-                    var latLngA = new google.maps.LatLng(parseFloat(yourCoord[0], 10), parseFloat(yourCoord[1], 10));
-                    var latLngB = new google.maps.LatLng(parseFloat(currA, 10), parseFloat(currB, 10));
-                    var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB) / convertCoeff;
-
-                    obj[currIndex].distanceMiles = distance;
-                    if (!limit) {
-                        semiresultsArray.push(obj[currIndex]);
-                    }
-                    else if (distance <= limit) {
-                        semiresultsArray.push(obj[currIndex]);
-                    }
-                    ;
-                    currIndex++;
-                    if (obj[currIndex]) {
-                        chechAddress();
-                    }
-                }
-                ;
-            }
-
-            chechAddress();
-            semiresultsArray = semiresultsArray.sort(function (a, b) {
-                return parseFloat(a.distanceMiles) > parseFloat(b.distanceMiles) ? 1 : -1;
-            });
-            var resultsArray = [];
-            var checkboxArray = [];
-
-            checkboxes.each(function () {
-                var checkbox = jQuery(this);
-
-                if (checkbox.is(':checked')) {
-                    checkboxArray.push(checkbox.val());
-                }
-            });
-
-            jQuery.each(semiresultsArray, function (ind, obj) {
-                var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
-                jQuery.each(intermediateArr, function (el, key) {
-                    var key = jQuery.trim(key)
-
-                    jQuery.each(checkboxArray, function (el2, key2) {
-                        var key2 = jQuery.trim(key2);
-
-                        if (key.toLowerCase() == key2.toLowerCase()) {
-                            resultsArray.push(obj);
-                            return true
-                        } else {
-                            return false;
-                        }
-                    })
-                });
-            });
-
-            if (checkboxes.filter(':checked').length > 0) {
-                showResultCount(resultsArray);
-                return resultsArray;
-            } else {
-                showResultCount(semiresultsArray);
-                return semiresultsArray;
-            }
-        };
-        function getPosition(address) {
-            var d = jQuery.Deferred();
-
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({'address': address}, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    d.resolve(results);
-                }
-            });
-            return d;
-        }
-
-        function showResultCount(currArr) {
-            resultCount.text(currArr.length);
-            selectedMiles.text(distanceSelect.children().eq(distanceSelect.get(0).selectedIndex).text())
-        }
-
-        form.submit(sendForm);
-        backBtn.bind('click', sendForm);
     });
 }
 
@@ -3006,11 +2768,11 @@ jcf.addModule({
             t = i.HAS_POINTEREVENTS ? i.PointerEvent.getEvents() : i.NO_MOUSEEVENTS ? ["touchstart", "touchmove", "touchend touchcancel"] : ["touchstart mousedown", "touchmove mousemove", "touchend touchcancel mouseup"], i.EVENT_TYPES[i.EVENT_START] = t[0], i.EVENT_TYPES[i.EVENT_MOVE] = t[1], i.EVENT_TYPES[i.EVENT_END] = t[2]
         }, getTouchList: function (t) {
             return i.HAS_POINTEREVENTS ? i.PointerEvent.getTouchList() : t.touches ? t.touches : [{
-                        identifier: 1,
-                        pageX: t.pageX,
-                        pageY: t.pageY,
-                        target: t.target
-                    }]
+                identifier: 1,
+                pageX: t.pageX,
+                pageY: t.pageY,
+                target: t.target
+            }]
         }, collectEventData: function (t, e, n) {
             var r = this.getTouchList(n, e), o = i.POINTER_TOUCH;
             return (n.type.match(/mouse/) || i.PointerEvent.matchType(i.POINTER_MOUSE, n)) && (o = i.POINTER_MOUSE), {
@@ -3245,8 +3007,8 @@ jcf.addModule({
             t.eventType == i.EVENT_END && e.trigger(this.name, t)
         }
     }, "object" == typeof module && "object" == typeof module.exports ? module.exports = i : (t.Hammer = i, "function" == typeof t.define && t.define.amd && t.define("hammer", [], function () {
-            return i
-        }))
+        return i
+    }))
 })(this), function (t, e) {
     "use strict";
     t !== e && (Hammer.event.bindDom = function (n, i, r) {

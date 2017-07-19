@@ -13,34 +13,65 @@ function brookshirebrotherscustom_menu() {
 
   $items = array();
 
-  // Add a page callback for the url: "external-search.js".
-  $items['external-search.js'] = array(
-    'title' => 'External search',
-    'page callback' => '_module_search',
+  $items['admin/store-updater'] = array(
+    'title' => 'Store Updater',
+    'page callback' => 'brookshirebrotherscustom_store_updater',
     'type' => MENU_CALLBACK,
-    'access arguments' => array('access content'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'includes/store_updater.inc'
+  );
+
+  $items['admin/describe'] = array(
+    'title' => 'Describe Account Object',
+    'page callback' => 'brookshirebrotherscustom_describe',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access administration pages'),
   );
 
   return $items;
 }
 
 /**
- * Format JSON
+ * Cron Jobs
+ * @param $op
+ * @param null $job
+ * @return mixed
  */
-function _module_search($html) {
-  // Create a JSON string of the search block form html.
-  $json = drupal_json_encode(drupal_render(drupal_get_form('search_block_form')));
-  // $json = str_replace("form action=\u0022\/external-search.js", "form action=\u0022https:\/\/www.brookshirebrothers.com\/external-search.js");
+function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
-  // Format the json as a callback function.
-  // See: http://docs.jquery.com/Ajax/jQuery.getJSON for more information.
-  if (isset($_GET['jsoncallback'])) {
-    $json = $_GET['jsoncallback'] . "(" . $json . ");";
+  /*
+   * Update Store Location nodes from Salesforce
+   */
+  $items['brookshirebrotherscustom_store_updater_cron'] = array(
+    'description' => 'Update Store Locations',
+    'rule' => '0 2 * * *',
+    'callback' => 'brookshirebrotherscustom_store_updater',
+    'file' => 'includes/store_updater.inc'
+  );
+  return $items;
+
+}
+
+/**
+ * Describe Account Object
+ * To get Salesforce fields names
+ */
+function brookshirebrotherscustom_describe() {
+
+  require_once (SOAP_CLIENT_BASEDIR.'/SforcePartnerClient.php');
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceHeaderOptions.php');
+  require_once (SOAP_CLIENT_BASEDIR.'/SforceBaseClient.php');
+
+  try {
+    $mySforceConnection = new SforcePartnerClient();
+    $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
+    $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
+    $response = $mySforceConnection->describeSObject("Account");
+    print_r($response);
+
+
+  } catch (Exception $e) {
+    echo $mySforceConnection->getLastRequest();
+    echo $e->faultstring;
   }
-
-  // Output the JSON.
-  print $json;
-
-  // Stop the script, so the theme layer is not applied.
-  die;
 }
