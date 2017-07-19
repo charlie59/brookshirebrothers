@@ -89,6 +89,14 @@
               <dt><?php print t('Redbox:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
+          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
+              <dt><?php print t('To Signup to Brookshire Brotheres Promo Alerts:'); ?></dt>
+              <dd><?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?></dd>
+          <?php endif; ?>
+          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
+              <dt><?php print t('To Signup to Tobacco Barn Promo Alerts:'); ?></dt>
+              <dd>√</dd>
+          <?php endif; ?>
         </dl>
     </div>
     <!-- pharmacy -->

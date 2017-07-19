@@ -49,7 +49,9 @@ class Store_Updater {
   Car_Wash_Phone__c,
   Car_Wash_Director__c,
   Has_Mr_Payroll__c,
-  Mr_Payroll_Phone__c";
+  Mr_Payroll_Phone__c,
+  BBros_Text_Signup__c,
+  TBarn_Text_signup__c";
   var $sObjectType = "Account";
 
   /**
@@ -306,6 +308,12 @@ class Store_Updater {
                   break;
                 case "Mr_Payroll_Phone__c":
                   $wrapper->field_mr_payroll_phone->set($value);
+                  break;
+                case "BBros_Text_Signup__c":
+                  $wrapper->field_bbros_text_signup__c->set($value);
+                  break;
+                case "TBarn_Text_signup__c":
+                  $wrapper->field_tbarn_text_signup__c->set($value);
                   break;
               }
             }
