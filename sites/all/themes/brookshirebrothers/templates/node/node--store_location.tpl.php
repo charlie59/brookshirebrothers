@@ -99,7 +99,7 @@
         <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
       <?php endif; ?>
     </p>
-    </div>
+
     <!-- pharmacy -->
   <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
       <div class="detail-box">
