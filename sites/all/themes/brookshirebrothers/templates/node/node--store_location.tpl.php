@@ -47,8 +47,7 @@
           <?php endif; ?>
           <?php if (isset($node->field_store_phone['und'][0]['value'])): ?>
               <dt class="tel-txt"><?php print t('Phone:'); ?></dt>
-              <dd><a class="tel"
-                     href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
+              <dd><a class="tel" href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
               </dd>
           <?php endif; ?>
         </dl>
@@ -89,15 +88,15 @@
               <dt><?php print t('Redbox:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
-          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-              <dt><?php print t('To Signup to Brookshire Brothers Promo Alerts:'); ?></dt>
-              <dd><?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?></dd>
-          <?php endif; ?>
-          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-              <dt><?php print t('To Signup to Tobacco Barn Promo Alerts:'); ?></dt>
-              <dd>√</dd>
-          <?php endif; ?>
         </dl>
+      <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
+          <p><?php print t('To Signup to Brookshire Brothers Promo Alerts: '); ?>
+          <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?></p>
+      <?php endif; ?>
+      <?php if (!empty($node->field_tbarn_text_signup__c['und'][0]['value'])): ?>
+          <p><?php print t('To Signup to Tobacco Barn Promo Alerts: '); ?>
+            <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?></p></p>
+      <?php endif; ?>
     </div>
     <!-- pharmacy -->
   <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
