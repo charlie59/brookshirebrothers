@@ -53,7 +53,7 @@
         </dl>
     </div>
     <!-- features -->
-    <div class="detail-box">
+    <p class="detail-box">
         <strong class="title"><?php print t('FEATURES'); ?></strong>
         <dl>
           <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
@@ -89,14 +89,16 @@
               <dd>√</dd>
           <?php endif; ?>
         </dl>
+    <p>
       <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-          <p><?php print t('To Signup to Brookshire Brothers Promo Alerts: '); ?>
-          <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?></p>
+        <?php print t('To Signup to Brookshire Brothers Promo Alerts: '); ?>
+        <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?><br />
       <?php endif; ?>
       <?php if (!empty($node->field_tbarn_text_signup__c['und'][0]['value'])): ?>
-          <p><?php print t('To Signup to Tobacco Barn Promo Alerts: '); ?>
-            <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?></p>
+        <?php print t('To Signup to Tobacco Barn Promo Alerts: '); ?>
+        <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
       <?php endif; ?>
+    </p>
     </div>
     <!-- pharmacy -->
   <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
