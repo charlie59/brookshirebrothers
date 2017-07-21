@@ -326,6 +326,8 @@ class Store_Updater {
         }
       }
       watchdog('store_updater', "Updated  %num Store Locations", $variables = array('%num' => $ptr), $severity = WATCHDOG_NOTICE);
+    } else {
+      watchdog('store_updater', "No Stores to update", $variables = array(), $severity = WATCHDOG_NOTICE);
     }
   }
 
