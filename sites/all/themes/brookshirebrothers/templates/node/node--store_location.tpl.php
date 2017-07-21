@@ -95,7 +95,7 @@
       <?php endif; ?>
       <?php if (!empty($node->field_tbarn_text_signup__c['und'][0]['value'])): ?>
           <p><?php print t('To Signup to Tobacco Barn Promo Alerts: '); ?>
-            <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?></p></p>
+            <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?></p>
       <?php endif; ?>
     </div>
     <!-- pharmacy -->
