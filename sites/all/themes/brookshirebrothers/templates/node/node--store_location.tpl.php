@@ -53,7 +53,7 @@
         </dl>
     </div>
     <!-- features -->
-    <p class="detail-box">
+    <div class="detail-box">
         <strong class="title"><?php print t('FEATURES'); ?></strong>
         <dl>
           <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
@@ -99,6 +99,7 @@
                 <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
             <?php endif; ?>
         </p>
+    </div>
 
     <!-- pharmacy -->
   <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
