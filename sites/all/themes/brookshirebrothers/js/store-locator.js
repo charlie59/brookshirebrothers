@@ -158,10 +158,10 @@ jQuery(document).ready(function () {
         jQuery("#moreoptions").click(function () {
             if (jQuery("#moreoptionssection").hasClass('invisible')) {
                 jQuery("#moreoptionssection").removeClass('invisible');
-                jQuery("#moreoptions").text('Less options');
+                jQuery("#moreoptions").text('Hide Advanced Search');
             } else {
                 jQuery("#moreoptionssection").addClass('invisible');
-                jQuery("#moreoptions").text('More options');
+                jQuery("#moreoptions").text('Advanced Search');
             }
         });
 
