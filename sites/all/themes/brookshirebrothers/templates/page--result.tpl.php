@@ -29,7 +29,7 @@
                                 </select>
                             </div>
                         </div>
-                        <p id="moreoptions" class="link">More options</p>
+                        <p id="moreoptions" class="link">Advanced Search</p>
                         <section class="form-holder add-method invisible" id="moreoptionssection">
                             <div class="checkbox-area add-area">
                               <?php
