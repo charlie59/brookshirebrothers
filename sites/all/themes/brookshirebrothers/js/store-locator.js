@@ -307,15 +307,14 @@ jQuery(document).ready(function () {
                         key = jQuery.trim(key);
                         var arrayLength = checkboxArray.length;
                         for (var i = 0; i < arrayLength; i++) {
-                          var key2 = jQuery.trim(arrayLength[i]);
+                          var key2 = jQuery.trim(checkboxArray[i]);
                           console.log(key2);
                           if (key === key2) {
                             console.log('success ' + key + ";");
                             resultsArray.push(obj);
-                            return true;
+                            break;
                           } else {
                             console.log('failed ' + key + ";");
-                            return false;
                           }
                         }
                         /*jQuery.each(checkboxArray, function (el2, key2) {
