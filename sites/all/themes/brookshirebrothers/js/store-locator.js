@@ -305,7 +305,6 @@ jQuery(document).ready(function () {
                     console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
-                        console.log(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             console.log(key2);
