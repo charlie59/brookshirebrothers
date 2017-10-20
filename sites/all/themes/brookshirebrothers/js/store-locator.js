@@ -23,7 +23,7 @@ function getCookie(name) {
 }
 
 jQuery(document).ready(function () {
-    //"use strict";
+    "use strict";
 
     /*
      * make map based on storeZip
@@ -185,8 +185,8 @@ jQuery(document).ready(function () {
             filterHolder.hide();
 
             function sendForm(e) {
-              console.error('form sent');
               alert('form sent');
+              return;
                 storeZip = searchBox.val(); // they might gone back to the form and changed it from the cookie value
                 var weeklyad = holder.find('.weekly-ad');
                 storeLocations = [];
