@@ -304,7 +304,9 @@ jQuery(document).ready(function () {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     // console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
-                        var check = jQuery.trim(key);
+                      var check;
+                      console.log(key);
+                      check = jQuery.trim(key);
                         a = checkboxArray.indexOf(check);
                         console.log(check);
                         console.log(a);
