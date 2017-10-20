@@ -307,14 +307,14 @@ jQuery(document).ready(function () {
                         key = jQuery.trim(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
-                            console.log(";" + key2 + ";");
+                            console.log(key2);
                             if (key.toLowerCase() === key2.toLowerCase()) {
                                 console.log('success ' + key + ";");
                                 resultsArray.push(obj);
                                 return true;
                             } else {
-                              console.log('failed ' + key + ";");
-                              return false;
+                                console.log('failed ' + key + ";");
+                                return false;
                             }
                         })
                     });
