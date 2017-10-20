@@ -47,8 +47,7 @@
           <?php endif; ?>
           <?php if (isset($node->field_store_phone['und'][0]['value'])): ?>
               <dt class="tel-txt"><?php print t('Phone:'); ?></dt>
-              <dd><a class="tel"
-                     href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
+              <dd><a class="tel" href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
               </dd>
           <?php endif; ?>
         </dl>
@@ -85,20 +84,26 @@
               <dt><?php print t('Floral:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
-          <?php if ($node->field_redbox['und'][0]['value'] == 1): ?>
+          <?php if (isset($node->field_redbox) && $node->field_redbox['und'][0]['value'] == 1): ?>
               <dt><?php print t('Redbox:'); ?></dt>
               <dd>√</dd>
           <?php endif; ?>
-          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-              <dt><?php print t('To Signup to Brookshire Brotheres Promo Alerts:'); ?></dt>
-              <dd><?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?></dd>
-          <?php endif; ?>
-          <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-              <dt><?php print t('To Signup to Tobacco Barn Promo Alerts:'); ?></dt>
-              <dd>√</dd>
-          <?php endif; ?>
         </dl>
+      <?php if ((!empty($node->field_bbros_text_signup__c['und'][0]['value'])) && (!empty($node->field_tbarn_text_signup__c['und'][0]['value']))): ?>
+        <p>
+            <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
+                <?php print t('To sign up to Brookshire Brothers Promo Alerts: '); ?>
+                <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?>
+            <?php endif; ?>
+            <?php if (!empty($node->field_tbarn_text_signup__c['und'][0]['value'])): ?>
+                <br />
+                <?php print t('To sign up to Tobacco Barn Promo Alerts: '); ?>
+                <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
+            <?php endif; ?>
+        </p>
+      <?php endif; ?>
     </div>
+
     <!-- pharmacy -->
   <?php if ($node->field_pharmacy['und'][0]['value'] == 1): ?>
       <div class="detail-box">
