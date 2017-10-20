@@ -269,7 +269,7 @@ jQuery(document).ready(function () {
                         var latLngA = new google.maps.LatLng(parseFloat(yourCoord[0], 10), parseFloat(yourCoord[1], 10));
                         var latLngB = new google.maps.LatLng(parseFloat(currA, 10), parseFloat(currB, 10));
                         var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB) / convertCoeff;
-                        console.log(distance);
+                        //console.log(distance);
 
                         obj[currIndex].distanceMiles = distance;
                         if (!limit) {
@@ -305,10 +305,12 @@ jQuery(document).ready(function () {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key)
+                        console.log(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
+                            console.log(key2);
                             key2 = jQuery.trim(key2);
                             if (key.toLowerCase() === key2.toLowerCase()) {
-                                // console.log(obj);
+                                console.log(obj);
                                 resultsArray.push(obj);
                                 return true
                             } else {
