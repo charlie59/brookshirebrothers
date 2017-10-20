@@ -299,7 +299,7 @@ jQuery(document).ready(function () {
                         checkboxArray.push(checkbox.val());
                     }
                 });
-                console.log(semiresultsArray);
+                //console.log(semiresultsArray);
 
                 jQuery.each(semiresultsArray, function (ind, obj) {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
@@ -309,13 +309,13 @@ jQuery(document).ready(function () {
                         jQuery.each(checkboxArray, function (el2, key2) {
                             console.log(key2);
                             key2 = jQuery.trim(key2);
-                            if (key.toLowerCase() === key2.toLowerCase()) {
-                                console.log(obj);
+                            //if (key.toLowerCase() === key2.toLowerCase()) {
+                                // console.log(obj);
                                 resultsArray.push(obj);
                                 return true
-                            } else {
-                                return false;
-                            }
+                            //} else {
+                            //  return false;
+                            //}
                         })
                     });
                 });
