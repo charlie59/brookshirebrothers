@@ -337,11 +337,7 @@ class Store_Updater {
    */
   function updater() {
     $this->ids = $this->_get_ids();
-    // var_dump($this->ids);
-    // exit;
     $this->sfstores = $this->_get_sfstores();
-    var_dump($this->sfstores);
-    exit;
     $this->_update();
   }
 
