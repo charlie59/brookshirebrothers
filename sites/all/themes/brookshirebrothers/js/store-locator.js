@@ -208,7 +208,7 @@ jQuery(document).ready(function () {
                         jQuery(data).appendTo(jQuery('body'));
                         resultCount.text('0');
                         selectedMiles.text(selectedOption.text());
-                        console.log(selectedDistance);
+                        alert(selectedDistance);
 
                         getPosition(literLocation.val()).done(function (results) {
                             console.log(results);
