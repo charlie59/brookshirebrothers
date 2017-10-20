@@ -305,17 +305,9 @@ jQuery(document).ready(function () {
                     // console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
-                        var arrayLength = checkboxArray.length;
-                        for (var i = 0; i < arrayLength; i++) {
-                          var key2 = jQuery.trim(checkboxArray[i]);
-                          console.log(key2);
-                          if (key === key2) {
-                            console.log('success ' + key + ";");
-                            resultsArray.push(obj);
-                            break;
-                          } else {
-                            console.log('failed ' + key + ";");
-                          }
+                        a = checkboxArray.indexOf(key);
+                        if (a !== -1) {
+                          resultsArray.push(obj);
                         }
                         /*jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
