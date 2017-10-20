@@ -309,7 +309,7 @@ jQuery(document).ready(function () {
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             //console.log(key2);
-                            if (key === key2) {
+                            if (key.toLowerCase() == key2.toLowerCase()) {
                                 console.log('success ' + key);
                                 resultsArray.push(obj);
                                 return true;
