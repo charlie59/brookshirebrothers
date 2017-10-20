@@ -307,6 +307,7 @@ jQuery(document).ready(function () {
                       var check;
                       console.log(key);
                       check = jQuery.trim(key);
+                        var a;
                         a = checkboxArray.indexOf(check);
                         console.log(check);
                         console.log(a);
