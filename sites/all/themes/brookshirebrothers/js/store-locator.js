@@ -305,7 +305,20 @@ jQuery(document).ready(function () {
                     // console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
-                        jQuery.each(checkboxArray, function (el2, key2) {
+                        var arrayLength = checkboxArray.length;
+                        for (var i = 0; i < arrayLength; i++) {
+                          var key2 = jQuery.trim(i);
+                          console.log(key2);
+                          if (key === key2) {
+                            console.log('success ' + key + ";");
+                            resultsArray.push(obj);
+                            return true;
+                          } else {
+                            console.log('failed ' + key + ";");
+                            return false;
+                          }
+                        }
+                        /*jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             console.log(key2);
                             if (key === key2) {
@@ -316,7 +329,7 @@ jQuery(document).ready(function () {
                                 console.log('failed ' + key + ";");
                                 return false;
                             }
-                        })
+                        })*/
                     });
                 });
 
