@@ -310,11 +310,11 @@ jQuery(document).ready(function () {
                             key2 = jQuery.trim(key2);
                             //console.log(key2);
                             if (key.toLowerCase() === key2.toLowerCase()) {
-                                // console.log(obj);
+                                console.log('success ' + key);
                                 resultsArray.push(obj);
                                 return true
                             } else {
-                              console.log(key);
+                              console.log('failed ' + key);
                               return false;
                             }
                         })
