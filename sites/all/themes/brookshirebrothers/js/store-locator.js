@@ -185,7 +185,6 @@ jQuery(document).ready(function () {
             filterHolder.hide();
 
             function sendForm(e) {
-                console.log('form sent');
                 storeZip = searchBox.val(); // they might gone back to the form and changed it from the cookie value
                 var weeklyad = holder.find('.weekly-ad');
                 storeLocations = [];
@@ -199,7 +198,6 @@ jQuery(document).ready(function () {
                     data: 'ajax=1&weeklyad=' + weeklyad.val(),
                     dataType: 'text',
                     success: function (data) {
-                        console.log('data');
                         var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
                         selectedDistance = parseInt(selectedOption.text(), 10);
 
@@ -210,7 +208,7 @@ jQuery(document).ready(function () {
                         jQuery(data).appendTo(jQuery('body'));
                         resultCount.text('0');
                         selectedMiles.text(selectedOption.text());
-                        console.log(selectedMiles);
+                        console.log(selectedDistance);
 
                         getPosition(literLocation.val()).done(function (results) {
                             console.log(results);
