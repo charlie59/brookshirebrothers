@@ -190,7 +190,6 @@ jQuery(document).ready(function () {
                 storeLocations = [];
                 jQuery("#storeMap").remove();
                 jQuery('#loader').show();
-                var literLocation = form.find('.filter-location-area');
                 e.preventDefault();
                 jQuery.ajax({
                     type: 'get',
