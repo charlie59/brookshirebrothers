@@ -210,6 +210,7 @@ jQuery(document).ready(function () {
                         selectedMiles.text(selectedOption.text());
 
                         getPosition(literLocation.val()).done(function (results) {
+                            console.log(results);
                             var currCoord = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
                             var dataObject = getCoordinates(locationCoordinates, currCoord, selectedDistance);
                             var html = '';
