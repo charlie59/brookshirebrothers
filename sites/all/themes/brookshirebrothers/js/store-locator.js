@@ -298,14 +298,13 @@ jQuery(document).ready(function () {
                         checkboxArray.push(checkbox.val());
                     }
                 });
-                console.log(checkboxArray);
 
                 jQuery.each(semiresultsArray, function (ind, obj) {
+                    resultsArray.push(obj);
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     console.log(intermediateArr);
-                    jQuery.each(intermediateArr, function (el, key) {
-                        resultsArray.push(obj);
-                        /*key = jQuery.trim(key);
+                    /*jQuery.each(intermediateArr, function (el, key) {
+                        key = jQuery.trim(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             console.log(key2);
@@ -317,8 +316,8 @@ jQuery(document).ready(function () {
                                 console.log('failed ' + key + ";");
                                 return false;
                             }
-                        })*/
-                    });
+                        })
+                    });*/
                 });
 
                 if (checkboxes.filter(':checked').length > 0) {
