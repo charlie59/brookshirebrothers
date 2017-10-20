@@ -306,6 +306,7 @@ jQuery(document).ready(function () {
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
                         a = checkboxArray.indexOf(key);
+                        console.log(a);
                         if (a !== -1) {
                           resultsArray.push(obj);
                         }
