@@ -18,7 +18,6 @@ function search_exclude_nid_search_exclusion_form() {
   $form['search_exclude_nid_search_exclusion_nids'] = array(
     '#title' => t('Node ids to be excluded from search result'),
     '#type' => 'textfield',
-    '#maxlength' => '1024',
     '#default_value' => implode(',', variable_get('search_exclude_nid_search_exclusion_nids', array())),
     '#description' => t('Please enter the node ids separated by a "," (for example: 1,23,45)'),
   );
@@ -26,8 +25,7 @@ function search_exclude_nid_search_exclusion_form() {
     '#title' => t('Node title lookup'),
     '#type' => 'textfield',
     '#autocomplete_path' => 'search_exclusion/autocomplete',
-    '#attributes' => array('onblur' => "javascript:addNidToExcludeList(jQuery('#edit-search-exclude-nid-search-exclusion-auto').val());"),
-    '#description' => t('Lookup a node title to find out the corresponding node id.'),
+    '#description' => t('Lookup a node title and copy & paste the node ID into the list field above or just press "Save configuration". The node ID will then be automatically added to the list.'),
   );
 
   $form['#attached']['js'] = array(
@@ -90,10 +88,18 @@ function search_exclude_nid_search_exclusion_form_submit($form, &$form_state) {
  */
 function search_exclude_nid_nodes_autocomplete($string) {
   $matches = array();
-  $result = db_select('node', 'n')
+  $query = db_select('node', 'n')
     ->fields('n', array('nid', 'title'))
-    ->condition('title', '%' . db_like($string) . '%', 'LIKE')
-    ->execute();
+    ->condition('title', '%' . db_like($string) . '%', 'LIKE');
+
+  // Remove already excluded nodes from the lookup.
+  $excluded_nids = variable_get('search_exclude_nid_search_exclusion_nids', array());
+
+  if (!empty($excluded_nids)) {
+    $query->condition('n.nid', $excluded_nids, 'NOT IN');
+  }
+
+  $result = $query->execute();
 
   // Save the query to matches.
   foreach ($result as $row) {
