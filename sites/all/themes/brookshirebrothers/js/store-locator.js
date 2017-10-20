@@ -304,9 +304,10 @@ jQuery(document).ready(function () {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
-                        key = jQuery.trim(key).toString();
+                        resultsArray.push(obj);
+                        /*key = jQuery.trim(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
-                            key2 = jQuery.trim(key2).toString();
+                            key2 = jQuery.trim(key2);
                             console.log(key2);
                             if (key.toLowerCase() === key2.toLowerCase()) {
                                 console.log('success ' + key + ";");
@@ -316,7 +317,7 @@ jQuery(document).ready(function () {
                                 console.log('failed ' + key + ";");
                                 return false;
                             }
-                        })
+                        })*/
                     });
                 });
 
