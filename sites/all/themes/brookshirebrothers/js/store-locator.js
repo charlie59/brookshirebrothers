@@ -298,6 +298,7 @@ jQuery(document).ready(function () {
                         checkboxArray.push(checkbox.val());
                     }
                 });
+                console.log(semiresultsArray);
 
                 jQuery.each(semiresultsArray, function (ind, obj) {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
