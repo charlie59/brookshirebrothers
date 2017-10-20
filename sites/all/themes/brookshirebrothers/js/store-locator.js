@@ -268,6 +268,7 @@ jQuery(document).ready(function () {
                         var latLngA = new google.maps.LatLng(parseFloat(yourCoord[0], 10), parseFloat(yourCoord[1], 10));
                         var latLngB = new google.maps.LatLng(parseFloat(currA, 10), parseFloat(currB, 10));
                         var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB) / convertCoeff;
+                        console.log(distance);
 
                         obj[currIndex].distanceMiles = distance;
                         if (!limit) {
