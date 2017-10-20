@@ -302,13 +302,13 @@ jQuery(document).ready(function () {
                 jQuery.each(semiresultsArray, function (ind, obj) {
                     resultsArray.push(obj);
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
-                    // console.log(intermediateArr);
-                    /*jQuery.each(intermediateArr, function (el, key) {
+                    console.log(intermediateArr);
+                    jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             console.log(key2);
-                            if (key.toLowerCase() === key2.toLowerCase()) {
+                            if (key === key2) {
                                 console.log('success ' + key + ";");
                                 resultsArray.push(obj);
                                 return true;
@@ -317,7 +317,7 @@ jQuery(document).ready(function () {
                                 return false;
                             }
                         })
-                    });*/
+                    });
                 });
 
                 if (checkboxes.filter(':checked').length > 0) {
