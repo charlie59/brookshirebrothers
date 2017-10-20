@@ -185,7 +185,7 @@ jQuery(document).ready(function () {
             filterHolder.hide();
 
             function sendForm(e) {
-              console.log('form sent');
+              console.error('form sent');
               alert('form sent');
                 storeZip = searchBox.val(); // they might gone back to the form and changed it from the cookie value
                 var weeklyad = holder.find('.weekly-ad');
