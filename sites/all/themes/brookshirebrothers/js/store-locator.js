@@ -305,16 +305,16 @@ jQuery(document).ready(function () {
                     console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
-                        //console.log(key);
+                        console.log(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             //console.log(key2);
-                            if (key.toLowerCase() == key2.toLowerCase()) {
-                                console.log('success ' + key);
+                            if (key.toLowerCase() === key2.toLowerCase()) {
+                                console.log('success ' + key + ";");
                                 resultsArray.push(obj);
                                 return true;
                             } else {
-                              console.log('failed ' + key);
+                              console.log('failed ' + key + ";");
                               return false;
                             }
                         })
