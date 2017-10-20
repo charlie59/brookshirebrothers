@@ -303,15 +303,16 @@ jQuery(document).ready(function () {
 
                 jQuery.each(semiresultsArray, function (ind, obj) {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
+                    console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
-                        key = jQuery.trim(key)
-                        console.log(key);
+                        key = jQuery.trim(key);
+                        // console.log(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
-                            console.log(key2);
+                            // console.log(key2);
                             key2 = jQuery.trim(key2);
                             //if (key.toLowerCase() === key2.toLowerCase()) {
                                 // console.log(obj);
-                                resultsArray.push(obj);
+                                // resultsArray.push(obj);
                                 return true
                             //} else {
                             //  return false;
