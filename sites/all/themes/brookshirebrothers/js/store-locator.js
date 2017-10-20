@@ -310,8 +310,8 @@ jQuery(document).ready(function () {
                         console.log(a);
                         if (a !== -1) {
                           resultsArray.push(obj);
-                          return true;
                         }
+                        return true;
                         /*jQuery.each(checkboxArray, function (el2, key2) {
                             key2 = jQuery.trim(key2);
                             console.log(key2);
