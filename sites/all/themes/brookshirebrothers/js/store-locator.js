@@ -304,11 +304,11 @@ jQuery(document).ready(function () {
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
                     console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
-                        key = jQuery.trim(key);
+                        key = jQuery.trim(key).toString();
                         jQuery.each(checkboxArray, function (el2, key2) {
-                            key2 = jQuery.trim(key2);
+                            key2 = jQuery.trim(key2).toString();
                             console.log(key2);
-                            if (key.toLowerCase() === "david’s") {
+                            if (key.toLowerCase() === key2.toLowerCase()) {
                                 console.log('success ' + key + ";");
                                 resultsArray.push(obj);
                                 return true;
