@@ -302,7 +302,7 @@ jQuery(document).ready(function () {
                 jQuery.each(semiresultsArray, function (ind, obj) {
                     resultsArray.push(obj);
                     var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
-                    console.log(intermediateArr);
+                    // console.log(intermediateArr);
                     jQuery.each(intermediateArr, function (el, key) {
                         key = jQuery.trim(key);
                         jQuery.each(checkboxArray, function (el2, key2) {
