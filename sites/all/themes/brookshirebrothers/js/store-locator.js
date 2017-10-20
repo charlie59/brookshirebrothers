@@ -198,6 +198,7 @@ jQuery(document).ready(function () {
                     data: 'ajax=1&weeklyad=' + weeklyad.val(),
                     dataType: 'text',
                     success: function (data) {
+                        console.log('success');
                         var selectedOption = distanceSelect.children().eq(distanceSelect.get(0).selectedIndex);
                         selectedDistance = parseInt(selectedOption.text(), 10);
 
@@ -208,7 +209,7 @@ jQuery(document).ready(function () {
                         jQuery(data).appendTo(jQuery('body'));
                         resultCount.text('0');
                         selectedMiles.text(selectedOption.text());
-                      console.log(selectedOption);
+                        console.log(selectedMiles);
 
                         getPosition(literLocation.val()).done(function (results) {
                             console.log(results);
