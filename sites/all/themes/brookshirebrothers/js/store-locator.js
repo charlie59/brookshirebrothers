@@ -310,6 +310,10 @@ jQuery(document).ready(function () {
           }
         });
 
+        /*
+        loop through checked checkboxes for each found store and make
+        sure there is a match -- by default all boxes are checked
+         */
         jQuery.each(semiresultsArray, function (ind, obj) {
           // resultsArray.push(obj);
           var intermediateArr = jQuery.trim(semiresultsArray[ind].features[0].keywords.split(',')).split(',');
