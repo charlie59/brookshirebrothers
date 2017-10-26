@@ -32,7 +32,7 @@
                         hrefad: "<?php echo $node_week->field_upload_the_pdf['und'][0]['filename'];?>",
                         hrefdetails: "<?php print drupal_get_path_alias('node/' . $resul->nid);?>",
                     },
-                    keywords: "<?php if (isset($resul->field_department)): foreach($resul->field_department['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php foreach($resul->field_specification['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?> <?php foreach($resul->field_locations['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?> <?php endif; ?>"
+                    keywords: "<?php if (isset($resul->field_department['und'][0])): foreach($resul->field_department['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php foreach($resul->field_specification['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?> <?php foreach($resul->field_locations['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?> <?php endif; ?>"
                 }]
             }<?php if (++$i != count($results)) { ?><?php echo ','; ?><?php }}}?>]
     </script>
