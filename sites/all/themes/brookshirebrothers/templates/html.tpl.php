@@ -15,7 +15,7 @@
           <?php foreach($results as $resul) {?>
           <?php if(($_GET['weeklyad'] != "true") || ($_GET['weeklyad'] == "true" && in_array($resul->nid, $weekly_ad_array)))
           { ?>
-          <?php $node_week = node_load($resul->field_weekly_ad_association['und'][0]['nid']); ?>
+          <?php if (isset($resul->field_weekly_ad_association)) $node_week = node_load ($resul->field_weekly_ad_association['und'][0]['nid']); ?>
             {
                 type: "FeatureCollection",
                 features: [{
@@ -29,7 +29,7 @@
                         address: "<?php print $resul->gsl_addressfield['und'][0]['thoroughfare'];?>",
                         locality: " <?php print $resul->gsl_addressfield['und'][0]['locality'];?>, <?php print $resul->gsl_addressfield['und'][0]['administrative_area'];?> <span><?php print $resul->gsl_addressfield['und'][0]['postal_code'];?></span>",
                         tel: "<?php print $resul->field_store_phone['und'][0]['value'];?>",
-                        hrefad: "<?php if (is_object($node_week)) echo
+                        hrefad: "<?php if (isset($node_week)) echo
                           $node_week->field_upload_the_pdf['und'][0]['filename'];?>",
                         hrefdetails: "<?php print drupal_get_path_alias('node/' . $resul->nid);?>",
                     },
