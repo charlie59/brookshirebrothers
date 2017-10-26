@@ -14,8 +14,11 @@ if (isset($result['node'])) {
   var_dump($item);
 }*/
 
-$frase_uno = 'Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)';
-$frase_dos = 'Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default';
+if (isset($_COOKIE['defaultStore'])) {
+  $frase_uno = 'Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)';
+  $frase_dos = 'Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default';
+}
+
 ?>
 <section class="text-block">
 <div class="field-name-body" id="weekly-ad">
