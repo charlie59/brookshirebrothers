@@ -29,7 +29,8 @@
                         address: "<?php print $resul->gsl_addressfield['und'][0]['thoroughfare'];?>",
                         locality: " <?php print $resul->gsl_addressfield['und'][0]['locality'];?>, <?php print $resul->gsl_addressfield['und'][0]['administrative_area'];?> <span><?php print $resul->gsl_addressfield['und'][0]['postal_code'];?></span>",
                         tel: "<?php print $resul->field_store_phone['und'][0]['value'];?>",
-                        hrefad: "<?php echo $node_week->field_upload_the_pdf['und'][0]['filename'];?>",
+                        hrefad: "<?php if (is_object($node_week)) echo
+                          $node_week->field_upload_the_pdf['und'][0]['filename'];?>",
                         hrefdetails: "<?php print drupal_get_path_alias('node/' . $resul->nid);?>",
                     },
                     keywords: "<?php if (isset($resul->field_department['und'][0])): foreach($resul->field_department['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php foreach($resul->field_specification['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php endif; ?><?php if (isset($resul->field_locations['und'][0])): foreach($resul->field_locations['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php endif; ?>"
