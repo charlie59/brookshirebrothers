@@ -39,9 +39,9 @@ if (isset($_GET['store'])):
 
 
         <script type="text/javascript">
-          $(document).ready(function () {
-            $("#default_store_id").change(function () {
-              if ($(this).is(":checked")) {
+          jQuery(document).ready(function () {
+            jQuery("#default_store_id").change(function () {
+              if (jQuery(this).is(":checked")) {
                 var now = new Date();
                 now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
                 document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
@@ -49,10 +49,10 @@ if (isset($_GET['store'])):
               }
               else {
                 document.cookie = "defaultStore=" + ";path=/;";
-                $("#default_store_text").text('<?php echo $frase_dos; ?>');
+                jQuery("#default_store_text").text('<?php echo $frase_dos; ?>');
               }
             });
-          }(jQuery));
+          });
         </script>
     </section>
 
