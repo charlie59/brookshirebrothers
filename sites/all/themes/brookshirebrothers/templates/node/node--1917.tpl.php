@@ -13,43 +13,49 @@ if (isset($result['node'])) {
   $item = entity_load('node', $item_nid);
   var_dump($item);
 }*/
+if (isset($_GET['store'])):
 
-if (isset($_COOKIE['defaultStore'])) {
-  $frase_uno = 'Store ' . $_COOKIE['defaultStore'] .' is your Weekly Ad default (uncheck to unset)';
-  $frase_dos = 'Set store ' . $_COOKIE['defaultStore'] .' as your Weekly Ad default';
-}
+  $frase_uno = '';
+  $frase_dos = '';
+  if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+    $frase_uno = 'Store ' . $_COOKIE['defaultStore'] . ' is your Weekly Ad default (uncheck to unset)';
+  } else {
+    $frase_dos = 'Set store ' . $_GET['store'] . ' as your Weekly Ad default';
+  }
 
-?>
-<section class="text-block">
-<div class="field-name-body" id="weekly-ad">
-    <p><input type="checkbox" id="default_store_id"<?php
-      if ( (isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-        echo ' checked="checked"> <span id="default_store_text">' . $frase_uno. '</span>';
-      }  else {
-        echo '> <span id="default_store_text">' . $frase_dos .'</span>';
-      }
+  ?>
+    <section class="text-block">
+        <div class="field-name-body" id="weekly-ad">
+            <p><input type="checkbox" id="default_store_id"<?php
+              if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+                echo ' checked="checked"> <span id="default_store_text">' . $frase_uno . '</span>';
+              }
+              else {
+                echo '> <span id="default_store_text">' . $frase_dos . '</span>';
+              }
 
-      ?></p>
-</div>
+              ?></p>
+        </div>
 
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#default_store_id").change(function() {
-                if ($(this).is(":checked")) {
-                    var now = new Date();
-                    now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
-                    document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
-                    $("#default_store_text").text('<?php echo $frase_uno; ?>');
-                } else {
-                    document.cookie = "defaultStore=" + ";path=/;";
-                    $("#default_store_text").text('<?php echo $frase_dos; ?>');
-                }
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $("#default_store_id").change(function () {
+              if ($(this).is(":checked")) {
+                var now = new Date();
+                now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10);
+                document.cookie = "defaultStore=" + "<?php echo $_GET['store']; ?>;" + " expires=" + now.toUTCString() + "; path=/;";
+                $("#default_store_text").text('<?php echo $frase_uno; ?>');
+              }
+              else {
+                document.cookie = "defaultStore=" + ";path=/;";
+                $("#default_store_text").text('<?php echo $frase_dos; ?>');
+              }
             });
-        }(jQuery));
-    </script>
-</section>
+          }(jQuery));
+        </script>
+    </section>
 
-<?php if (isset($_GET['store'])): ?>
-<iframe src="https://mydigitalpublication.com/publication/?pid=142&co=US&pc=<?php echo $_GET['store']; ?>" width="100%" height="1200px" frameborder="0"></iframe>
+    <iframe src="https://mydigitalpublication.com/publication/?pid=142&co=US&pc=<?php echo $_GET['store']; ?>"
+            width="100%" height="1200px" frameborder="0"></iframe>
 <?php endif; ?>
