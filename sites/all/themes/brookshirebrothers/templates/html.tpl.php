@@ -77,8 +77,8 @@
             ga('create', 'UA-55518501-1', 'auto');
             ga('send', 'pageview');
         </script>
-        <link rel="stylesheet" href="/css/app.css">
-        <script src="/js/vendor/modernizr.js"></script>
+        <link rel="stylesheet" href="/coupon/css/app.css">
+        <script src="/coupon/js/vendor/modernizr.js"></script>
         <!-- Facebook Pixel Code v2 Ago 9 2017 -->
         <script>
           !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
