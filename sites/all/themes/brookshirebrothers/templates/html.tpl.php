@@ -109,8 +109,7 @@
           <?php print $page; ?>
           <?php print $page_bottom; ?>
         </div>
-        <script data-main="/coupon/js/app" src="/coupon/js/vendor/require
-        .js"></script>
+        <script data-main="/coupon/js/app" src="/coupon/js/vendor/require.js"></script>
         <script type="text/javascript" src="https://6311223.collect.igodigital.com/collect.js"></script>
         <script type="text/javascript"> _etmc.push(["setOrgId", "6311223"]);
             _etmc.push(["trackPageView"]);
