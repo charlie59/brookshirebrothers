@@ -69,7 +69,9 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     text-decoration: underline;
 }
 
-/* start shopping button */
+/* start shopping button
+* breakpoints apply only to this section
+*/
 #shopping-button img {
   width: 100%;
   height: auto;
