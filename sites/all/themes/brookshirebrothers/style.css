@@ -68,3 +68,15 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #map_container .infoDiv a:hover {
     text-decoration: underline;
 }
+
+/* start shopping button */
+.shopping-button {
+  position: absolute;
+  top: 49px;
+  right: 19px;
+  width: 200px;
+}
+.shopping-button img {
+  width: 100%;
+  height: auto;
+}
