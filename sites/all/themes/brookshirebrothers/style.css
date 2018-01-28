@@ -74,7 +74,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   width: 100%;
   height: auto;
 }
-@media only screen and (min-width : 500px) {
+@media only screen and (min-width : 600px) {
   #shopping-button {
     position: absolute;
     top: 49px;
@@ -82,7 +82,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     width: 200px;
   }
 }
-@media only screen and (max-width : 499px) {
+@media only screen and (max-width : 599px) {
   #shopping-button {
     width: 100%;
     margin-top: 1em;
