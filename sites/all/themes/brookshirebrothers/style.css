@@ -81,8 +81,6 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     right: 19px;
     width: 200px;
   }
-  width: 100%;
-  margin-top: 1em;
 }
 @media only screen and (max-width : 499px) {
   #shopping-button {
