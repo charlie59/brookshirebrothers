@@ -70,13 +70,13 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 }
 
 /* start shopping button */
-.shopping-button {
+#shopping-button {
   position: absolute;
   top: 49px;
   right: 19px;
   width: 200px;
 }
-.shopping-button img {
+#shopping-button img {
   width: 100%;
   height: auto;
 }
