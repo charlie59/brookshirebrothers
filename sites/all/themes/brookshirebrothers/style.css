@@ -91,5 +91,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   }
   #search-block-form {
     margin: 1em auto;
+    padding: 0 1em;
+    display: block;
   }
 }
