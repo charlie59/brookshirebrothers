@@ -70,6 +70,10 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 }
 
 /* start shopping button */
+#shopping-button img {
+  width: 100%;
+  height: auto;
+}
 @media only screen and (min-width : 500px) {
   #shopping-button {
     position: absolute;
@@ -77,8 +81,12 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     right: 19px;
     width: 200px;
   }
-  #shopping-button img {
+  width: 100%;
+  margin-top: 1em;
+}
+@media only screen and (max-width : 499px) {
+  #shopping-button {
     width: 100%;
-    height: auto;
+    margin-top: 1em;
   }
 }
