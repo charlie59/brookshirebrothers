@@ -87,7 +87,8 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 @media only screen and (max-width : 599px) {
   #shopping-button {
     width: 100%;
-    margin-top: 1em;
+    margin: 1em auto 0;
+    max-width: 300px;
   }
   #search-block-form {
     margin: 1em auto;
