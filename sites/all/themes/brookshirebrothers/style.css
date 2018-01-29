@@ -97,3 +97,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   }
 }
 /* end shopping button */
+#header .menu-mlid-4044 {
+  display: none;
+  visibility: hidden;
+}
