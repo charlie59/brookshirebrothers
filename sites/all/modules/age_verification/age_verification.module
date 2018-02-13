@@ -1,0 +1,115 @@
+<?php
+/**
+ * @file
+ * The age_verification module renders form by redirecting the user to the form
+ * and back after adding their age.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function age_verification_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#age_verification':
+      return '<p>' . t('Adds an age gate form by redirecting the user to the form and back after adding their age') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function age_verification_permission() {
+  return array(
+    'administer age_verification' => array(
+      'title' => t('Administer age_verification'),
+      'restrict access' => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ *
+ * Adds a menu and page item ready for the form in age_verification.pages.inc.
+ */
+function age_verification_menu() {
+  $items['admin/config/development/age-verification'] = array(
+    'title' => 'Age Verification',
+    'description' => 'Configure Age Verification.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('age_verification_admin_form'),
+    'access arguments' => array('administer age verification'),
+    'file' => 'age_verification.admin.inc',
+  );
+  // Add a page ready for the form 'age_verification_form'
+  $items['age-verification'] = array(
+    'title' => 'Please Verify Your Age',
+    'description' => 'Age gate verification required',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('age_verification_form'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'age_verification.pages.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_url_inbound_alter().
+ *
+ * Drupal page preprocess function to redirect to age gate if not verified
+ * http_referrer stored to ensure that user is redirected to original
+ * request when verified
+ */
+function age_verification_url_inbound_alter(&$path, $original_path, $path_language) {
+  // Stop execution when drush runs.
+  if (function_exists('drush_main')) {
+    return;
+  }
+
+  // Explode the form field to get each line.
+  $lines = explode("\n", variable_get('age_verification_urls', ''));
+  // Foreach one of the lines we want to trim white space and empty lines.
+  foreach ($lines as $key => $url) {
+    if (empty($url)) {
+      unset($lines[$key]);
+    }
+    // To be sure we match the proper string, we need to trim it.
+    $url = trim($url);
+
+    // If the URL is equal alias in the admin field then allow original path.
+    if ($url == drupal_get_path_alias($original_path) ||
+        // We also check $url against $original_path as someone can enter
+        // node/6 that has an alias created and it wont match.
+        $url == $original_path ||
+        // To match aliases as well if someone entered node/6 we also check both
+        // variables with drupal_get_path_alias.
+        drupal_get_path_alias($url) == drupal_get_path_alias($original_path)) {
+      return TRUE;
+    }
+  }
+
+  // Then we need to explode the age_verification_user_agents field
+  // to get each line.
+  $agent_lines = explode("\n", variable_get('age_verification_user_agents', ''));
+  $http_user_agent = trim($_SERVER['HTTP_USER_AGENT']);
+  // Foreach one of the lines add to $user_agent.
+  foreach ($agent_lines as $key => $user_agent) {
+    // If a user has string from $user_agent.
+    if (empty($user_agent)) {
+      unset($lines[$key]);
+    }
+    // To be sure we match proper string, we need to trim it.
+    $user_agent = trim($user_agent);
+
+    if ($http_user_agent == $user_agent) {
+      return TRUE;
+    }
+  }
+
+  // If User id and the session is empty in age_verified.
+  // & path is not age-verification goto the the original URL.
+  if (empty($GLOBALS['user']->uid) && empty($_SESSION['age_verified']) && $original_path != 'age-verification' && !function_exists('drush_main')) {
+    drupal_goto('age-verification', array('query' => array('destination' => $original_path)));
+  }
+}

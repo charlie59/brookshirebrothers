@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Installation functions for age_verification module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function age_verification_uninstall() {
+  variable_del('age_verification_selected');
+  variable_del('age_verification_urls');
+  variable_del('age_verification_description');
+  variable_del('age_verification_user_agents');
+}
+
+/**
+ * Implements hook_install().
+ */
+function age_verification_install() {
+  // Populate the defaults.
+  variable_set('age_verification_user_agents', "Googlebot\nGooglebot-Mobile\nGooglebot-Image\nbingbot\nmsnbot\nslurp");
+}

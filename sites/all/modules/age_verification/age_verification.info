@@ -1,0 +1,12 @@
+name = Age Verification
+description = "Channel inbound URLs to age gate page if user is not verified"
+core = 7.x
+
+configure = admin/config/development/age-verification
+
+; Information added by Drupal.org packaging script on 2016-01-21
+version = "7.x-1.0"
+core = "7.x"
+project = "age_verification"
+datestamp = "1453382640"
+

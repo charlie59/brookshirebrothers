@@ -68,3 +68,40 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #map_container .infoDiv a:hover {
     text-decoration: underline;
 }
+
+/* start shopping button
+* breakpoints apply only to this section
+*/
+#shopping-button img {
+  width: 100%;
+  height: auto;
+}
+@media only screen and (min-width : 600px) {
+  #shopping-button {
+    position: absolute;
+    top: 49px;
+    right: 19px;
+    width: 200px;
+  }
+}
+@media only screen and (max-width : 599px) {
+  #shopping-button {
+    width: 100%;
+    margin: 1em auto 0;
+    max-width: 300px;
+  }
+  #search-block-form {
+    margin: 1em auto;
+    padding: 0 1em;
+    display: block;
+  }
+}
+/* end shopping button */
+#header .menu-mlid-4044 {
+  display: none;
+  visibility: hidden;
+}
+
+#header .menu-mlid-557 .dropdown {
+  width: 223px;
+}
