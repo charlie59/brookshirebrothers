@@ -96,12 +96,6 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     display: block;
   }
 }
-/* end shopping button */
-#header .menu-mlid-4044 {
-  display: none;
-  visibility: hidden;
-}
-
 #header .menu-mlid-557 .dropdown {
   width: 223px;
 }
