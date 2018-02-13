@@ -1,74 +1,63 @@
-.main-menu li { padding:0; }
-.filter-location label { font-weight:normal !important; }
-.form-block label { font-weight:normal !important; }
-.footer_menu { font-weight:700; }
-
+.main-menu li { padding: 0; }
+.filter-location label { font-weight: normal !important; }
+.form-block label { font-weight: normal !important; }
+.footer_menu { font-weight: 700; }
 body.node-type-result #sidebar .col-holder:first-child .info-col,
 body.node-type-store-location #sidebar .col-holder:first-child .info-col {
-	border:1px solid #f0efec;
-	margin:0 0 25px 0;
-	padding:21px 21px 28px 14px;
+  border: 1px solid #f0efec;
+  margin: 0 0 25px 0;
+  padding: 21px 21px 28px 14px;
 }
-
 .main-menu > li.menu-mlid-559 > .dropdown {
-    width: 200px;
+  width: 200px;
 }
-
-@media only screen and (max-width:767px) {
-	.top-menu ul li.menu-mlid-386,
-	.top-menu ul li.menu-mlid-387 { display:none; }
+.main-menu > li.menu-mlid-461 > .dropdown {
+  width: 147px;
 }
-
+@media only screen and (max-width: 767px) {
+  .top-menu ul li.menu-mlid-386,
+  .top-menu ul li.menu-mlid-387 { display: none; }
+}
 .header-holder {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 .addtoany {
-    display: block;
-    margin-top: 0.6em;
+  display: block;
+  margin-top: 0.6em;
 }
-
 .addtoany ul.inline li {
-    padding: 0;
+  padding: 0;
 }
-
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
-
 .invisible {
-    visibility: hidden;
-    display: none;
+  visibility: hidden;
+  display: none;
 }
-
 .link {
-    text-decoration: underline;
-    color: #000;
-    cursor: pointer;
+  text-decoration: underline;
+  color: #000;
+  cursor: pointer;
 }
-
 /* store-locator */
 #content .store-block h1 {
-    float: left;
-    font-size: 44px;
-    margin: 0.1em 0.4em 0 0;
+  float: left;
+  font-size: 44px;
+  margin: 0.1em 0.4em 0 0;
 }
-
 #map_container {
-    height: 300px;
-    margin-bottom: 15px;
+  height: 300px;
+  margin-bottom: 15px;
 }
-
 #map_container .infoDiv a {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 #map_container .infoDiv a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
 /* start shopping button
 * breakpoints apply only to this section
 */
@@ -76,7 +65,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   width: 100%;
   height: auto;
 }
-@media only screen and (min-width : 600px) {
+@media only screen and (min-width: 600px) {
   #shopping-button {
     position: absolute;
     top: 49px;
@@ -84,7 +73,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
     width: 200px;
   }
 }
-@media only screen and (max-width : 599px) {
+@media only screen and (max-width: 599px) {
   #shopping-button {
     width: 100%;
     margin: 1em auto 0;
