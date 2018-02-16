@@ -100,6 +100,8 @@ function brookshirebrothers_preprocess_page(&$vars) {
       $vars['pharmacy'] = $_GET['pharmacy'];
     }
   }
+
+  drupal_add_js('<script type="text/javascript" src="//nexus.ensighten.com/choozle/5204/Bootstrap.js"></script>', 'external');
 }
 
 /**
