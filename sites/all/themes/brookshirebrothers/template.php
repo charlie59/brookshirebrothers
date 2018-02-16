@@ -103,7 +103,6 @@ function brookshirebrothers_preprocess_page(&$vars) {
 
   /* Add choozle pixel */
   $ru = request_uri();
-  echo $ru;
   switch ($ru) {
     case '/':
       drupal_add_js('//nexus.ensighten.com/choozle/5204/Bootstrap.js', 'external');
