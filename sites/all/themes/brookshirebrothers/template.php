@@ -101,7 +101,7 @@ function brookshirebrothers_preprocess_page(&$vars) {
     }
   }
 
-  drupal_add_js('<script type="text/javascript" src="//nexus.ensighten.com/choozle/5204/Bootstrap.js"></script>', 'external');
+  drupal_add_js('//nexus.ensighten.com/choozle/5204/Bootstrap.js', 'external');
 }
 
 /**
