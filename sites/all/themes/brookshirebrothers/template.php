@@ -195,6 +195,12 @@ function l1($text, $path, $myclass1, array $options = []) {
   }
 }
 
+/**
+ * @param $variables
+ * @param int $level
+ *
+ * @return string
+ */
 function menu_block_links($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
@@ -233,6 +239,12 @@ function menu_block_links($variables, $level = 1) {
   return $output;
 }
 
+/**
+ * @param $variables
+ * @param int $level
+ *
+ * @return string
+ */
 function menu_block_links_main($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
@@ -293,6 +305,12 @@ function menu_block_links_main($variables, $level = 1) {
   return $output;
 }
 
+/**
+ * @param $variables
+ * @param int $level
+ *
+ * @return string
+ */
 function menu_block_links_sidebar($variables, $level = 1) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
@@ -331,6 +349,13 @@ function menu_block_links_sidebar($variables, $level = 1) {
   return $output;
 }
 
+
+/**
+ * @param $entity_type
+ * @param $bundle
+ *
+ * @return bool
+ */
 function entity_load_by_type($entity_type, $bundle) {
   global $language;
   $query = new EntityFieldQuery();
@@ -347,10 +372,18 @@ function entity_load_by_type($entity_type, $bundle) {
   }
 }
 
+/**
+ * @param string $date
+ *
+ * @return int
+ */
 function Age($date = 'now') {
   return intval(substr(date('Ymd') - date('Ymd', strtotime($date)), 0, -4));
 }
 
+/**
+ * @param $vars
+ */
 function brookshirebrothers_preprocess_views_view(&$vars) {
   $view = $vars['view'];
 
@@ -359,4 +392,8 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
     global $theme;
     drupal_add_js(drupal_get_path('theme', $theme) . '/js/active-player.js');
   }
+}
+
+function brookshirebrothers_form_alter(&$form, &$form_state, $form_id) {
+  dsm($form_id);
 }
