@@ -395,11 +395,15 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
 }
 
 /**
+ * @param $node
  * @param $form
  * @param $form_state
- * @param $form_id
+ *
  */
 function brookshirebrothers_node_submit($node, $form, &$form_state) {
   dsm($form);
   dsm($node);
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $fb_image = $wrapper->field_facebook_image;
+  dsm($fb_image);
 }
