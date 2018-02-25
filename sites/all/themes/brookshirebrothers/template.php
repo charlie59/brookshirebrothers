@@ -401,11 +401,10 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
  *
  */
 function brookshirebrothers_node_submit($node, $form, &$form_state) {
-  var_dump($form);
-  var_dump($form_state);
-  var_dump($node);
+  krumo($form);
+  krumo($form_state);
+  krumo($node);
   $wrapper = entity_metadata_wrapper('node', $node);
   $fb_image = $wrapper->field_facebook_image;
-  var_dump($fb_image);
-  exit;
+  krumo($fb_image);
 }
