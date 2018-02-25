@@ -399,6 +399,7 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
  * @param $form_state
  * @param $form_id
  */
-function brookshirebrothers_form_node_form_alter(&$form, &$form_state, $form_id) {
+function brookshirebrothers_node_submit($node, $form, &$form_state) {
   dsm($form);
+  dsm($node);
 }
