@@ -394,6 +394,11 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
   }
 }
 
-function brookshirebrothers_form_alter(&$form, &$form_state, $form_id) {
-  dsm($form_id);
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function brookshirebrothers_form_node_form_alter(&$form, &$form_state, $form_id) {
+  dsm($form);
 }
