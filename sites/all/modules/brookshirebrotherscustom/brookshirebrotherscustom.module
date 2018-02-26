@@ -52,6 +52,22 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
 }
 
+
+/**
+ * @param $node
+ * @param $form
+ * @param $form_state
+ *
+ */
+function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
+  krumo($form);
+  krumo($form_state);
+  krumo($node);
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $fb_image = $wrapper->field_facebook_image;
+  krumo($fb_image);
+}
+
 /**
  * Describe Account Object
  * To get Salesforce fields names

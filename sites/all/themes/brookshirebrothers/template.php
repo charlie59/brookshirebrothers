@@ -393,18 +393,3 @@ function brookshirebrothers_preprocess_views_view(&$vars) {
     drupal_add_js(drupal_get_path('theme', $theme) . '/js/active-player.js');
   }
 }
-
-/**
- * @param $node
- * @param $form
- * @param $form_state
- *
- */
-function brookshirebrothers_node_submit($node, $form, &$form_state) {
-  krumo($form);
-  krumo($form_state);
-  krumo($node);
-  $wrapper = entity_metadata_wrapper('node', $node);
-  $fb_image = $wrapper->field_facebook_image;
-  krumo($fb_image);
-}
