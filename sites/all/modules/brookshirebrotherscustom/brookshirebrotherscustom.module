@@ -63,9 +63,12 @@ function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
   krumo($form);
   krumo($form_state);
   krumo($node);
-  $wrapper = entity_metadata_wrapper('node', $node);
-  $fb_image = $wrapper->field_facebook_image;
-  krumo($fb_image);
+  if (isset($node->field_facebook_image['und'][0]['fid'])) {
+    $file = file_load($node->field_facebook_image['und'][0]['fid']);
+    $uri = $file->uri;
+    $url = file_create_url($uri);
+    krumo($url);
+  }
 }
 
 /**
