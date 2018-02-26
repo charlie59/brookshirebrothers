@@ -60,14 +60,12 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
  *
  */
 function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
-  krumo($form_state);
   if (isset($node->field_facebook_image['und'][0]['fid'])) {
     $file = file_load($node->field_facebook_image['und'][0]['fid']);
     $uri = $file->uri;
     $url = file_create_url($uri);
     $form_state['values']['metatags']['und']['og:image']['value'] = $url;
   }
-  krumo($form_state);
 }
 
 /**
