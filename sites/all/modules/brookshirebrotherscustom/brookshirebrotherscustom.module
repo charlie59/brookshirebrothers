@@ -68,6 +68,7 @@ function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
     $form_state['values']['metatags']['und']['og:image']['value'] = $url;
   }
   krumo($form_state);
+  krumo($node);
 }
 
 /**
