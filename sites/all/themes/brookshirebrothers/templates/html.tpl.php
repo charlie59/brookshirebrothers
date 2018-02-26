@@ -44,9 +44,7 @@
         <meta charset="utf-8">
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="format-detection" content="telephone=no">
-        <meta property="og:image"
-              content="/sites/all/themes/brookshirebrothers/images/og_celebrate.png">
+        <meta name="format-detection" content="telephone=no"
       <?php print $head; ?>
         <title><?php print $head_title; ?></title>
         <script type="text/javascript">

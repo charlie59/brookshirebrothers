@@ -64,7 +64,6 @@ function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
     $file = file_load($node->field_facebook_image['und'][0]['fid']);
     $uri = $file->uri;
     $url = file_create_url($uri);
-    $form_state['values']['metatags']['und']['og:image']['value'] = $url;
     $node->metatags['und']['og:image']['value'] = $url;
   }
 }
