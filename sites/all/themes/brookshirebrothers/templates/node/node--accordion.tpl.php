@@ -17,7 +17,6 @@
 
 <?php $accordion = field_get_items('node', $node, 'field_accordion');
 	if(!empty($accordion)) { ?>
-	<span class="sub-title"><?php print t('This is an example of accordian question and answer content:');?></span>
 	<ul class="accordion">
 		<?php foreach($accordion as $item) {
 		$fc = field_collection_field_get_entity($item);?>
