@@ -238,7 +238,7 @@ jQuery(document).ready(function () {
                 var address_loc = dataObject[i].features[0].properties.address + ',' + locality;
                 var encoded = address_loc.replace(/[\s]+/g, '+');
                 // console.log(city);
-                var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank">' + address + ', ' + city + "</a></div>";
+                var info = '<div class="infoDiv"><a href="https://www.google.com/maps/place/' + encoded + '" target="_blank" rel="noopener">' + address + ', ' + city + "</a></div>";
                 var storeLocation = [info, dataObject[i].features[0].geometry.coordinates];
                 storeLocations.push(storeLocation);
                 html += tmpl("result_tmpl", dataObject[i].features[0].properties);
