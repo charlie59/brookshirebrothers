@@ -16,7 +16,7 @@ $( document ).ready(function() {
     $(this).parent().removeClass("hover");
   });
 
-});
+}(jQuery));
 
 (function ($) {
   $(document).ajaxComplete(function () {
