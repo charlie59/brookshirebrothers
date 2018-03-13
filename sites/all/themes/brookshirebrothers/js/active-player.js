@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
   removeSelected();
   $("#player-window-bg iframe").attr("src", $.trim($(".views-row-1 .views-field-field-webisode-embed-code").html()) + "?autoplay=0");
   $(".views-row-1").addClass("selected");
