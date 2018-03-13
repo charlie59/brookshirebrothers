@@ -42,8 +42,8 @@
     }
   }, "a.overlay-link");
 
-}(jQuery));
+  function removeSelected() {
+    $(".view-content .views-row").removeClass("selected");
+  }
 
-function removeSelected() {
-  $(".view-content .views-row").removeClass("selected");
-}
+}(jQuery));
