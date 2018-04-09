@@ -105,11 +105,18 @@
           <?php print $page; ?>
           <?php print $page_bottom; ?>
         </div>
-        <!--<script data-main="/coupon/js/app" src="/coupon/js/vendor/require.js"></script>-->
         <script type="text/javascript" src="https://6311223.collect.igodigital.com/collect.js"></script>
-        <script type="text/javascript"> _etmc.push(["setOrgId", "6311223"]);
-            _etmc.push(["trackPageView"]);
+        <script type="text/javascript">
+          etmc.push(["setOrgId", "6311223"]);
+          etmc.push(["trackPageView"]);
         </script>
+        /* added April 9 2018 per KBrown */
+        <script type="text/javascript" src="http://6235051.collect.igodigital.com/collect.js"></script>
+        <script type="text/javascript">
+          _etmc.push(["setOrgId", "6235051"]);
+          _etmc.push(["trackPageView"]);
+        </script>
+
         <script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>
     </body>
     </html>
