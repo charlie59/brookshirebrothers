@@ -116,7 +116,6 @@
           _etmc.push(["setOrgId", "6235051"]);
           _etmc.push(["trackPageView"]);
         </script>
-
         <script src="/sites/all/themes/brookshirebrothers/js/jquery.main.js"></script>
     </body>
     </html>
