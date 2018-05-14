@@ -178,7 +178,7 @@ DirectoryIndex index.php index.html index.htm
   # RewriteBase /
 
   # Weekly ad fix
-  RewriteRule ^weekly-ad/?$ store-locator?weekly-ad=true
+  RewriteRule ^/weekly-ad/?$ store-locator?weekly-ad=true
 
   # Pass all requests not referring directly to files in the filesystem to
   # index.php. Clean URLs are handled in drupal_environment_initialize().
