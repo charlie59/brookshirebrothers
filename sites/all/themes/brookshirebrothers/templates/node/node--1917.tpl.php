@@ -13,7 +13,7 @@ if (isset($result['node'])) {
   $item = entity_load('node', $item_nid);
   var_dump($item);
 }*/
-if (isset($_GET['store'])):
+if (isset($_GET['store'])) {
 
   $frase_uno = '';
   $frase_dos = '';
@@ -58,4 +58,10 @@ if (isset($_GET['store'])):
 
     <iframe src="https://mydigitalpublication.com/publication/?pid=142&co=US&pc=<?php echo $_GET['store']; ?>"
             width="100%" height="1200px" frameborder="0"></iframe>
-<?php endif; ?>
+
+<?php
+} else { ?>
+<script type="text/javascript">
+  window.location = "https://www.brookshirebrothers.com/store-locator?weekly-ad=true";
+</script>
+<?php } ?>
