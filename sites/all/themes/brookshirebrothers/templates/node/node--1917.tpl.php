@@ -13,6 +13,8 @@ if (isset($result['node'])) {
   $item = entity_load('node', $item_nid);
   var_dump($item);
 }*/
+echo $_GET['store'];
+exit;
 if (isset($_GET['store'])) {
 
   $frase_uno = '';
