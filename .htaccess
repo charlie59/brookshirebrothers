@@ -47,7 +47,7 @@ Redirect 301 /webisodesdan http://www.brookshirebrothers.com/beverage-depot/unco
 Redirect 301 /webisodeshome http://www.brookshirebrothers.com/recipes/sarahs-simple-solutions
 Redirect 301 /webisodessarah http://www.brookshirebrothers.com/recipes/sarahs-simple-solutions
 Redirect 301 /anywhere/contact-us http://brookshirebrothers.force.com/QuestionOrComments
-RedirectMatch "^/weekly-ad/?$" "https://www.brookshirebrothers.com/store-locator?weekly-ad=true" # Weekly ad fix
+#RedirectMatch "^/weekly-ad/?$" "https://www.brookshirebrothers.com/store-locator?weekly-ad=true" #Weekly ad fix
 
 #
 
