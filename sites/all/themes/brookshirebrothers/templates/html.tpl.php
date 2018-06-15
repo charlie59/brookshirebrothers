@@ -110,7 +110,7 @@
           etmc.push(["setOrgId", "6311223"]);
           etmc.push(["trackPageView"]);
         </script>
-        /* added April 9 2018 per KBrown */
+        <!-- added April 9 2018 per KBrown -->
         <script type="text/javascript" src="http://6235051.collect.igodigital.com/collect.js"></script>
         <script type="text/javascript">
           _etmc.push(["setOrgId", "6235051"]);

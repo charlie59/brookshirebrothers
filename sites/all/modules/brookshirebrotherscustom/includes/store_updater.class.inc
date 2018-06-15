@@ -274,7 +274,7 @@ class Store_Updater {
                   break;
                 case "Has_Subway__c":
                   $val = $value == 'true'? 1: 0;
-                  $wrapper->field_tobacco_barn->set($val);
+                  $wrapper->field_subway->set($val);
                   break;
                 case "Subway_Phone__c":
                   $wrapper->field_subway_phone->set($value);
