@@ -2,14 +2,14 @@
 
 /**
  * @file
- * User page callbacks for the Aggregator module.
+ * User page callbacks for the aggregator module.
  */
 
 /**
- * Page callback: Displays the most recent items gathered from any feed.
+ * Menu callback; displays the most recent items gathered from any feed.
  *
  * @return
- *   The rendered list of items for the feed.
+ *   The items HTML.
  */
 function aggregator_page_last() {
   drupal_add_feed('aggregator/rss', variable_get('site_name', 'Drupal') . ' ' . t('aggregator'));
@@ -20,15 +20,13 @@ function aggregator_page_last() {
 }
 
 /**
- * Page callback: Displays all the items captured from the particular feed.
+ * Menu callback; displays all the items captured from a particular feed.
  *
  * @param $feed
  *   The feed for which to display all items.
  *
  * @return
  *   The rendered list of items for a feed.
- *
- * @see aggregator_menu()
  */
 function aggregator_page_source($feed) {
   drupal_set_title($feed->title);
@@ -42,13 +40,13 @@ function aggregator_page_source($feed) {
 }
 
 /**
- * Page callback: Displays a form with all items captured from a feed.
+ * Menu callback; displays a form with all items captured from a feed.
  *
  * @param $feed
- *   The feed for which to list all of the aggregated items.
+ *   The feed for which to list all the aggregated items.
  *
  * @return
- *   The rendered list of items for the feed.
+ *   The rendered list of items for a feed.
  *
  * @see aggregator_page_source()
  */
@@ -57,13 +55,13 @@ function aggregator_page_source_form($form, $form_state, $feed) {
 }
 
 /**
- * Page callback: Displays all the items aggregated in a particular category.
+ * Menu callback; displays all the items aggregated in a particular category.
  *
  * @param $category
- *   The category for which to list all of the aggregated items.
+ *   The category for which to list all the aggregated items.
  *
  * @return
- *   The rendered list of items for the feed.
+*   The rendered list of items for a category.
  */
 function aggregator_page_category($category) {
   drupal_add_feed('aggregator/rss/' . $category['cid'], variable_get('site_name', 'Drupal') . ' ' . t('aggregator - @title', array('@title' => $category['title'])));
@@ -76,13 +74,13 @@ function aggregator_page_category($category) {
 }
 
 /**
- * Page callback: Displays a form containing items aggregated in a category.
+ * Menu callback; displays a form containing items aggregated in a category.
  *
  * @param $category
- *   The category for which to list all of the aggregated items.
+ *   The category for which to list all the aggregated items.
  *
  * @return
- *   The rendered list of items for the feed.
+*   The rendered list of items for a category.
  *
  * @see aggregator_page_category()
  */
@@ -91,60 +89,29 @@ function aggregator_page_category_form($form, $form_state, $category) {
 }
 
 /**
- * Loads and optionally filters feed items.
+ * Load feed items
  *
  * @param $type
- *   The type of filter for the items. Possible values are:
- *   - sum: No filtering.
- *   - source: Filter the feed items, limiting the result to items from a
- *     single source.
- *   - category: Filter the feed items by category.
+ *   The filter for the items. Possible values: 'sum', 'source', 'category'
  * @param $data
- *   Feed or category data used for filtering. The type and value of $data
- *   depends on $type:
- *   - source: $data is an object with $data->fid identifying the feed used to
- *     as filter.
- *   - category: $data is an array with $data['cid'] being the category id to
- *     filter on.
- *   The $data parameter is not used when $type is 'sum'.
- *
+ *   Feed or category data for filtering
  * @return
  *   An array of the feed items.
  */
 function aggregator_feed_items_load($type, $data = NULL) {
   $items = array();
+  $range_limit = 20;
   switch ($type) {
     case 'sum':
-      $query = db_select('aggregator_item', 'i');
-      $query->join('aggregator_feed', 'f', 'i.fid = f.fid');
-      $query->fields('i');
-      $query->addField('f', 'title', 'ftitle');
-      $query->addField('f', 'link', 'flink');
+      $result = db_query_range('SELECT i.*, f.title AS ftitle, f.link AS flink FROM {aggregator_item} i INNER JOIN {aggregator_feed} f ON i.fid = f.fid ORDER BY i.timestamp DESC, i.iid DESC', 0, $range_limit);
       break;
     case 'source':
-      $query = db_select('aggregator_item', 'i');
-      $query
-        ->fields('i')
-        ->condition('i.fid', $data->fid);
+      $result = db_query_range('SELECT * FROM {aggregator_item} WHERE fid = :fid ORDER BY timestamp DESC, iid DESC', 0, $range_limit, array(':fid' => $data->fid));
       break;
     case 'category':
-      $query = db_select('aggregator_category_item', 'c');
-      $query->leftJoin('aggregator_item', 'i', 'c.iid = i.iid');
-      $query->leftJoin('aggregator_feed', 'f', 'i.fid = f.fid');
-      $query
-        ->fields('i')
-        ->condition('cid', $data['cid']);
-      $query->addField('f', 'title', 'ftitle');
-      $query->addField('f', 'link', 'flink');
+      $result = db_query_range('SELECT i.*, f.title AS ftitle, f.link AS flink FROM {aggregator_category_item} c LEFT JOIN {aggregator_item} i ON c.iid = i.iid LEFT JOIN {aggregator_feed} f ON i.fid = f.fid WHERE cid = :cid ORDER BY timestamp DESC, i.iid DESC', 0, $range_limit, array(':cid' => $data['cid']));
       break;
   }
-
-  $result = $query
-    ->extend('PagerDefault')
-    ->limit(20)
-    ->orderBy('i.timestamp', 'DESC')
-    ->orderBy('i.iid', 'DESC')
-    ->execute();
 
   foreach ($result as $item) {
     $item->categories = db_query('SELECT c.title, c.cid FROM {aggregator_category_item} ci LEFT JOIN {aggregator_category} c ON ci.cid = c.cid WHERE ci.iid = :iid ORDER BY c.title', array(':iid' => $item->iid))->fetchAll();
@@ -162,13 +129,11 @@ function aggregator_feed_items_load($type, $data = NULL) {
  * @param $items
  *   The items to be listed.
  * @param $op
- *   Which form should be added to the items. Only 'categorize' is now
- *   recognized.
+ *   Which form should be added to the items. Only 'categorize' is now recognized.
  * @param $feed_source
  *   The feed source URL.
- *
  * @return
- *   The rendered list of items for the feed.
+ *   The items HTML.
  */
 function _aggregator_page_list($items, $op, $feed_source = '') {
   if (user_access('administer news feeds') && ($op == 'categorize')) {
@@ -188,19 +153,16 @@ function _aggregator_page_list($items, $op, $feed_source = '') {
 }
 
 /**
- * Form constructor to build the page list form.
+ * Form builder; build the page list form.
  *
  * @param $items
  *   An array of the feed items.
  * @param $feed_source
- *   (optional) The feed source URL. Defaults to an empty string.
- *
- * @return array
- *   An array of FAPI elements.
- *
- * @see aggregator_categorize_items_submit()
- * @see theme_aggregator_categorize_items()
+ *   The feed source URL.
+ * @return
+ *   The form structure.
  * @ingroup forms
+ * @see aggregator_categorize_items_submit()
  */
 function aggregator_categorize_items($items, $feed_source = '') {
   $form['#submit'][] = 'aggregator_categorize_items_submit';
@@ -243,7 +205,7 @@ function aggregator_categorize_items($items, $feed_source = '') {
 }
 
 /**
- * Form submission handler for aggregator_categorize_items().
+ * Process aggregator_categorize_items() form submissions.
  */
 function aggregator_categorize_items_submit($form, &$form_state) {
   if (!empty($form_state['values']['categories'])) {
@@ -300,7 +262,7 @@ function theme_aggregator_categorize_items($variables) {
 }
 
 /**
- * Processes variables for aggregator-wrapper.tpl.php.
+ * Process variables for aggregator-wrapper.tpl.php.
  *
  * @see aggregator-wrapper.tpl.php
  */
@@ -309,7 +271,7 @@ function template_preprocess_aggregator_wrapper(&$variables) {
 }
 
 /**
- * Processes variables for aggregator-item.tpl.php.
+ * Process variables for aggregator-item.tpl.php.
  *
  * @see aggregator-item.tpl.php
  */
@@ -340,12 +302,7 @@ function template_preprocess_aggregator_item(&$variables) {
 }
 
 /**
- * Page callback: Displays all the feeds used by the aggregator.
- *
- * @return
- *   An HTML-formatted string.
- *
- * @see aggregator_menu()
+ * Menu callback; displays all the feeds used by the aggregator.
  */
 function aggregator_page_sources() {
   $result = db_query('SELECT f.fid, f.title, f.description, f.image, MAX(i.timestamp) AS last FROM {aggregator_feed} f LEFT JOIN {aggregator_item} i ON f.fid = i.fid GROUP BY f.fid, f.title, f.description, f.image ORDER BY last DESC, f.title');
@@ -369,12 +326,7 @@ function aggregator_page_sources() {
 }
 
 /**
- * Page callback: Displays all the categories used by the Aggregator module.
- *
- * @return string
- *   An HTML formatted string.
- *
- * @see aggregator_menu()
+ * Menu callback; displays all the categories used by the aggregator.
  */
 function aggregator_page_categories() {
   $result = db_query('SELECT c.cid, c.title, c.description FROM {aggregator_category} c LEFT JOIN {aggregator_category_item} ci ON c.cid = ci.cid LEFT JOIN {aggregator_item} i ON ci.iid = i.iid GROUP BY c.cid, c.title, c.description');
@@ -396,10 +348,7 @@ function aggregator_page_categories() {
 }
 
 /**
- * Page callback: Generates an RSS 0.92 feed of aggregator items or categories.
- *
- * @return string
- *   An HTML formatted string.
+ * Menu callback; generate an RSS 0.92 feed of aggregator items or categories.
  */
 function aggregator_page_rss() {
   $result = NULL;
@@ -467,14 +416,12 @@ function theme_aggregator_page_rss($variables) {
 }
 
 /**
- * Page callback: Generates an OPML representation of all feeds.
+ * Menu callback; generates an OPML representation of all feeds.
  *
  * @param $cid
- *   (optional) If set, feeds are exported only from a category with this ID.
- *   Otherwise, all feeds are exported. Defaults to NULL.
- *
+ *   If set, feeds are exported only from a category with this ID. Otherwise, all feeds are exported.
  * @return
- *   An OPML formatted string.
+ *   The output XML.
  */
 function aggregator_page_opml($cid = NULL) {
   if ($cid) {
@@ -489,11 +436,13 @@ function aggregator_page_opml($cid = NULL) {
 }
 
 /**
- * Prints the OPML page for the feed.
+ * Prints the OPML page for a feed.
  *
  * @param $variables
  *   An associative array containing:
  *   - feeds: An array of the feeds to theme.
+ *
+ * @return void
  *
  * @ingroup themeable
  */
@@ -519,7 +468,7 @@ function theme_aggregator_page_opml($variables) {
 }
 
 /**
- * Processes variables for aggregator-summary-items.tpl.php.
+ * Process variables for aggregator-summary-items.tpl.php.
  *
  * @see aggregator-summary-items.tpl.php
  */
@@ -530,7 +479,7 @@ function template_preprocess_aggregator_summary_items(&$variables) {
 }
 
 /**
- * Processes variables for aggregator-summary-item.tpl.php.
+ * Process variables for aggregator-summary-item.tpl.php.
  *
  * @see aggregator-summary-item.tpl.php
  */
@@ -550,7 +499,7 @@ function template_preprocess_aggregator_summary_item(&$variables) {
 }
 
 /**
- * Processes variables for aggregator-feed-source.tpl.php.
+ * Process variables for aggregator-feed-source.tpl.php.
  *
  * @see aggregator-feed-source.tpl.php
  */
@@ -558,14 +507,7 @@ function template_preprocess_aggregator_feed_source(&$variables) {
   $feed = $variables['feed'];
 
   $variables['source_icon'] = theme('feed_icon', array('url' => $feed->url, 'title' => t('!title feed', array('!title' => $feed->title))));
-
-  if (!empty($feed->image) && !empty($feed->title) && !empty($feed->link)) {
-    $variables['source_image'] = l(theme('image', array('path' => $feed->image, 'alt' => $feed->title)), $feed->link, array('html' => TRUE, 'attributes' => array('class' => 'feed-image')));
-  }
-  else {
-    $variables['source_image'] = '';
-  }
-
+  $variables['source_image'] = $feed->image;
   $variables['source_description'] = aggregator_filter_xss($feed->description);
   $variables['source_url'] = check_url(url($feed->link, array('absolute' => TRUE)));
 

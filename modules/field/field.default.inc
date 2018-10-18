@@ -168,16 +168,17 @@ function field_default_prepare_view($entity_type, $entities, $field, $instances,
 }
 
 /**
- * Builds a renderable array for one field on one entity instance.
+ * Builds a renderable array for field values.
  *
  * @param $entity_type
  *   The type of $entity; e.g. 'node' or 'user'.
- * @param $entity
- *   A single object of type $entity_type.
+ * @param $entities
+ *   An array of entities being displayed, keyed by entity id.
  * @param $field
  *   The field structure for the operation.
- * @param $instance
- *   An array containing each field on $entity's bundle.
+ * @param $instances
+ *   Array of instance structures for $field for each entity, keyed by entity
+ *   id.
  * @param $langcode
  *   The language associated to $items.
  * @param $items

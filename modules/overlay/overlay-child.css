@@ -1,9 +1,4 @@
 
-/**
- * @file
- * Basic styling for the Overlay child pages.
- */
-
 html.js {
   background: transparent !important;
   overflow-y: scroll;
@@ -22,8 +17,7 @@ html.js body {
   min-width: 700px;
   position: relative;
   padding: .2em;
-  padding-bottom: 2em;
-  padding-right: 26px; /* LTR */
+  padding-right: 26px;
   width: 88%;
 }
 #overlay-titlebar {
@@ -45,7 +39,7 @@ html.js body {
 }
 #overlay-title {
   color: #fff;
-  float: left; /* LTR */
+  float: left;
   font-size: 20px;
   margin: 0;
   padding: 0.3em 0;
@@ -64,14 +58,14 @@ html.js body {
 
 #overlay-close-wrapper {
   position: absolute;
-  right: 0; /* LTR */
+  right: 0;
 }
 #overlay-close,
 #overlay-close:hover {
-  background: transparent url(images/close.png) no-repeat; /* LTR */
-  -moz-border-radius-topleft: 0; /* LTR */
-  -webkit-border-top-left-radius: 0; /* LTR */
-  border-top-left-radius: 0; /* LTR */
+  background: transparent url(images/close.png) no-repeat;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
   display: block;
   height: 26px;
   margin: 0;
@@ -88,13 +82,13 @@ html.js body {
   line-height: 27px;
   margin: -28px 0 0 0;
   position: absolute;
-  right: 20px; /* LTR */
+  right: 20px;
   text-transform: uppercase;
 }
 #overlay-tabs li {
   display: inline;
   list-style: none;
-  margin: 0 0 0 -3px; /* LTR */
+  margin: 0 0 0 -3px;
   padding: 0;
 }
 #overlay-tabs li a,

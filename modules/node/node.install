@@ -18,14 +18,12 @@ function node_schema() {
         'unsigned' => TRUE,
         'not null' => TRUE,
       ),
-      // Defaults to NULL in order to avoid a brief period of potential
-      // deadlocks on the index.
       'vid' => array(
         'description' => 'The current {node_revision}.vid version identifier.',
         'type' => 'int',
         'unsigned' => TRUE,
-        'not null' => FALSE,
-        'default' => NULL,
+        'not null' => TRUE,
+        'default' => 0,
       ),
       'type' => array(
         'description' => 'The {node_type}.type of this node.',
@@ -114,7 +112,6 @@ function node_schema() {
       'uid'                 => array('uid'),
       'tnid'                => array('tnid'),
       'translate'           => array('translate'),
-      'language'            => array('language'),
     ),
     'unique keys' => array(
       'vid' => array('vid'),
@@ -410,7 +407,6 @@ function node_schema() {
       'nid' => array(
         'description' => 'The {node}.nid that was read.',
         'type' => 'int',
-        'unsigned' => TRUE,
         'not null' => TRUE,
         'default' => 0,
       ),
@@ -451,23 +447,17 @@ function node_install() {
  * Implements hook_update_dependencies().
  */
 function node_update_dependencies() {
-  // node_update_7006() migrates node data to fields and therefore must run
-  // after all Field modules have been enabled, which happens in
-  // system_update_7027(). It also needs to query the {filter_format} table to
-  // get a list of existing text formats, so it must run after
-  // filter_update_7000(), which creates that table.
+  // Node update 7006 migrates node data to fields and therefore must run after
+  // the Field module has been enabled, but before upgrading field data.
   $dependencies['node'][7006] = array(
-    'system' => 7027,
+    'system' => 7049,
+    // It must also run after filter_update_7000() because it needs to query
+    // the list of existing text formats.
     'filter' => 7000,
   );
-
-  // node_update_7008() migrates role permissions and therefore must run after
-  // the {role} and {role_permission} tables are properly set up, which happens
-  // in user_update_7007().
-  $dependencies['node'][7008] = array(
-    'user' => 7007,
+  $dependencies['system'][7050] = array(
+    'node' => 7006,
   );
-
   return $dependencies;
 }
 
@@ -476,7 +466,7 @@ function node_update_dependencies() {
  *
  * This function is valid for a database schema version 7000.
  *
- * @ingroup update_api
+ * @ingroup update-api-6.x-to-7.x
  */
 function _update_7000_node_get_types() {
   $node_types = db_query('SELECT * FROM {node_type}')->fetchAllAssoc('type', PDO::FETCH_OBJ);
@@ -620,7 +610,6 @@ function node_update_7006(&$sandbox) {
       'module' => 'text',
       'cardinality' => 1,
       'entity_types' => array('node'),
-      'translatable' => TRUE,
     );
     _update_7000_field_create_field($body_field);
 
@@ -849,15 +838,6 @@ function node_update_7010() {
 }
 
 /**
- * @} End of "addtogroup updates-6.x-to-7.x".
- */
-
-/**
- * @addtogroup updates-7.x-extra
- * @{
- */
-
-/**
  * Update the database from Drupal 6 to match the schema.
  */
 function node_update_7011() {
@@ -881,86 +861,5 @@ function node_update_7011() {
 }
 
 /**
- * Switches body fields to untranslatable while upgrading from D6 and makes them language neutral.
- */
-function node_update_7012() {
-  // If we are upgrading from D6, then body fields should be set back to
-  // untranslatable, as D6 did not know about the idea of translating fields,
-  // but only nodes. If a D7 > D7 update is running we need to skip this update,
-  // as it is a valid use case to have translatable body fields in this context.
-  if (variable_get('update_d6', FALSE)) {
-    // Make node bodies untranslatable: field_update_field() cannot be used
-    // throughout the upgrade process and we do not have an update counterpart
-    // for _update_7000_field_create_field(). Hence we are forced to update the
-    // 'field_config' table directly. This is a safe operation since it is
-    // being performed while upgrading from D6. Perfoming the same operation
-    // during a D7 update is highly discouraged.
-    db_update('field_config')
-      ->fields(array('translatable' => 0))
-      ->condition('field_name', 'body')
-      ->execute();
-
-    // Switch field languages to LANGUAGE_NONE, since initially they were
-    // assigned the node language.
-    foreach (array('field_data_body', 'field_revision_body') as $table) {
-      db_update($table)
-        ->fields(array('language' => LANGUAGE_NONE))
-        ->execute();
-    }
-
-    node_type_cache_reset();
-  }
-}
-
-/**
- * Change {node}.vid default value from 0 to NULL to avoid deadlock issues on MySQL.
- */
-function node_update_7013() {
-  db_drop_unique_key('node', 'vid');
-  db_change_field('node', 'vid', 'vid', array(
-    'description' => 'The current {node_revision}.vid version identifier.',
-    'type' => 'int',
-    'unsigned' => TRUE,
-    'not null' => FALSE,
-    'default' => NULL,
-  ));
-  db_add_unique_key('node', 'vid', array('vid'));
-}
-
-/**
- * Add an index on {node}.language.
- */
-function node_update_7014() {
-  db_add_index('node', 'language', array('language'));
-}
-
-/**
- * Enable node types that may have been erroneously disabled in Drupal 7.36.
- */
-function node_update_7015() {
-  db_update('node_type')
-    ->fields(array('disabled' => 0))
-    ->condition('base', 'node_content')
-    ->execute();
-}
-
-/**
- * Change {history}.nid to an unsigned int in order to match {node}.nid.
- */
-function node_update_7016() {
-  db_drop_primary_key('history');
-  db_drop_index('history', 'nid');
-  db_change_field('history', 'nid', 'nid', array(
-    'description' => 'The {node}.nid that was read.',
-    'type' => 'int',
-    'unsigned' => TRUE,
-    'not null' => TRUE,
-    'default' => 0,
-  ));
-  db_add_primary_key('history', array('uid', 'nid'));
-  db_add_index('history', 'nid', array('nid'));
-}
-
-/**
- * @} End of "addtogroup updates-7.x-extra".
+ * @} End of "addtogroup updates-6.x-to-7.x"
  */

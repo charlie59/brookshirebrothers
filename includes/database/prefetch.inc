@@ -9,7 +9,7 @@
  */
 
 /**
- * @addtogroup database
+ * @ingroup database
  * @{
  */
 
@@ -370,7 +370,7 @@ class DatabaseStatementPrefetch implements Iterator, DatabaseStatementInterface 
     }
   }
 
-  public function fetchColumn($index = 0) {
+  public function fetchField($index = 0) {
     if (isset($this->currentRow) && isset($this->columnNames[$index])) {
       // We grab the value directly from $this->data, and format it.
       $return = $this->currentRow[$this->columnNames[$index]];
@@ -380,10 +380,6 @@ class DatabaseStatementPrefetch implements Iterator, DatabaseStatementInterface 
     else {
       return FALSE;
     }
-  }
-
-  public function fetchField($index = 0) {
-    return $this->fetchColumn($index);
   }
 
   public function fetchObject($class_name = NULL, $constructor_args = array()) {
@@ -502,6 +498,6 @@ class DatabaseStatementPrefetch implements Iterator, DatabaseStatementInterface 
 }
 
 /**
- * @} End of "addtogroup database".
+ * @} End of "ingroup database".
  */
 

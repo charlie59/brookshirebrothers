@@ -2,21 +2,17 @@
 
 /**
  * @file
- * User page callbacks for the Filter module.
+ * User page callbacks for the filter module.
  */
 
+
 /**
- * Page callback: Displays a page with long filter tips.
- *
- * @return string
- *   An HTML-formatted string.
- *
- * @see filter_menu()
- * @see theme_filter_tips()
+ * Menu callback; show a page with long filter tips.
  */
-function filter_tips_long($format = NULL) {
-  if (!empty($format)) {
-    $output = theme('filter_tips', array('tips' => _filter_tips($format->format, TRUE), 'long' => TRUE));
+function filter_tips_long() {
+  $format_id = arg(2);
+  if ($format_id) {
+    $output = theme('filter_tips', array('tips' => _filter_tips($format_id, TRUE), 'long' => TRUE));
   }
   else {
     $output = theme('filter_tips', array('tips' => _filter_tips(-1, TRUE), 'long' => TRUE));
@@ -24,12 +20,13 @@ function filter_tips_long($format = NULL) {
   return $output;
 }
 
+
 /**
  * Returns HTML for a set of filter tips.
  *
  * @param $variables
  *   An associative array containing:
- *   - tips: An array containing descriptions and a CSS ID in the form of
+ *   - tips: An array containing descriptions and a CSS id in the form of
  *     'module-name/filter-id' (only used when $long is TRUE) for each
  *     filter in one or more text formats. Example:
  *     @code
@@ -67,7 +64,7 @@ function theme_filter_tips($variables) {
     foreach ($tips as $name => $tiplist) {
       if ($multiple) {
         $output .= '<div class="filter-type filter-' . drupal_html_class($name) . '">';
-        $output .= '<h3>' . check_plain($name) . '</h3>';
+        $output .= '<h3>' . $name . '</h3>';
       }
 
       if (count($tiplist) > 0) {
