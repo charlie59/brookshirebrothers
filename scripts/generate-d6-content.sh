@@ -67,6 +67,7 @@ for ($i = 0; $i < 24; $i++) {
   ++$voc_id;
   $vocabulary['name'] = "vocabulary $voc_id (i=$i)";
   $vocabulary['description'] = "description of ". $vocabulary['name'];
+  $vocabulary['help'] = "help for ". $vocabulary['name'];
   $vocabulary['nodes'] = $i > 11 ? array('page' => TRUE) : array();
   $vocabulary['multiple'] = $multiple[$i % 12];
   $vocabulary['required'] = $required[$i % 12];
@@ -75,7 +76,7 @@ for ($i = 0; $i < 24; $i++) {
   $vocabulary['weight'] = $i;
   taxonomy_save_vocabulary($vocabulary);
   $parents = array();
-  // Vocabularies without hierarcy get one term, single parent vocabularies get
+  // Vocabularies without hierarchy get one term, single parent vocabularies get
   // one parent and one child term. Multiple parent vocabularies get three
   // terms: t0, t1, t2 where t0 is a parent of both t1 and t2.
   for ($j = 0; $j < $vocabulary['hierarchy'] + 1; $j++) {

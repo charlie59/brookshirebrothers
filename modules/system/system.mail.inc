@@ -31,7 +31,7 @@ class DefaultMailSystem implements MailSystemInterface {
   /**
    * Send an e-mail message, using Drupal variables and default settings.
    *
-   * @see http://php.net/manual/en/function.mail.php
+   * @see http://php.net/manual/function.mail.php
    * @see drupal_mail()
    *
    * @param $message
@@ -65,29 +65,82 @@ class DefaultMailSystem implements MailSystemInterface {
     // For headers, PHP's API suggests that we use CRLF normally,
     // but some MTAs incorrectly replace LF with CRLF. See #234403.
     $mail_headers = join("\n", $mimeheaders);
-    if (isset($message['Return-Path']) && !ini_get('safe_mode')) {
-      $mail_result = mail(
-        $message['to'],
-        $mail_subject,
-        $mail_body,
-        $mail_headers,
-        // Pass the Return-Path via sendmail's -f command.
-        '-f ' . $message['Return-Path']
-      );
-    }
-    else {
-      // The optional $additional_parameters argument to mail() is not allowed
-      // if safe_mode is enabled. Passing any value throws a PHP warning and
-      // makes mail() return FALSE.
-      $mail_result = mail(
-        $message['to'],
-        $mail_subject,
-        $mail_body,
-        $mail_headers
-      );
-    }
-    return $mail_result;
+
+    // We suppress warnings and notices from mail() because of issues on some
+    // hosts. The return value of this method will still indicate whether mail
+    // was sent successfully.
+    if (!isset($_SERVER['WINDIR']) && strpos($_SERVER['SERVER_SOFTWARE'], 'Win32') === FALSE) {
+      // We validate the return path, unless it is equal to the site mail, which
+      // we assume to be safe.
+      if (isset($message['Return-Path']) && !ini_get('safe_mode') && (variable_get('site_mail', ini_get('sendmail_from')) === $message['Return-Path'] || self::_isShellSafe($message['Return-Path']))) {
+        // On most non-Windows systems, the "-f" option to the sendmail command
+        // is used to set the Return-Path. There is no space between -f and
+        // the value of the return path.
+        $mail_result = @mail(
+          $message['to'],
+          $mail_subject,
+          $mail_body,
+          $mail_headers,
+          '-f' . $message['Return-Path']
+        );
+      }
+      else {
+        // The optional $additional_parameters argument to mail() is not
+        // allowed if safe_mode is enabled. Passing any value throws a PHP
+        // warning and makes mail() return FALSE.
+        $mail_result = @mail(
+          $message['to'],
+          $mail_subject,
+          $mail_body,
+          $mail_headers
+        );
+      }
+     }
+     else {
+      // On Windows, PHP will use the value of sendmail_from for the
+      // Return-Path header.
+      $old_from = ini_get('sendmail_from');
+      ini_set('sendmail_from', $message['Return-Path']);
+      $mail_result = @mail(
+         $message['to'],
+         $mail_subject,
+         $mail_body,
+         $mail_headers
+       );
+      ini_set('sendmail_from', $old_from);
+     }
+     return $mail_result;
   }
+
+  /**
+   * Disallows potentially unsafe shell characters.
+   *
+   * Functionally similar to PHPMailer::isShellSafe() which resulted from
+   * CVE-2016-10045. Note that escapeshellarg and escapeshellcmd are inadequate
+   * for this purpose.
+   *
+   * @param string $string
+   *   The string to be validated.
+   *
+   * @return bool
+   *   True if the string is shell-safe.
+   *
+   * @see https://github.com/PHPMailer/PHPMailer/issues/924
+   * @see https://github.com/PHPMailer/PHPMailer/blob/v5.2.21/class.phpmailer.php#L1430
+   *
+   * @todo Rename to ::isShellSafe() and/or discuss whether this is the correct
+   *   location for this helper.
+   */
+  protected static function _isShellSafe($string) {
+    if (escapeshellcmd($string) !== $string || !in_array(escapeshellarg($string), array("'$string'", "\"$string\""))) {
+      return FALSE;
+    }
+    if (preg_match('/[^a-zA-Z0-9@_\-.]/', $string) !== 0) {
+      return FALSE;
+    }
+    return TRUE;
+  }
+
 }
 
 /**
