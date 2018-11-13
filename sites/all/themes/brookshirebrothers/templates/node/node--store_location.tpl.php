@@ -23,11 +23,13 @@
               <a href="<?php echo $node->field_prescription_refill_link['und'][0]['value']; ?>"
                  target="_blank" class="btn-refill">Refill Prescription</a>
           <?php endif;
-          $map_link = urlencode($node->gsl_addressfield['und'][0]['thoroughfare'].', '.$node->gsl_addressfield['und'][0]['locality'].' '.$node->gsl_addressfield['und'][0]['administrative_area'].' '
+          $map_link = 'https://www.google.com/maps/search/?api=1&query=' . urlencode($node->gsl_addressfield['und'][0]['thoroughfare'] . ', ' .
+              $node->gsl_addressfield['und'][0]['locality'] .' '
+          . $node->gsl_addressfield['und'][0]['administrative_area'] . ' '
             . $node->gsl_addressfield['und'][0]['postal_code']);
           ?>
-            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $map_link; ?>" target="_blank"" class="btn-map">Map</a>
-            <a class="map-box" href="https://www.google.com/maps/search/?api=1&query=<?php echo $map_link; ?>" target="_blank"><span class="map-txt">Map</span><img
+            <a href="<?php echo $map_link; ?>" target="_blank"" class="btn-map">Map</a>
+            <a class="map-box" href="<?php echo $map_link; ?>" target="_blank"><span class="map-txt">Map</span><img
                         src="/sites/all/themes/brookshirebrothers/images/map-img1.jpg"
                         alt=""></a>
         </div>
