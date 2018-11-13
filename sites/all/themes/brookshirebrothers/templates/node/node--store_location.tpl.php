@@ -23,8 +23,8 @@
               <a href="<?php echo $node->field_prescription_refill_link['und'][0]['value']; ?>"
                  target="_blank" class="btn-refill">Refill Prescription</a>
           <?php endif; ?>
-            <a href="#" class="btn-map">Map</a>
-            <a class="map-box" href="#"><span class="map-txt">Map</span><img
+            <a href="https://www.google.com/maps/search/?api=1" target="_blank"" class="btn-map">Map</a>
+            <a class="map-box" href="https://www.google.com/maps/search/?api=1" target="_blank"><span class="map-txt">Map</span><img
                         src="/sites/all/themes/brookshirebrothers/images/map-img1.jpg"
                         alt=""></a>
         </div>
