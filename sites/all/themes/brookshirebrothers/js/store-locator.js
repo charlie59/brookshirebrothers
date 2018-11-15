@@ -158,7 +158,7 @@ jQuery(document).ready(function () {
         );
       }
       else {
-        console.log("no geolocation support");
+        //console.log("no geolocation support");
       }
     }
 
