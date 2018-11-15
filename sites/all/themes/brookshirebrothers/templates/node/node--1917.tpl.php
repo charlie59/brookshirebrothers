@@ -55,7 +55,7 @@ if (isset($_GET['store'])) {
           });
         </script>
     </section>
-<?php if ($_GET['store'] === 115): ?>
+<?php if ($_GET['store'] == '115'): ?>
         <iframe src="https://quadretail.mydigitalpublication.com/publication/?m=58565&l=1"
                 width="100%" height="1200px" frameborder="0"></iframe>
 <?php else: ?>
