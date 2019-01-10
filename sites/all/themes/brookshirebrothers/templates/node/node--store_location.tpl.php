@@ -16,7 +16,12 @@
       <?php endif; ?>
         <div class="box">
           <?php if ($node->field_weekly_ad['und'][0]['value'] == 1): ?>
-              <a href="/weekly-ad?store=<?php echo $node->field_number_store['und'][0]['value']; ?>"
+            <?php if ($node->nid == '115') {
+              $link = "https://quadretail.mydigitalpublication.com/publication/?m=58565&l=1";
+            } else {
+              $link = "https://mydigitalpublication.com/publication/?pid=142&co=US&pc=" . $node->nid;
+            } ?>
+              <a href="<?php echo $link; ?>" target="_blank"
                  class="btn-weekly">Weekly Ad</a>
           <?php endif; ?>
           <?php if (isset($node->field_prescription_refill_link['und'][0]['value'])): ?>
@@ -24,9 +29,9 @@
                  target="_blank" class="btn-refill">Refill Prescription</a>
           <?php endif;
           $map_link = 'https://www.google.com/maps/search/?api=1&query=' . urlencode($node->gsl_addressfield['und'][0]['thoroughfare'] . ', ' .
-              $node->gsl_addressfield['und'][0]['locality'] .' '
-          . $node->gsl_addressfield['und'][0]['administrative_area'] . ' '
-            . $node->gsl_addressfield['und'][0]['postal_code']);
+              $node->gsl_addressfield['und'][0]['locality'] . ' '
+              . $node->gsl_addressfield['und'][0]['administrative_area'] . ' '
+              . $node->gsl_addressfield['und'][0]['postal_code']);
           ?>
             <a href="<?php echo $map_link; ?>" target="_blank"" class="btn-map">Map</a>
             <a class="map-box" href="<?php echo $map_link; ?>" target="_blank"><span class="map-txt">Map</span><img
@@ -95,17 +100,17 @@
           <?php endif; ?>
         </dl>
       <?php if ((!empty($node->field_bbros_text_signup__c['und'][0]['value'])) && (!empty($node->field_tbarn_text_signup__c['und'][0]['value']))): ?>
-        <p>
+          <p>
             <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
-                <?php print t('To sign up to Brookshire Brothers Promo Alerts: '); ?>
-                <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?>
+              <?php print t('To sign up to Brookshire Brothers Promo Alerts: '); ?>
+              <?php print $node->field_bbros_text_signup__c['und'][0]['value']; ?>
             <?php endif; ?>
             <?php if (!empty($node->field_tbarn_text_signup__c['und'][0]['value'])): ?>
-                <br />
-                <?php print t('To sign up to Tobacco Barn Promo Alerts: '); ?>
-                <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
+                <br/>
+              <?php print t('To sign up to Tobacco Barn Promo Alerts: '); ?>
+              <?php print $node->field_tbarn_text_signup__c['und'][0]['value']; ?>
             <?php endif; ?>
-        </p>
+          </p>
       <?php endif; ?>
     </div>
 
