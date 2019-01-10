@@ -13,6 +13,10 @@ if (isset($result['node'])) {
   $item = entity_load('node', $item_nid);
   var_dump($item);
 }*/
+
+/*
+ * tempporary solution - should be done with preprocess_html
+ */
 if (isset($_GET['store'])) {
 
   if ($_GET['store'] == '115') {
