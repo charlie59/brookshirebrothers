@@ -84,7 +84,7 @@ function brookshirebrotherscustom_describe() {
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
 
     $query = "Select Id, WeeklyAd__c from Account Where Type = 'BB Store'";
-    $response = $this->mySforceConnection->query($query);
+    $response = $mySforceConnection->query($query);
 
     //$response = $mySforceConnection->describeSObject("Account");
 
