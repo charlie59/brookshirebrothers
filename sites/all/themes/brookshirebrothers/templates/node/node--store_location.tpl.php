@@ -16,7 +16,7 @@
       <?php endif; ?>
         <div class="box">
           <?php if ($node->field_weekly_ad['und'][0]['value'] == 1): ?>
-              <a href="<?php echo $node->field_weekly_ad_link['und'][0]['value'] == 1; ?>" target="_blank"
+              <a href="<?php echo $node->field_weekly_ad_link['und'][0]['value']; ?>" target="_blank"
                  class="btn-weekly">Weekly Ad</a>
           <?php endif; ?>
           <?php if (isset($node->field_prescription_refill_link['und'][0]['value'])): ?>
