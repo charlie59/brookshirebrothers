@@ -331,14 +331,24 @@ class Store_Updater {
     }
   }
 
+  /**
+   * @return null
+   */
+  function _describe_account() {
+    $query = "Describe Account";
+    $response = $this->mySforceConnection->query($query);
+    var_dump($response);
+  }
 
   /**
    * Main function
    */
   function updater() {
-    $this->ids = $this->_get_ids();
-    $this->sfstores = $this->_get_sfstores();
-    $this->_update();
+    $this->_describe_account();
+
+    //$this->ids = $this->_get_ids();
+    //$this->sfstores = $this->_get_sfstores();
+    //$this->_update();
   }
 
 }
