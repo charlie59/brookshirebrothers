@@ -16,12 +16,7 @@
       <?php endif; ?>
         <div class="box">
           <?php if ($node->field_weekly_ad['und'][0]['value'] == 1): ?>
-            <?php if ($node->nid == '115') {
-              $link = "https://quadretail.mydigitalpublication.com/publication/?m=58565&l=1";
-            } else {
-              $link = "https://mydigitalpublication.com/publication/?pid=142&co=US&pc=" . $node->nid;
-            } ?>
-              <a href="<?php echo $link; ?>" target="_blank"
+              <a href="<?php echo $node->field_weekly_ad_link['und'][0]['value'] == 1; ?>" target="_blank"
                  class="btn-weekly">Weekly Ad</a>
           <?php endif; ?>
           <?php if (isset($node->field_prescription_refill_link['und'][0]['value'])): ?>
