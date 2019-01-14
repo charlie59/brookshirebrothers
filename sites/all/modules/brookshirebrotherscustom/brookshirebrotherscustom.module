@@ -82,15 +82,8 @@ function brookshirebrotherscustom_describe() {
     $mySforceConnection = new SforcePartnerClient();
     $mySoapClient = $mySforceConnection->createConnection(SOAP_CLIENT_BASEDIR.'/partner.wsdl.xml');
     $mylogin = $mySforceConnection->login(SOAP_CLIENT_USER, SOAP_CLIENT_PASSWORD);
-
-    $query = "Select Id, WeeklyAd__c from Account Where Type = 'BB Store'";
-    $response = $mySforceConnection->query($query);
-
-    //$response = $mySforceConnection->describeSObject("Account");
-
+    $response = $mySforceConnection->describeSObject("Account");
     print_r($response);
-
-
   } catch (Exception $e) {
     echo $mySforceConnection->getLastRequest();
     echo $e->faultstring;
