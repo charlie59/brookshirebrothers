@@ -170,7 +170,7 @@ class Store_Updater {
                   $val = $value == 'true'? 1: 0;
                   $wrapper->field_weekly_ad->set($val);
                   break;
-                case "Weekly_Ad__c":
+                case "WeeklyAd__c":
                   $wrapper->field_weekly_ad_link->set($value);
                   break;
                 case "Beverage_Depot_Location__c":
