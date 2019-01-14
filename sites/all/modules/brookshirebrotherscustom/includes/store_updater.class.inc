@@ -51,7 +51,8 @@ class Store_Updater {
   Has_Mr_Payroll__c,
   Mr_Payroll_Phone__c,
   BBros_Text_Signup__c,
-  TBarn_Text_signup__c";
+  TBarn_Text_signup__c,
+  WeeklyAd__c";
   var $sObjectType = "Account";
 
   /**
@@ -168,6 +169,9 @@ class Store_Updater {
                 case "Has_Weekly_Ad__c":
                   $val = $value == 'true'? 1: 0;
                   $wrapper->field_weekly_ad->set($val);
+                  break;
+                case "Weekly_Ad__c":
+                  $wrapper->field_weekly_ad_link->set($value);
                   break;
                 case "Beverage_Depot_Location__c":
                   $val = $value == 'true'? 1: 0;
