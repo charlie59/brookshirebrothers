@@ -52,7 +52,8 @@ class Store_Updater {
   Mr_Payroll_Phone__c,
   BBros_Text_Signup__c,
   TBarn_Text_signup__c,
-  WeeklyAd__c";
+  WeeklyAd__c,
+  Bissell_Location__c";
   var $sObjectType = "Account";
 
   /**
@@ -200,6 +201,13 @@ class Store_Updater {
                     $wrapper->field_specification[] = 10; // 10 is tid for Floral
                   }
                   $wrapper->field_floral->set($val);
+                  break;
+                case "Bissell_Location__c":
+                  $val = $value == 'true'? 1: 0;
+                  if ($val === 1) {
+                    $wrapper->field_specification[] = 588; // 588 is tid for Bissell Rental
+                  }
+                  $wrapper->field_bissell_rental->set($val);
                   break;
                 case "Redbox__c":
                   $val = $value == 'true'? 1: 0;
