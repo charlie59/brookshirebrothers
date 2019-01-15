@@ -357,7 +357,6 @@ function menu_block_links_sidebar($variables, $level = 1) {
  * @return bool
  */
 function entity_load_by_type($entity_type, $bundle) {
-  global $language;
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', $entity_type)
     ->entityCondition('bundle', $bundle);
@@ -366,8 +365,7 @@ function entity_load_by_type($entity_type, $bundle) {
     $nids = array_keys($results['node']);
     $nodes = entity_load($entity_type, $nids);
     return $nodes;
-  }
-  else {
+  } else {
     return FALSE;
   }
 }

@@ -36,6 +36,7 @@
                     keywords: "<?php if (isset($resul->field_department['und'][0])): foreach($resul->field_department['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php foreach($resul->field_specification['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php endif; ?><?php if (isset($resul->field_locations['und'][0])): foreach($resul->field_locations['und'] as $term_id): $term = taxonomy_term_load($term_id['tid']);?> <?php echo $term->name;?>,<?php endforeach; ?><?php endif; ?>"
                 }]
             }<?php if (++$i != count($results)) { ?><?php echo ','; ?><?php }}}?>]
+        console.log(locationCoordinates);
     </script>
 <?php else: ?>
     <!DOCTYPE html>
