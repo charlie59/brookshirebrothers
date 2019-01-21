@@ -9,6 +9,7 @@ if (isset($_GET['store'])) {
     ->fieldCondition('field_number_store', 'value', $_GET['store'], '=');
   $result = $query->execute();
   $item_nid = array_keys($result['node']);
+  echo $item_nid;
   $item = entity_load('node', $item_nid);
   var_dump($item["$item_nid"]->field_weekly_ad_link);
   $link = $item->field_weekly_ad_link['und'][0]['value'];
