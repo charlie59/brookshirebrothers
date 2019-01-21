@@ -1,6 +1,7 @@
 <?php
 /*
  * Code to get entity values -- not necessary unless we want address
+ */
 $query = new EntityFieldQuery();
 $query->entityCondition('entity_type', 'node')
   ->entityCondition('bundle', 'store_location')
@@ -12,7 +13,7 @@ if (isset($result['node'])) {
   $item_nid = array_keys($result['node']);
   $item = entity_load('node', $item_nid);
   var_dump($item);
-}*/
+}
 
 /*
  * tempporary solution - should be done with preprocess_html
