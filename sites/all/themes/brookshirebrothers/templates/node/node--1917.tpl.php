@@ -13,6 +13,7 @@ if (isset($result['node'])) {
   $item_nid = array_keys($result['node']);
   $item = entity_load('node', $item_nid);
   var_dump($item);
+  exit;
 }
 
 /*
