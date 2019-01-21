@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *
+ * Weekly Ad Node
+ * This file redirects legacy store links to the digital publications
+ * TODO move to a preprocess function
+ * TODO move store cookie code to store page
+ *
+ */
+
 if (isset($_GET['store'])) {
 
   $query = new EntityFieldQuery();
