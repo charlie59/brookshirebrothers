@@ -1,31 +1,16 @@
 <?php
-/*
- * Code to get entity values -- not necessary unless we want address
- */
-$query = new EntityFieldQuery();
-$query->entityCondition('entity_type', 'node')
-  ->entityCondition('bundle', 'store_location')
-  ->propertyCondition('status', 1)
-  ->fieldCondition('field_number_store', 'value', $_GET['store'], '=');
-$result = $query->execute();
-$result = $query->execute();
-if (isset($result['node'])) {
-  $item_nid = array_keys($result['node']);
-  $item = entity_load('node', $item_nid);
-  var_dump($item);
-  exit;
-}
 
-/*
- * tempporary solution - should be done with preprocess_html
- */
 if (isset($_GET['store'])) {
 
-  if ($_GET['store'] == '115') {
-    $link = "https://quadretail.mydigitalpublication.com/publication/?m=58565&l=1";
-  } else {
-    $link = "https://mydigitalpublication.com/publication/?pid=142&co=US&pc=" . $node->nid;
-  }
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'store_location')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_number_store', 'value', $_GET['store'], '=');
+  $result = $query->execute();
+  $item_nid = array_keys($result['node']);
+  $item = entity_load('node', $item_nid);
+  $link = $item->field_weekly_ad_link['und']['0']['value'];
   ?>
     <script type="text/javascript">
       window.location.href = "<?php echo $link; ?>"
