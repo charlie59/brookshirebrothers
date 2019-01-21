@@ -16,7 +16,6 @@ if (isset($_GET['store'])) {
       window.location.href = "<?php echo $link; ?>"
     </script>
   <?php
-  exit;
 
   $frase_uno = '';
   $frase_dos = '';
@@ -57,15 +56,7 @@ if (isset($_GET['store'])) {
           })
         </script>
     </section>
-  <?php if ($_GET['store'] == '115'): ?>
-        <iframe src="https://quadretail.mydigitalpublication.com/publication/?m=58565&l=1"
-                width="100%" height="1200px" frameborder="0"></iframe>
-  <?php else: ?>
-        <iframe src="https://mydigitalpublication.com/publication/?pid=142&co=US&pc=<?php echo $_GET['store']; ?>"
-                width="100%" height="1200px" frameborder="0"></iframe>
-  <?php
-  endif;
-
+<?php
 } else { ?>
     <script type="text/javascript">
       window.location = 'https://www.brookshirebrothers.com/store-locator?weekly-ad=true'
