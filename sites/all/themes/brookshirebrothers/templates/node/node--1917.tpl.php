@@ -16,6 +16,7 @@ if (isset($_GET['store'])) {
       window.location.href = "<?php echo $link; ?>"
     </script>
   <?php
+  exit;
 
   $frase_uno = '';
   $frase_dos = '';
