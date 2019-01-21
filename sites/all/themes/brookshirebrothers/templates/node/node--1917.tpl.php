@@ -12,7 +12,7 @@ if (isset($_GET['store'])) {
   $nid = $item_nid[0];
   $item = entity_load('node', $item_nid);
   var_dump($item["$nid"]);
-  $link = $item->field_weekly_ad_link['und'][0]['value'];
+  $link = $item["$nid"]->field_weekly_ad_link['und'][0]['value'];
   echo $link;
   exit;
 
