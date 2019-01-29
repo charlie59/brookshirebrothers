@@ -4,11 +4,9 @@
       <?php if (!empty($node->gsl_addressfield)): ?>
           <address class="address">
             <?php if (isset($node->field_display_title['und'][0]['value'])): ?>
-              <?php echo $node->field_display_title['und'][0]['value']; ?><br>
+              <?php echo $node->field_display_title['und'][0]['value']; ?><br />
             <?php endif; ?>
-            <?php echo $node->gsl_addressfield['und'][0]['thoroughfare']; ?>
-              <br>
-            <?php // echo $node->gsl_addressfield['und'][0]['country']; ?>
+            <?php echo $node->gsl_addressfield['und'][0]['thoroughfare']; ?><br />
             <?php echo $node->gsl_addressfield['und'][0]['locality']; ?>,
             <?php echo $node->gsl_addressfield['und'][0]['administrative_area']; ?>
             <?php echo $node->gsl_addressfield['und'][0]['postal_code']; ?>

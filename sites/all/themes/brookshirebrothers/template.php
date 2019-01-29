@@ -25,11 +25,16 @@ function brookshirebrothers_preprocess_html(&$vars) {
 }
 
 /**
+ * @param $vars
+ * @throws \Exception
  * Override or insert variables into the page template.
  */
 function brookshirebrothers_preprocess_page(&$vars) {
   if (isset($vars['node'])) {
     $vars['theme_hook_suggestions'][] = 'page__' . str_replace('_', '--', $vars['node']->type);
+
+    dpm($vars['node']);
+
   }
   $vars['tabs2'] = [
     '#theme' => 'menu_local_tasks',
