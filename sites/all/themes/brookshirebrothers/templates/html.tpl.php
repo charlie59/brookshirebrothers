@@ -48,10 +48,11 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
   /*
    * $_GET['weekly-ad'] is different from $_GET['weeklyad'] -- former is from Weekly Ad nav link
    * the latter from the ajax submit in store-locator.js
+   * again, who did this?
    */
   if (isset($_GET['weekly-ad']) and $_GET['weekly-ad'] == "true") {
     if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/');
+      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/?weekly-ad=false');
       exit;
     }
   }
