@@ -58,6 +58,10 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #map_container .infoDiv a:hover {
   text-decoration: underline;
 }
+#weekly-ad {
+  font-size: 12px;
+  line-height: 16px;
+}
 /* start shopping button
 * breakpoints apply only to this section
 */
