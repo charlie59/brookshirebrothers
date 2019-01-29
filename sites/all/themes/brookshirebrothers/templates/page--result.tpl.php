@@ -145,43 +145,6 @@
               <?php if ($page['sidebar_first']): ?>
                   <aside id="sidebar">
                     <?php print render($page['sidebar_first']); ?>
-                    <?php
-                    $frase_uno = '';
-                    $frase_dos = '';
-                    if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-                      $frase_uno = 'Store ' . $_COOKIE['defaultStore'] . ' is your Weekly Ad default (uncheck to unset)';
-                    } else {
-                      $frase_dos = 'Set store ' . $_GET['store'] . ' as your Weekly Ad default';
-                    }
-                    ?>
-                      <section class="text-block">
-                          <div class="field-name-body" id="weekly-ad">
-                              <p><input type="checkbox" id="default_store_id"<?php
-                                if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-                                  echo ' checked="checked"> <span id="default_store_text">' . $frase_uno . '</span>';
-                                } else {
-                                  echo '> <span id="default_store_text">' . $frase_dos . '</span>';
-                                }
-
-                                ?></p>
-                          </div>
-                          <script type="text/javascript">
-                            jQuery(document).ready(function () {
-                              jQuery('#default_store_id').change(function () {
-                                if (jQuery(this).is(':checked')) {
-                                  var now = new Date()
-                                  now.setTime(now.getTime() + 1 * 3600 * 1000 * 24 * 360 * 10)
-                                  document.cookie = 'defaultStore=' + "<?php echo $_GET['store']; ?>;" + ' expires=' + now.toUTCString() + '; path=/;secure;'
-                                  jQuery('#default_store_text').text('<?php echo $frase_uno; ?>')
-                                }
-                                else {
-                                  document.cookie = 'defaultStore=' + ';path=/;secure;'
-                                  jQuery('#default_store_text').text('<?php echo $frase_dos; ?>')
-                                }
-                              })
-                            })
-                          </script>
-                      </section>
                   </aside>
               <?php endif; ?>
             </div>
