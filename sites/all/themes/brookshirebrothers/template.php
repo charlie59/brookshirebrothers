@@ -26,8 +26,9 @@ function brookshirebrothers_preprocess_html(&$vars) {
  */
 function brookshirebrothers_preprocess_page(&$vars) {
   if (isset($vars['node'])) {
-    $vars['theme_hook_suggestions'][] = 'page__' . str_replace('_', '--', $vars['node']->type);
-    //dpm($vars['node']);
+    echo $vars['node']->type;
+    $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
+    dpm($vars['node']);
   }
   $vars['tabs2'] = [
     '#theme' => 'menu_local_tasks',
