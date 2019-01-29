@@ -1,20 +1,15 @@
 <?php
 /**
  * Return a themed breadcrumb trail.
- *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- *
- * @return a string containing the breadcrumb output.
+ * @param $variables array containing the breadcrumb links.
+ * @return string containing the breadcrumb output.
  */
 function brookshirebrothers_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
-
   if (!empty($breadcrumb)) {
     // Provide a navigational heading to give context for breadcrumb links to
     // screen-reader users. Make the heading invisible with .element-invisible.
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-
     $output .= '<div class="breadcrumb">' . implode(' › ', $breadcrumb) . '</div>';
     return $output;
   }
