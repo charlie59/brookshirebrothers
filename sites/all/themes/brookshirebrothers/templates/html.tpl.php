@@ -1,11 +1,7 @@
 <?php
 if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
   $weekly_ad_array = [];
-  if (isset($_GET['weekly-ad']) and $_GET['weekly-ad'] == "true") {
-    if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/');
-      exit;
-    }
+  if (isset($_GET['weeklyad']) and $_GET['weeklyad'] == "true") {
     $weekly_ad = db_query("SELECT DISTINCT entity_id as field_store_association_nid from field_data_field_weekly_ad INNER JOIN node ON field_data_field_weekly_ad.entity_id=node.nid where field_weekly_ad_value=1");
     foreach ($weekly_ad as $record) {
       $weekly_ad_array[] = $record->field_store_association_nid;
@@ -17,7 +13,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
     <script type="text/javascript">
       var locationCoordinates = [
         <?php foreach($results as $resul) {?>
-        <?php if(($_GET['weekly-ad'] != "true") || ($_GET['weekly-ad'] == "true" && in_array($resul->nid, $weekly_ad_array)))
+        <?php if(($_GET['weeklyad'] != "true") || ($_GET['weeklyad'] == "true" && in_array($resul->nid, $weekly_ad_array)))
         { ?>
         <?php if (isset($resul->field_weekly_ad_association)) {
         $node_week = node_load($resul->field_weekly_ad_association['und'][0]['nid']);
@@ -48,6 +44,18 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
       console.log(locationCoordinates)
     </script>
 <?php else: ?>
+  <?php
+  /*
+   * $_GET['weekly-ad'] is different from $_GET['weeklyad'] -- former is from Weekly Ad nav link
+   * the latter from the ajax submit in store-locator.js
+   */
+  if (isset($_GET['weekly-ad']) and $_GET['weekly-ad'] == "true") {
+    if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/');
+      exit;
+    }
+  }
+  ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
