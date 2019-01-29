@@ -26,9 +26,10 @@ function brookshirebrothers_preprocess_html(&$vars) {
  */
 function brookshirebrothers_preprocess_page(&$vars) {
   if (isset($vars['node'])) {
-    echo $vars['node']->type;
     $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
-    dpm($vars['node']);
+    if ($vars['node']->type == 'store_location') {
+      $vars['store_number'] = $vars['node']->field_number_store['und'][0]['value'];
+    }
   }
   $vars['tabs2'] = [
     '#theme' => 'menu_local_tasks',
