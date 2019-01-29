@@ -16,13 +16,8 @@
 				<aside id="sidebar">
 					<?php print render($page['sidebar_first']); ?>
                     <?php
-                    $frase_uno = '';
-                    $frase_dos = '';
-                    if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-                      $frase_uno = 'This store is your Weekly Ad default (uncheck to unset)';
-                    } else {
-                      $frase_dos = 'Check to set this store as your Weekly Ad default';
-                    }
+                    $frase_uno = 'This store is your Weekly Ad default (uncheck to unset)';
+                    $frase_dos = 'Check to set this store as your Weekly Ad default';
                     ?>
                     <section class="text-block">
                         <div class="field-name-body" id="weekly-ad">
