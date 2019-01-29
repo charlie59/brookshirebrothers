@@ -101,10 +101,10 @@
                     <section class="content-holder filter-holder">
                       <?php if (isset($_GET['weekly-ad']) && $_GET['weekly-ad'] == "true") {
                         /* look for cookie */
-                        if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-                          header("Location: /weekly-ad?store=" . $_COOKIE['defaultStore']);
-                          exit;
-                        }
+                        //if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
+                          //header("Location: /weekly-ad?store=" . $_COOKIE['defaultStore']);
+                          //exit;
+                        //}
                         ?>
                           <input type="hidden" name="weekly-ad" class="weekly-ad" value="true">
                           <h1>Choose a Store to See This Week&rsquo;s Ads</h1>

@@ -52,7 +52,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
    */
   if (isset($_GET['weekly-ad']) and $_GET['weekly-ad'] == "true") {
     if ((isset($_COOKIE['defaultStore'])) && ($_COOKIE['defaultStore'] > 0)) {
-      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/?weekly-ad=false');
+      drupal_goto('/store-location/store-' . $_COOKIE['defaultStore'] . '/');
       exit;
     }
   }
