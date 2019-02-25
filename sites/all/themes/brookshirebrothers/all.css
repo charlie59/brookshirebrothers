@@ -1462,7 +1462,6 @@ input[type=text], input[type=password], input[type=file], input[type=submit], te
 .store-info .btn-weekly:hover,
 .store-section .btn-map:hover,
 .btn-refill:hover { text-decoration: underline; }
-.store-section .btn-map {display:none;}
 .store-section .map-box {
 	position: absolute;
 	top: 20px;

@@ -39,9 +39,9 @@ $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_
               . $node->gsl_addressfield['und'][0]['postal_code']);
           ?>
             <a href="<?php echo $map_link; ?>" target="_blank"" class="btn-map">Map</a>
-            <a class="map-box" href="<?php echo $map_link; ?>" target="_blank"><span class="map-txt">Map</span><img
+            <!--<a class="map-box" href="<?php echo $map_link; ?>" target="_blank"><span class="map-txt">Map</span><img
                         src="/sites/all/themes/brookshirebrothers/images/map-img1.jpg"
-                        alt=""></a>
+                        alt=""></a>-->
         </div>
     </div>
     <!-- store -->
