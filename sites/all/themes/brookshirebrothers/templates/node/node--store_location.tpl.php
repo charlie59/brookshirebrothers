@@ -5,12 +5,11 @@
 if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) == 0)) {
   $hours = isset($node->field_barn_hours['und'][0]['value'])? $node->field_barn_hours['und'][0]['value']: "";
   $manager = isset($node->field_barn_manager['und'][0]['value'])? $node->field_barn_manager['und'][0]['value']: "";
-  $phone = isset($node->field_barn_number['und'][0]['value'])? $node->field_barn_number['und'][0]['value']: "";
 } else {
   $hours = isset($node->field_store_hours['und'][0]['value'])? $node->field_store_hours['und'][0]['value']: "";
   $manager = isset($node->field_store_manager['und'][0]['value'])? $node->field_store_manager['und'][0]['value']: "";
-  $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_phone['und'][0]['value']: "";
 }
+$phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_phone['und'][0]['value']: "";
 ?>
 
 <h1><?php print t('Store Details'); ?></h1>
