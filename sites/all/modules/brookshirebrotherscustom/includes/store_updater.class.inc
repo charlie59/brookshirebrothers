@@ -138,7 +138,9 @@ class Store_Updater {
                 case "Name":
                   $wrapper->field_display_title->set($value);
                   $wrapper->field_store_name->set($value);
-                  /* taxonomies -- setting Main or Secondary Location */
+                  /* taxonomies -- setting Main or Secondary Location
+                   * TODO make this work? $fixed should be $value below?
+                   */
                   if ($foo = taxonomy_get_term_by_name($fixed)) {
                     $foo_keys = array_keys($foo);
                     $wrapper->field_department->set($foo_keys[0]);

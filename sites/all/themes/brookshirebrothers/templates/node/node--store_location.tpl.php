@@ -1,4 +1,18 @@
 <?php dpm ($node); ?>
+
+<?php
+/* is this a stand alone Tobacco Barn? */
+if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) == 0)) {
+  $hours = isset($node->field_barn_hours['und'][0]['value'])? $node->field_barn_hours['und'][0]['value']: "";
+  $manager = isset($node->field_barn_manager['und'][0]['value'])? $node->field_barn_manager['und'][0]['value']: "";
+  $phone = isset($node->field_barn_number['und'][0]['value'])? $node->field_barn_number['und'][0]['value']: "";
+} else {
+  $hours = isset($node->field_store_hours['und'][0]['value'])? $node->field_store_hours['und'][0]['value']: "";
+  $manager = isset($node->field_store_manager['und'][0]['value'])? $node->field_store_manager['und'][0]['value']: "";
+  $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_phone['und'][0]['value']: "";
+}
+?>
+
 <h1><?php print t('Store Details'); ?></h1>
 <section class="store-section google-map-holder">
     <div class="store-info">
@@ -41,17 +55,17 @@
               <dt><?php print t('Store Name:'); ?></dt>
               <dd><?php echo $node->field_store_name['und'][0]['value']; ?></dd>
           <?php endif; ?>
-          <?php if (isset($node->field_store_hours['und'][0]['value'])): ?>
+          <?php if (!empty($hours)): ?>
               <dt><?php print t('Store Hours:'); ?></dt>
-              <dd><?php echo $node->field_store_hours['und'][0]['value']; ?></dd>
+              <dd><?php echo $hours; ?></dd>
           <?php endif; ?>
-          <?php if (isset($node->field_store_manager['und'][0]['value'])): ?>
+          <?php if (!empty($manager)): ?>
               <dt><?php print t('Store Manager:'); ?></dt>
-              <dd><?php echo $node->field_store_manager['und'][0]['value']; ?></dd>
+              <dd><?php echo $manager; ?></dd>
           <?php endif; ?>
-          <?php if (isset($node->field_store_phone['und'][0]['value'])): ?>
+          <?php if (!empty($phone)): ?>
               <dt class="tel-txt"><?php print t('Phone:'); ?></dt>
-              <dd><a class="tel" href="tel:<?php echo $node->field_store_phone['und'][0]['value']; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
+              <dd><a class="tel" href="tel:<?php echo $phone; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
               </dd>
           <?php endif; ?>
         </dl>
@@ -154,8 +168,8 @@
           </dl>
       </div>
   <?php endif; ?>
-    <!-- tobacco barn -->
-  <?php if ($node->field_tobacco_barn['und'][0]['value'] == 1): ?>
+    <!-- tobacco barn, but only if not main location see node 111 -->
+  <?php if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) > 0)): ?>
       <div class="detail-box">
           <strong class="title"><?php print t('TOBACCO BARN'); ?></strong>
           <dl>
