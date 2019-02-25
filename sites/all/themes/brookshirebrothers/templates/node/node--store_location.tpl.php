@@ -2,13 +2,13 @@
 // dpm ($node);
 /* is this a stand alone Tobacco Barn? */
 if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) == 0)) {
-  $hours = isset($node->field_barn_hours['und'][0]['value'])? $node->field_barn_hours['und'][0]['value']: "";
-  $manager = isset($node->field_barn_manager['und'][0]['value'])? $node->field_barn_manager['und'][0]['value']: "";
+  $hours = isset($node->field_barn_hours['und'][0]['value']) ? $node->field_barn_hours['und'][0]['value'] : "";
+  $manager = isset($node->field_barn_manager['und'][0]['value']) ? $node->field_barn_manager['und'][0]['value'] : "";
 } else {
-  $hours = isset($node->field_store_hours['und'][0]['value'])? $node->field_store_hours['und'][0]['value']: "";
-  $manager = isset($node->field_store_manager['und'][0]['value'])? $node->field_store_manager['und'][0]['value']: "";
+  $hours = isset($node->field_store_hours['und'][0]['value']) ? $node->field_store_hours['und'][0]['value'] : "";
+  $manager = isset($node->field_store_manager['und'][0]['value']) ? $node->field_store_manager['und'][0]['value'] : "";
 }
-$phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_phone['und'][0]['value']: "";
+$phone = isset($node->field_store_phone['und'][0]['value']) ? $node->field_store_phone['und'][0]['value'] : "";
 ?>
 
 <h1><?php print t('Store Details'); ?></h1>
@@ -17,9 +17,9 @@ $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_
       <?php if (!empty($node->gsl_addressfield)): ?>
           <address class="address">
             <?php if (isset($node->field_display_title['und'][0]['value'])): ?>
-              <?php echo $node->field_display_title['und'][0]['value']; ?><br />
+              <?php echo $node->field_display_title['und'][0]['value']; ?><br/>
             <?php endif; ?>
-            <?php echo $node->gsl_addressfield['und'][0]['thoroughfare']; ?><br />
+            <?php echo $node->gsl_addressfield['und'][0]['thoroughfare']; ?><br/>
             <?php echo $node->gsl_addressfield['und'][0]['locality']; ?>,
             <?php echo $node->gsl_addressfield['und'][0]['administrative_area']; ?>
             <?php echo $node->gsl_addressfield['und'][0]['postal_code']; ?>
@@ -219,10 +219,14 @@ $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_
       <div class="detail-box">
           <strong class="title"><?php print t('CAR WASH'); ?></strong>
           <dl>
-              <dt><?php print t('Car Wash Director:'); ?></dt>
-              <dd><?php echo $node->field_car_wash_director['und'][0]['value'] ?></dd>
-              <dt><?php print t('Car Wash Phone:'); ?></dt>
-              <dd><?php echo $node->field_car_wash_phone['und'][0]['value'] ?></dd>
+            <?php if (isset($node->field_car_wash_director['und'][0]['value'])): ?>
+                <dt><?php print t('Car Wash Director:'); ?></dt>
+                <dd><?php echo $node->field_car_wash_director['und'][0]['value'] ?></dd>
+            <?php endif; ?>
+            <?php if (isset($node->field_car_wash_phone['und'][0]['value'])): ?>
+                <dt><?php print t('Car Wash Phone:'); ?></dt>
+                <dd><?php echo $node->field_car_wash_phone['und'][0]['value'] ?></dd>
+            <?php endif; ?>
           </dl>
       </div>
   <?php endif; ?>
