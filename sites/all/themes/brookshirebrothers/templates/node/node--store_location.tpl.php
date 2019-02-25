@@ -1,3 +1,4 @@
+<?php dpm ($node); ?>
 <h1><?php print t('Store Details'); ?></h1>
 <section class="store-section google-map-holder">
     <div class="store-info">
@@ -96,7 +97,7 @@
               <dd>√</dd>
           <?php endif; ?>
         </dl>
-      <?php if ((!empty($node->field_bbros_text_signup__c['und'][0]['value'])) && (!empty($node->field_tbarn_text_signup__c['und'][0]['value']))): ?>
+      <?php if ((!empty($node->field_bbros_text_signup__c['und'][0]['value'])) || (!empty($node->field_tbarn_text_signup__c['und'][0]['value']))): ?>
           <p>
             <?php if (!empty($node->field_bbros_text_signup__c['und'][0]['value'])): ?>
               <?php print t('To sign up to Brookshire Brothers Promo Alerts: '); ?>
