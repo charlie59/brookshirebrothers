@@ -1,5 +1,3 @@
-<?php dpm ($node); ?>
-
 <?php
 /* is this a stand alone Tobacco Barn? */
 if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) == 0)) {
@@ -64,7 +62,7 @@ $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_
           <?php endif; ?>
           <?php if (!empty($phone)): ?>
               <dt class="tel-txt"><?php print t('Phone:'); ?></dt>
-              <dd><a class="tel" href="tel:<?php echo $phone; ?>"><?php echo $node->field_store_phone['und'][0]['value']; ?></a>
+              <dd><a class="tel" href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a>
               </dd>
           <?php endif; ?>
         </dl>
