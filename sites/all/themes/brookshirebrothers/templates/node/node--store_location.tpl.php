@@ -166,8 +166,8 @@ $phone = isset($node->field_store_phone['und'][0]['value'])? $node->field_store_
           </dl>
       </div>
   <?php endif; ?>
-    <!-- tobacco barn, but only if not main location see node 111 -->
-  <?php if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) > 0)): ?>
+    <!-- show tobacco barn info, but only if not the main location: see node 111 -->
+  <?php if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_department) > 0)): ?>
       <div class="detail-box">
           <strong class="title"><?php print t('TOBACCO BARN'); ?></strong>
           <dl>
