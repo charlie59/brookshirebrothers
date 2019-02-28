@@ -1,5 +1,5 @@
 <?php
-dpm ($node);
+// dpm ($node);
 /* is this a stand alone Tobacco Barn? */
 if (($node->field_tobacco_barn['und'][0]['value'] == 1) && (count($node->field_departments) == 0)) {
   $hours = isset($node->field_barn_hours['und'][0]['value']) ? $node->field_barn_hours['und'][0]['value'] : "";
