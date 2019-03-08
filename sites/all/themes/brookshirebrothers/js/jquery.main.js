@@ -16,7 +16,7 @@ jQuery(function () {
             "visibility": "visible"
         });
     });
-    jQuery("#block-block-31 > a.blue").click(function (e) {
+    jQuery("#block-block-31 a.blue").click(function (e) {
         e.preventDefault();
         jQuery("#block-block-31").css({
             "display": "none",
