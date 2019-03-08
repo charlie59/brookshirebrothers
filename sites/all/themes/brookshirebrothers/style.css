@@ -92,6 +92,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #header .menu-mlid-557 .dropdown {
   width: 223px;
 }
+
 /* medicare interstitial */
 #block-block-31 {
   position: fixed;
@@ -141,3 +142,4 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #block-block-31 #medicare-interstitial-buttons a.blue {
   background: #104e89;
 }
+/* end medicare interstitial */
