@@ -117,7 +117,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 
 #block-block-31 #medicare-interstitial-internal p {
   text-align: center;
-  width: 375px;
+  max-width: 375px;
   flex-basis: 100%;
 }
 
