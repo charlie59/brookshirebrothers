@@ -93,7 +93,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   width: 223px;
 }
 /* medicare interstitial */
-#block-block-31 #medicare-interstitial-internal {
+#block-block-31 {
   position: fixed;
   top: 0;
   left: 0;
