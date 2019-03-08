@@ -101,11 +101,12 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   z-index: 999;
   display: none;
   visibility: hidden;
+  height: 100%;
 }
 
 #block-block-31 #medicare-interstitial-internal {
   position: relative;
-  top: 17vh;
+  top: 5vh;
   background-color: #ffffff;
   padding: 32px;
   border: 6px solid rgb(207,37,42);
