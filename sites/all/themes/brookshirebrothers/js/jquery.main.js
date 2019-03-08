@@ -11,7 +11,10 @@ jQuery(function () {
     /* Medicare Interstitial */
     jQuery("#find-your-plan").click(function (e) {
         e.preventDefault();
-        jQuery("#block-block-31").css('display', 'flex');
+        jQuery("#block-block-31").css({
+            "display": "flex",
+            "visibility": "visible"
+        });
     });
 });
 
