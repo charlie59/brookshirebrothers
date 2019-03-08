@@ -110,10 +110,21 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  left: auto;
+  margin: auto;
 }
 
 #block-block-31 #medicare-interstitial-logo {
   flex-basis: 100%;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+#block-block-31 #medicare-interstitial-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#block-block-31 #medicare-interstitial-buttons a {
+  margin: 0 5px 27px;
 }
