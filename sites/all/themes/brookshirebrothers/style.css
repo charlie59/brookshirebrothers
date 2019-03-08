@@ -143,4 +143,8 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 #block-block-31 #medicare-interstitial-buttons a.blue {
   background: #104e89;
 }
+
+.grayed-out {
+  background: url(/sites/default/files/bg.png);
+}
 /* end medicare interstitial */
