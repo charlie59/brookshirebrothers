@@ -114,7 +114,9 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 }
 
 #block-block-31 #medicare-interstitial-internal p {
-  text-align: justify;
+  text-align: center;
+  width: 375px;
+  flex-basis: 100%;
 }
 
 #block-block-31 #medicare-interstitial-logo {
@@ -131,4 +133,8 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 
 #block-block-31 #medicare-interstitial-buttons a {
   margin: 0 5px 27px;
+}
+
+#block-block-31 #medicare-interstitial-buttons a.blue {
+  background: #104e89;
 }
