@@ -112,3 +112,8 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   justify-content: center;
   left: auto;
 }
+
+#block-block-31 #medicare-interstitial-logo {
+  flex-basis: 100%;
+  text-align: center;
+}
