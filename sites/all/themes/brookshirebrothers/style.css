@@ -101,7 +101,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
 }
 
 #block-block-31 #medicare-interstitial-internal {
-  position: fixed;
+  position: relative;
   top: 17vh;
   background-color: #ffffff;
   padding: 32px;
@@ -111,6 +111,10 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
+}
+
+#block-block-31 #medicare-interstitial-internal p {
+  text-align: justify;
 }
 
 #block-block-31 #medicare-interstitial-logo {
