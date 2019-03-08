@@ -129,6 +129,7 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  max-width: 640px;
 }
 
 #block-block-31 #medicare-interstitial-buttons a {
