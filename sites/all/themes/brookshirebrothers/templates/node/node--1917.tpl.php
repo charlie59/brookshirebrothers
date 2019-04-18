@@ -16,9 +16,12 @@ if (isset($_GET['store'])) {
   $result = $query->execute();
   $item_nid = array_keys($result['node']);
   $nid = $item_nid[0];
+  echo $nid;
   if (!empty($nid)) {
     $item = entity_load('node', $item_nid);
     $link = $item["$nid"]->field_weekly_ad_link['und'][0]['value'];
+    echo $link;
+    exit;
     ?>
       <script type="text/javascript">
           window.location.href = "<?php echo $link; ?>"
