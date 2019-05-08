@@ -16,13 +16,23 @@ if (isset($_GET['store'])) {
   $result = $query->execute();
   $item_nid = array_keys($result['node']);
   $nid = $item_nid[0];
-  $item = entity_load('node', $item_nid);
-  $link = $item["$nid"]->field_weekly_ad_link['und'][0]['value'];
-  ?>
-    <script type="text/javascript">
-      window.location.href = "<?php echo $link; ?>"
-    </script>
-  <?php
+  // echo $nid;
+  if (!empty($nid)) {
+    $item = entity_load('node', $item_nid);
+    $link = $item["$nid"]->field_weekly_ad_link['und'][0]['value'];
+    // echo $link;
+    ?>
+      <script type="text/javascript">
+          window.location.href = "<?php echo $link; ?>"
+      </script>
+    <?php
+    } else {
+      ?>
+      <script type="text/javascript">
+          window.location = 'https://www.brookshirebrothers.com/store-locator?weekly-ad=true'
+      </script>
+    <?php
+  }
 } else { ?>
     <script type="text/javascript">
       window.location = 'https://www.brookshirebrothers.com/store-locator?weekly-ad=true'
