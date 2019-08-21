@@ -2696,7 +2696,7 @@ select[multiple]#inWrap .input-group-sm > .form-control, select[multiple]#inWrap
 #inWrap #home #offers .offer .brand, #inWrap #home #offers .offer .savings {letter-spacing: -.0625rem;margin: 0;font-weight: 600;font-family: 'Open Sans', Arial, sans-serif}
 #inWrap #home #offers {min-height: 2.5rem;position: relative}
 #inWrap #home #offers > .row > .savings {margin-top: 0}
-#inWrap #home #offers .offer {position: relative;padding: .375rem;height: 23.5625rem}
+#inWrap #home #offers .offer {position: relative;padding: .375rem;height: 24rem}
 #inWrap #home #offers .offer > .content {width: 100%;height: 100%;text-align: center;box-shadow: 0 0 .3125rem rgba(0, 0, 0, .2);position: relative}
 #inWrap #home #offers .offer .header {position: absolute;display: none;right: .75rem;top: .75rem;line-height: 1;font-size: 1.625rem;cursor: pointer;font-family: 'Open Sans', Arial, sans-serif}
 #inWrap #home #offers .offer .savings {font-size: 1.875rem;line-height: 1;padding-bottom: .625rem;color: #e2231a;text-transform: uppercase}
