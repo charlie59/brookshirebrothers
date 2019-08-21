@@ -2696,7 +2696,7 @@ select[multiple]#inWrap .input-group-sm > .form-control, select[multiple]#inWrap
 #inWrap #home #offers .offer .brand, #inWrap #home #offers .offer .savings {letter-spacing: -.0625rem;margin: 0;font-weight: 600;font-family: 'Open Sans', Arial, sans-serif}
 #inWrap #home #offers {min-height: 2.5rem;position: relative}
 #inWrap #home #offers > .row > .savings {margin-top: 0}
-#inWrap #home #offers .offer {position: relative;padding: .375rem;height: 24rem}
+#inWrap #home #offers .offer {position: relative;padding: .375rem;height: 26rem}
 #inWrap #home #offers .offer > .content {width: 100%;height: 100%;text-align: center;box-shadow: 0 0 .3125rem rgba(0, 0, 0, .2);position: relative}
 #inWrap #home #offers .offer .header {position: absolute;display: none;right: .75rem;top: .75rem;line-height: 1;font-size: 1.625rem;cursor: pointer;font-family: 'Open Sans', Arial, sans-serif}
 #inWrap #home #offers .offer .savings {font-size: 1.875rem;line-height: 1;padding-bottom: .625rem;color: #e2231a;text-transform: uppercase}
@@ -2719,14 +2719,14 @@ select[multiple]#inWrap .input-group-sm > .form-control, select[multiple]#inWrap
 #inWrap #home #offers .offer .nano-pane.active, #inWrap #home #offers .offer .nano-pane.flashed, #inWrap #home #offers .offer:hover .nano-pane {visibility: visible \9;opacity: .99}
 #inWrap #home #offers .offer .btn-clip, #inWrap #home #offers .offer .btn-clipped {font-family: Lobster, serif;position: absolute;top: 0;right: 0;bottom: 0;left: 0;z-index: 2;transition: opacity .3s ease-in-out;transition-delay: .3s;opacity: 0}
 #inWrap #home #offers .offer .btn-flip {position: absolute;left: 0;right: 0;top: 0;height: 3.875rem;font-family: 'Open Sans', Arial, sans-serif}
-#inWrap #home #offers .offer .btn-clip {bottom: 3.9375rem;text-align: left}
+#inWrap #home #offers .offer .btn-clip {top: 0;text-align: left}
 #inWrap #home #offers .offer .btn-clipped {z-index: 3}
 #inWrap #home #offers .offer .btn-clip > div, #inWrap #home #offers .offer .btn-clipped > div, #inWrap #home #offers .offer .btn-flip > div {width: 100%;height: 100%;font-size: 1.125rem;line-height: 1;color: #fff;cursor: default}
 #inWrap #home #offers .offer .btn-clip div {cursor: pointer;font-size: 2.875rem;background-color: rgba(226, 35, 26, .85);border-bottom: .125rem dashed #fff;text-align: center}
 #inWrap #home #offers .offer .btn-clipped div {font-size: 2.875rem;background-color: rgba(255, 255, 255, .9);color: #e2231a}
 #inWrap #home #offers .offer .btn-flip div {line-height: 3.875rem}
-#inWrap #home #offers .offer .inm-ico_clip {position: absolute;display: block;z-index: 5;left: 1.25rem;bottom: 2.8125rem;-webkit-transform: translate(-130%, 0);-ms-transform: translate(-130%, 0);transform: translate(-130%, 0);transition: -webkit-transform .3s ease-in-out;transition: transform .3s ease-in-out;transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;font-size: 3.625rem;color: #fff}
-#inWrap #home #offers .offer .btn-clip span, #inWrap #home #offers .offer .btn-clipped span {display: block;height: 100%;position: relative;-webkit-transform: translate(0, 50%);-ms-transform: translate(0, 50%);transform: translate(0, 50%)}
+#inWrap #home #offers .offer .inm-ico_clip {position: absolute;display: block;z-index: 5;left: 1.25rem;top: 6rem;-webkit-transform: translate(-130%, 0);-ms-transform: translate(-130%, 0);transform: translate(-130%, 0);transition: -webkit-transform .3s ease-in-out;transition: transform .3s ease-in-out;transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;font-size: 3.625rem;color: #fff}
+#inWrap #home #offers .offer .btn-clip span, #inWrap #home #offers .offer .btn-clipped span {display: block;position: relative;-webkit-transform: translate(0, 50%);-ms-transform: translate(0, 50%);transform: translate(0, 50%)}
 #inWrap #home #offers .offer .btn-clipped span {-webkit-transform: translate(0, 44%);-ms-transform: translate(0, 44%);transform: translate(0, 44%)}
 #inWrap #home #offers .offer > .content:hover .btn-clip {opacity: 1;transition-delay: 0s}
 #inWrap #home #offers .offer.clipped .btn-clipped {opacity: .85;transition-delay: .3s}
