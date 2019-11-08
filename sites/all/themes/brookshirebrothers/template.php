@@ -16,7 +16,9 @@ function brookshirebrothers_breadcrumb($variables) {
 }
 
 function brookshirebrothers_preprocess_html(&$vars) {
- //
+  if ($node = menu_get_object()) {
+    echo $node->nid;
+  }
 }
 
 /**
