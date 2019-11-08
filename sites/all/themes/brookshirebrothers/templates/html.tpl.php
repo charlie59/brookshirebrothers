@@ -129,6 +129,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
         <!-- DO NOT MODIFY -->
         <!-- End Facebook Pixel Code -->
         <?php if ($gtag == 1) : ?>
+
         <!-- Global site tag (gtag.js) - Google Marketing Platform -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=DC-6360601"></script>
         <script>
