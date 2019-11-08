@@ -140,6 +140,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
         </script>
         <!-- End of global snippet: Please do not remove -->
         <?php endif; ?>
+
         <!-- Facebook Pixel Code added 11/8/2019-->
         <script>
             !function(f,b,e,v,n,t,s)
