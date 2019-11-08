@@ -16,8 +16,11 @@ function brookshirebrothers_breadcrumb($variables) {
 }
 
 function brookshirebrothers_preprocess_html(&$vars) {
+  $vars['gtag'] = 0;
   if ($node = menu_get_object()) {
-    echo $node->nid;
+    if (in_array($node->nid, [188,261])) {
+      $vars['gtag'] = 1;
+    }
   }
 }
 

@@ -128,6 +128,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
             /></noscript>
         <!-- DO NOT MODIFY -->
         <!-- End Facebook Pixel Code -->
+        <?php if ($gtag == 1) : ?>
         <!-- Global site tag (gtag.js) - Google Marketing Platform -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=DC-6360601"></script>
         <script>
@@ -138,6 +139,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
             gtag('config', 'DC-6360601');
         </script>
         <!-- End of global snippet: Please do not remove -->
+        <?php endif; ?>
         <!-- Facebook Pixel Code added 11/8/2019-->
         <script>
             !function(f,b,e,v,n,t,s)
