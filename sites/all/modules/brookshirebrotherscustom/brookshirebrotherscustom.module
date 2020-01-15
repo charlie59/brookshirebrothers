@@ -68,6 +68,7 @@ function brookshirebrotherscustom_node_submit($node, $form, &$form_state) {
   }
 }
 
+
 /**
  * Describe Account Object
  * To get Salesforce fields names
@@ -88,4 +89,37 @@ function brookshirebrotherscustom_describe() {
     echo $mySforceConnection->getLastRequest();
     echo $e->faultstring;
   }
+}
+
+
+/**
+ * Implements hook_user_login()
+ * @param $edit
+ * @param $account
+ * Set cookie by role for caching/proxy serving
+ */
+function brookshirebrotherscustom_user_login(&$edit, $account) {
+  function in_array_any($needles, $haystack) {
+    return (bool)(array_intersect($needles, $haystack));
+  }
+  $check = in_array_any(['administrator', 'marketing'], $account->roles);
+  if ($check == 1) {
+    setcookie('nocache', '1', 0, '/');
+  } else {
+    $check = in_array_any(['authenticated user'], $account->roles);
+    if ($check == 1) {
+      setcookie('nocache', '2', 0, '/');
+    }
+  }
+}
+
+
+/**
+ * Implements hook_user_logout().
+ * Remove nocache cookie
+ */
+function brookshirebrotherscustom_user_logout($account) {
+  // Set cookie in the past and then remove it.
+  setcookie('nocache', '', REQUEST_TIME - 3600, '/');
+  unset($_COOKIE['nocache']);
 }
