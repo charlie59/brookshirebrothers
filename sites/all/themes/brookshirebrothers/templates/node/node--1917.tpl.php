@@ -29,7 +29,7 @@ if (isset($_GET['store'])) {
     } else {
       ?>
       <script type="text/javascript">
-          window.location = 'https://www.brookshirebrothers.com/store-locator?weekly-ad=true'
+          window.location = '/store-locator?weekly-ad=true'
       </script>
     <?php
   }
