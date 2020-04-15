@@ -80,6 +80,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
         <link rel="stylesheet" type="text/css" href="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/ie.css"/><![endif]-->
         <!--[if IE]>
         <script type="text/javascript" src="<?php echo url(path_to_theme(), ['absolute' => TRUE]); ?>/js/ie.js"></script><![endif]-->
+        <script type="text/javascript">
 <!--//--><![CDATA[//><!--
 (function(h,o,t,j,a,r){
   h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -89,7 +90,7 @@ if (isset($_GET['ajax']) and $_GET['ajax'] == 1):
   r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
   a.appendChild(r);
 })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-//--><!]]>
+//--><!]]></script>
       <?php print $scripts; ?>
         <script>
           (function (i, s, o, g, r, a, m) {
