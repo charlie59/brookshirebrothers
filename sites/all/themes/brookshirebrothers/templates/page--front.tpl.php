@@ -14,8 +14,8 @@
 			
 			<?php //print render($page['content_top']); ?>
 			
-			<section class="three-col">
-			<?php print render($page['content_bottom']); ?>
+			<section class="four-col">
+			<?php //print render($page['content_bottom']); ?>
 				<article class="col">
 					<?php 
 						$block = block_load('block', '3');
@@ -40,6 +40,14 @@
 							print drupal_render($block);
 					?>
 				</article>
+                <article class="col">
+                  <?php
+                  $block = block_load('block', '663');
+                  $block =_block_render_blocks(array($block));
+                  $block =_block_get_renderable_array($block);
+                  print drupal_render($block);
+                  ?>
+                </article>
 			</section>
 		</div>  
 <?php /*
