@@ -15,7 +15,7 @@
 			<?php //print render($page['content_top']); ?>
 			
 			<section class="three-col">
-			<?php //print render($page['content_bottom']); ?>
+			<?php print render($page['content_bottom']); ?>
 				<article class="col">
 					<?php 
 						$block = block_load('block', '3');
@@ -64,6 +64,6 @@
           <?php print render($page['footer']); ?>
       </div></div></div></div> 
 */?>
-</div> 
+</div>
 <?php include 'includes/footer.tpl.php'; ?>
 </div> 
