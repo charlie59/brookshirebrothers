@@ -53,7 +53,10 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 }
 
 function brookshirebrotherscustom_node_insert($node) {
-  dsm($node);
+  if ($node->type == 'blog' && $node->field_blog_categories['und'][0]['tid'
+    == '36']) {
+    dsm($node);
+  }
 }
 
 /**
