@@ -54,6 +54,7 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
 function brookshirebrotherscustom_node_insert($node) {
   if ($node->type == 'blog') {
+    var_dump($node->field_blog_categories['und'][0]['tid']);
     if ($node->field_blog_categories['und'][0]['tid'] == '36') {
       dsm($node);
     }
