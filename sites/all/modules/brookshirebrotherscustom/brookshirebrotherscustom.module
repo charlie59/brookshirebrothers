@@ -52,7 +52,7 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
 }
 
-function brookshirebrotherscustom_node_save($node) {
+function brookshirebrotherscustom_node_blog_insert($node) {
   dsm($node);
 }
 
