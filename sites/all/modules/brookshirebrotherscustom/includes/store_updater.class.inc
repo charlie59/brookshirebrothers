@@ -113,7 +113,6 @@ class Store_Updater {
     if (count($this->sfstores) > 0) {
       $ptr = 0;
       foreach ($this->sfstores as $object) {
-        // echo $object->fields->Store_Number__c . " ";
         $store_number = $object->fields->Store_Number__c;
         if (!empty($store_number)) {
           $query = new EntityFieldQuery;
@@ -139,7 +138,9 @@ class Store_Updater {
                 case "Name":
                   $wrapper->field_display_title->set($value);
                   $wrapper->field_store_name->set($value);
-                  /* taxonomies */
+                  /* taxonomies -- setting Main or Secondary Location
+                   * TODO make this work? $fixed should be $value below?
+                   */
                   if ($foo = taxonomy_get_term_by_name($fixed)) {
                     $foo_keys = array_keys($foo);
                     $wrapper->field_department->set($foo_keys[0]);
@@ -211,6 +212,9 @@ class Store_Updater {
                   break;
                 case "Redbox__c":
                   $val = $value == 'true'? 1: 0;
+                  if ($val === 1) {
+                    $wrapper->field_specification[] = 592; // 588 is tid for Bissell Rental
+                  }
                   $wrapper->field_redbox->set($val);
                   break;
                 case "Store_Location__Latitude__s":

@@ -82,7 +82,7 @@ function sls_build_sprites($files = array()) {
         $img_src = @imagecreatefromgif($img_details['file']);
         break;
       default:
-        continue;
+        continue 2;
       }
 
       $class = str_replace('_', '-', $service_id);

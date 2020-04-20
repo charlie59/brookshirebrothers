@@ -1,35 +1,41 @@
 <?php
 /**
  * Return a themed breadcrumb trail.
- *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- *
- * @return a string containing the breadcrumb output.
+ * @param $variables array containing the breadcrumb links.
+ * @return string containing the breadcrumb output.
  */
 function brookshirebrothers_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
-
   if (!empty($breadcrumb)) {
     // Provide a navigational heading to give context for breadcrumb links to
     // screen-reader users. Make the heading invisible with .element-invisible.
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-
     $output .= '<div class="breadcrumb">' . implode(' › ', $breadcrumb) . '</div>';
     return $output;
   }
 }
 
 function brookshirebrothers_preprocess_html(&$vars) {
- //
+  $vars['gtag'] = 0;
+  if ($node = menu_get_object()) {
+    /* Add tracking for store-101 and store-96 */
+    if (in_array($node->nid, [188,261])) {
+      $vars['gtag'] = 1;
+    }
+  }
 }
 
 /**
+ * @param $vars
+ * @throws \Exception
  * Override or insert variables into the page template.
  */
 function brookshirebrothers_preprocess_page(&$vars) {
   if (isset($vars['node'])) {
-    $vars['theme_hook_suggestions'][] = 'page__' . str_replace('_', '--', $vars['node']->type);
+    $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
+    if ($vars['node']->type == 'store_location') {
+      $vars['store_number'] = $vars['node']->field_number_store['und'][0]['value'];
+    }
   }
   $vars['tabs2'] = [
     '#theme' => 'menu_local_tasks',

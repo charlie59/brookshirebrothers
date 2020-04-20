@@ -24,7 +24,6 @@ function getCookie(name) {
 
 jQuery(document).ready(function () {
   "use strict";
-
   /*
    * make map based on storeZip
    */

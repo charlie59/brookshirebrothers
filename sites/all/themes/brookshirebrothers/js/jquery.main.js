@@ -7,6 +7,22 @@ jQuery(function () {
     initAccordion();
     initSameHeight();
     jQuery('input, textarea').placeholder();
+
+    /* Medicare Interstitial */
+    jQuery("#find-your-plan").click(function (e) {
+        e.preventDefault();
+        jQuery("#block-block-31").css({
+            "display": "flex",
+            "visibility": "visible"
+        });
+    });
+    jQuery("#block-block-31 a.blue").click(function (e) {
+        e.preventDefault();
+        jQuery("#block-block-31").css({
+            "display": "none",
+            "visibility": "hidden"
+        });
+    });
 });
 
 // split drop down
@@ -199,7 +215,7 @@ ResponsiveHelper = (function ($) {
 /*
  * jQuery Cycle Carousel plugin
  */
-;(function ($) {
+(function ($) {
     function ScrollAbsoluteGallery(options) {
         this.options = $.extend({
             activeClass: 'active',
@@ -580,7 +596,7 @@ ResponsiveHelper = (function ($) {
 /*
  * jQuery Open/Close plugin
  */
-;(function ($) {
+(function ($) {
     function OpenClose(options) {
         this.options = $.extend({
             addClassBeforeAnimation: true,
@@ -756,7 +772,7 @@ ResponsiveHelper = (function ($) {
 /*
  * jQuery Accordion plugin
  */
-;(function ($) {
+(function ($) {
     $.fn.slideAccordion = function (opt) {
         // default options
         var options = $.extend({
@@ -821,7 +837,7 @@ ResponsiveHelper = (function ($) {
 /*
  * jQuery SameHeight plugin
  */
-;(function ($) {
+(function ($) {
     $.fn.sameHeight = function (opt) {
         var options = $.extend({
             skipClass: 'same-height-ignore',
@@ -2706,7 +2722,7 @@ jcf.addModule({
  *
  * Copyright (c) 2013 Jorik Tangelder <j.tangelder@gmail.com>;
  * Licensed under the MIT license */
-;(function (t, e) {
+(function (t, e) {
     "use strict";
     function n() {
         if (!i.READY) {
@@ -3034,7 +3050,7 @@ jcf.addModule({
 
 // Simple JavaScript Templating
 // John Resig - http://ejohn.org/ - MIT Licensed
-;(function () {
+(function () {
     var cache = {};
 
     this.tmpl = function tmpl(str, data) {
@@ -3076,7 +3092,7 @@ jcf.addModule({
  *
  * Requires: jQuery >= 1.2.3
  */
-;(function ($) {
+(function ($) {
     $.fn.addBack = $.fn.addBack || $.fn.andSelf;
 
     $.fn.extend({
