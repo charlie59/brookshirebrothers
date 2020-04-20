@@ -52,6 +52,9 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
 }
 
+function brookshirebrotherscustom_node_update($node) {
+  dsm($node);
+}
 
 /**
  * @param $node
