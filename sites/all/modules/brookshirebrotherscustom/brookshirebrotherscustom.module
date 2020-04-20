@@ -52,15 +52,6 @@ function brookshirebrotherscustom_cronapi($op, $job = NULL) {
 
 }
 
-function brookshirebrotherscustom_node_insert($node) {
-  if ($node->type == 'blog') {
-    $check = (int) $node->field_blog_categories['und'][0]['tid'];
-    if ($check === 36) {
-      dpm($node);
-    }
-  }
-}
-
 /**
  * @param $node
  * @param $form
