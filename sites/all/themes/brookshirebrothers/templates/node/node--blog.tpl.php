@@ -19,8 +19,14 @@
               TAGS:
             <?php foreach($node->field_blog_tags["und"] as $index=>$tag):
               $term_path = drupal_get_path_alias('taxonomy/term/' . $tag["tid"]) ;
+              if (isset($tag["taxonomy_term"]->name) && !empty($tag["taxonomy_term"]->name)) {
+                $term_name = $tag["taxonomy_term"]->name;
+              }
+              else {
+                $term_name = taxonomy_term_load($tag["tid"])->name;
+              }
               ?>
-                <a href="/<?php echo $term_path; ?>"><?php echo $tag["taxonomy_term"]->name!=""?$tag["taxonomy_term"]->name:taxonomy_term_load($tag["tid"])->name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
+                <a href="/<?php echo $term_path; ?>"><?php echo $term_name; ?><?php echo ($index+1)<$tag_count?", ":""; ?></a>
             <?php endforeach; ?>
           </div>
       <?php endif; ?>
