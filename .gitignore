@@ -14,3 +14,5 @@ clutch_drupal.sql
 
 #Error Logs
 php_errors.log
+
+/vendor/
