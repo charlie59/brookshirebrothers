@@ -32,7 +32,15 @@
             <?php foreach($node->field_blog_categories["und"] as $index=>$category):
               $term_path = drupal_get_path_alias('taxonomy/term/' . $category["tid"]) ;
               ?>
-                <a href="/<?php echo $term_path; ?>"><?php echo $category["taxonomy_term"]->name!=""?$category["taxonomy_term"]->name:taxonomy_term_load($category["tid"])->name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
+              <?php
+            if (isset($category["taxonomy_term"]->name) && !empty($category["taxonomy_term"]->name)) {
+                $term_name = $category["taxonomy_term"]->name;
+            }
+            else {
+                $term_name = taxonomy_term_load($category["tid"])->name;
+            }
+              ?>
+                <a href="/<?php echo $term_path; ?>"><?php echo $term_name; ?><?php echo ($index+1)<$category_count?", ":""; ?></a>
             <?php endforeach; ?>
           </div>
       <?php endif; ?>
