@@ -175,8 +175,7 @@ jQuery(document).ready(function () {
       var holder = jQuery(this);
       var form = holder.find('.location-form');
       var filterHolder = holder.find('.filter-holder');
-      var filterList = filterHolder.find('.pl
-      ');
+      var filterList = filterHolder.find('.store-block');
       var literLocation = form.find('.filter-location-area');
       var backBtn = filterHolder.find('.back-btn');
       var distanceSelect = form.find('.filter-distance');
