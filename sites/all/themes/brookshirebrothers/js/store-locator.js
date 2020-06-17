@@ -118,7 +118,6 @@ jQuery(document).ready(function () {
               var latlng = pos.lat + "," + pos.lng;
               // https://developers.google.com/maps/documentation/geocoding/intro#reverse-restricted
               jQuery.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&result_type=street_address&key=' + google_maps_api_key, function (data) {
-               c
                 // console.log(data);
                 // this check should take care of errors
                 if (data.status === 'OK') {
@@ -176,8 +175,7 @@ jQuery(document).ready(function () {
       var holder = jQuery(this);
       var form = holder.find('.location-form');
       var filterHolder = holder.find('.filter-holder');
-      var filterList = filterHolder.find('.pl
-      ');
+      var filterList = filterHolder.find('.store-block');
       var literLocation = form.find('.filter-location-area');
       var backBtn = filterHolder.find('.back-btn');
       var distanceSelect = form.find('.filter-distance');
