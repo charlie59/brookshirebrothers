@@ -54,6 +54,60 @@ function schema_product_metatag_info() {
     'weight' => ++$weight,
   ) + $defaults;
 
+  $info['tags']['schema_product.category'] = array(
+    'label' => t('category'),
+    'description' => t('RECOMMENDED BY GOOGLE. The category of the product.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.url'] = array(
+    'label' => t('url'),
+    'description' => t('RECOMMENDED BY GOOGLE. The url of the product.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.sku'] = array(
+    'label' => t('sku'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.gtin8'] = array(
+    'label' => t('gtin8'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.gtin12'] = array(
+    'label' => t('gtin12'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.gtin13'] = array(
+    'label' => t('gtin13'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.gtin14'] = array(
+    'label' => t('gtin14'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.isbn'] = array(
+    'label' => t('isbn'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_product.mpn'] = array(
+    'label' => t('mpn'),
+    'description' => t('RECOMMENDED BY GOOGLE. Populate one of sku, gtin8, gtin12, gtin13, gtin14, isbn, or mpn.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
   $info['tags']['schema_product.image'] = array(
     'class' => 'SchemaImageBase',
     'label' => t('image'),
