@@ -149,3 +149,10 @@ body.node-type-store-location #sidebar .col-holder:first-child .info-col {
   background: url(/sites/default/files/bg.png);
 }
 /* end medicare interstitial */
+
+/* BBCF webform at https://www.brookshirebrothers.com/webform/brookshire-brothers-charitable-foundation */
+.webform-client-form-3070 label {
+  float: left;
+  margin-right: 6px;
+}
+
